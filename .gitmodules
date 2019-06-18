@@ -1,0 +1,3 @@
+[submodule "tmux/tmux-onedark-theme"]
+  path = tmux/tmux-onedark-theme
+  url = git@github.com:odedlaz/tmux-onedark-theme.git
