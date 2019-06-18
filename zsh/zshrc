@@ -116,25 +116,7 @@ alias vi="vim"
 
 export PATH="$PATH:$HOME/bin"
 export PATH=/home/ktaebum/.local/bin:$PATH
-# export PATH="$PATH:$HOME/Program/nvim/bin"
 
-# alias janus='source /home/ktaebum/Workspace/tensorflow_internal/cpython_build/.env/bin/activate'
-alias janus='source /home/ktaebum/Downloads/tensorflow_internal/janus_env/bin/activate'
-alias tf13='source /home/ktaebum/Downloads/tf113/bin/activate'
-alias tf20='source /home/ktaebum/Downloads/tf20/bin/activate'
-alias py37='source /home/ktaebum/.py37/bin/activate'
-#alias tf18='source /home/ktaebum/Downloads/tensorflow_internal/tf1.8/bin/activate'
-#alias tf20='source /home/ktaebum/Downloads/tensorflow_internal/tf20/bin/activate'
-# alias py36='source /home/ktaebum/.py36/bin/activate'
-
-alias autohome='cd /home/ktaebum/Downloads/tensorflow_internal/janus_env/lib/python3.5/site-packages/tensorflow/python/autograph'
-
-export CPATH="$CPATH:$HOME/Downloads/tf113/include/python3.5m"
-export CPATH="$CPATH:$HOME/Downloads/tensorflow"
-export CPATH="$CPATH:$HOME/Downloads/tensorflow"
-export CPATH="$CPATH:$HOME/Downloads/tf113/lib/python3.5/site-packages/numpy/core/include"
-
-#tf13
 #export LC_ALL=C
 
 export VISUAL=vim
