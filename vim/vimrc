@@ -1,0 +1,265 @@
+set encoding=utf-8
+set nocompatible
+set splitbelow
+
+let g:python3_host_prog = '/home/ktaebum/anaconda3/bin/python3.6'
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+""" color schemes
+Plugin 'rafi/awesome-vim-colorschemes'
+
+"""""" python plugin 
+Plugin 'hdima/python-syntax'                      " python syntax
+
+"""""" powerline plugins
+Plugin 'vim-airline/vim-airline'                  " airline (powerline)
+Plugin 'vim-airline/vim-airline-themes'           " vim-airline themes
+
+"""""" snippets plugins
+Plugin 'SirVer/ultisnips'                         " snippets
+Plugin 'honza/vim-snippets'                       " snippets
+
+"""""" auto completers
+Plugin 'Valloric/YouCompleteMe'                   " auto complete except for python
+
+Plugin 'davidhalter/jedi-vim', {'for': 'python'}  " auto-completer for python/latex
+Plugin 'zchee/deoplete-jedi'
+"
+" """""" searcher and file/tag navigators
+Plugin 'scrooloose/nerdtree'                      " file navigator
+Plugin 'majutsushi/tagbar'                        " displays tags in a window
+"
+" """""" git plugins
+Plugin 'tpope/vim-fugitive'                       " git integration
+Plugin 'airblade/vim-gitgutter'                   " git diff line by line
+Plugin 'gisphm/vim-gitignore'                     " git ignore
+"
+" """""" commenters
+Plugin 'scrooloose/nerdcommenter'                 " easy-commenting
+"
+" """""" formatter
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
+"
+" """""" syntax checker
+Plugin 'w0rp/ale'
+" Plugin 'vim-syntastic/syntastic'
+
+call vundle#end()
+filetype plugin indent on
+
+
+"""" basic editor setting """"
+
+
+set mouse=a
+set ruler
+set hlsearch
+set incsearch
+set showmatch
+"set completeopt-=preview
+set backspace=indent,eol,start
+set nu
+set relativenumber
+set noshowmode
+set autowrite
+highlight Comment cterm=italic
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+
+"""" paper color scheme """"
+set t_Co=256
+"set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"set t_8b=^[[48;2;%lu;%lu;%lum
+"set t_8f=^[[38;2;%lu;%lu;%lum
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+let g:python_highlight_all = 1
+let g:PaperColor_Theme_Options = {
+  \ 'language': {
+  \   'python': {
+  \     'highlight_builtins' : 1
+  \   },
+  \   'cpp': {
+  \     'highlight_standard_library': 1
+  \   }
+  \ }
+  \}
+"color jellybeans
+"color OceanicNext
+"color afterglow
+"color PaperColor
+"color one
+"color gruvbox
+color seoul256
+"color flattened_light
+set background=dark
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+"color onedark
+syntax on
+let g:onedark_terminal_italics = 0
+let g:onedark_termcolors = 16
+
+let g:seoul256_background = 237
+"set background=dark
+
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_light = 'hard'
+
+"""" python language set """"
+au FileType python setl sw=2 sts=2 et
+
+"""" different cursor for different mode """"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"""" airline setting """"
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_theme='oceanicnext'
+let g:airline_theme='afterglow'
+let g:airline_theme='onedark'
+let g:airline_theme='papercolor'
+let g:airline_theme='molokai'
+let g:airline_theme='jellybeans'
+let g:airline_theme='one'
+let g:airline_theme='seoul256'
+let g:airline_theme='gruvbox'
+let g:airline_theme='zenburn'
+
+"""" YCM setting """"
+"set completeopt-=preview
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_list_select_completion = ['<C-j>' ]
+let g:ycm_key_list_previous_completion = ['<C-k>']
+let g:ycm_min_num_of_chars_for_completion = 1
+"let g:ycm_python_binary_path='/home/ktaebum/.py37/bin/python3.7'
+let g:ycm_python_binary_path='/home/ktaebum/anaconda3/bin/python3.6'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '--'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>dd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
+noremap <silent> <F6> /^\(<<<<<<<\\|=======\\|>>>>>>>\)<cr>
+
+"""" ale """"
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'c': [],
+\   'cuda': [],
+\}
+let g:ale_sign_error = '<>'
+let g:ale_sign_warning = '-'
+let g:ale_sign_column_always = 1
+
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
+
+"""" google codefmt """"
+""" Google CodeFMT
+augroup autoformat_settings
+    "autocmd FileType c,cpp,java,javascript,typescript AutoFormatBuffer clang-format
+    "autocmd FileType python AutoFormatBuffer yapf
+    "autocmd FileType bzl AutoFormatBuffer buildifier
+augroup END
+
+"""" keymapping """"
+""" key mapping
+" nmap <C-n><C-n> :tabnew<CR>
+" nmap <C-w> <C-w><C-w>
+nmap <Tab> :bn<CR>
+nmap <C-y> :vertical resize +10<CR>
+nmap <C-t> :vertical resize -10<CR>
+nmap <C-W>y :resize +10<CR>
+nmap <C-W>t :resize -10<CR>
+nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader> :TagbarToggle<CR>
+" nmap <C-W>M <C-W>\| <C-W>_
+" nmap <C-W>m <C-W>=
+nmap <C-m> <C-W>\| <C-W>_
+nmap <C-n> <C-W>1\|
+nmap <C-e> <C-W>=
+nmap <C-v> :vs<CR>
+nmap <C-s> :sp<CR>
+nmap <C-p> :bp<CR>
+nmap <leader><space> :noh<CR>
+nnoremap <silent> <C-h> <C-W>h
+nnoremap <silent> <C-l> <C-W>l
+nnoremap <silent> <C-k> <C-W>k
+nnoremap <silent> <C-j> <C-W>j
+
+""" multi cursor key mapping
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+"let g:multi_cursor_start_word_key      = '<C-]>'
+"let g:multi_cursor_select_all_word_key = '<C-a>'
+"let g:multi_cursor_start_key           = 'g<C-]>'
+"let g:multi_cursor_select_all_key      = 'g<C-a>'
+"let g:multi_cursor_next_key            = '<C-]>'
+"let g:multi_cursor_prev_key            = '<C-[>'
+"let g:multi_cursor_skip_key            = '<C-x>'
+"let g:multi_cursor_quit_key            = '<Esc>'
+
+"""" deoplete vim """"
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#server_timeout = 1000
+let g:deoplete#sources#jedi#show_docstring = 0
+"let g:deoplete#sources#jedi#python_path='/home/ktaebum/Downloads/tf113/bin/python3.5'
+"let g:deoplete#sources#jedi#python_path='/home/ktaebum/.py37/bin/python3.7'
+let g:deoplete#sources#jedi#python_path='/home/ktaebum/anaconda3/bin/python3.6'
+
+"""" jedi vim """"
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "2"
+let g:jedi#max_doc_height = 20
+let g:jedi#auto_close_doc = 0
