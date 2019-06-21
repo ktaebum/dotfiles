@@ -2,7 +2,7 @@ set encoding=utf-8
 set nocompatible
 set splitbelow
 
-let g:python3_host_prog = '/home/ktaebum/anaconda3/bin/python3.6'
+let g:python3_host_prog = '/home/ktaebum/Program/anaconda3/bin/python3'
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -169,8 +169,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<C-j>' ]
 let g:ycm_key_list_previous_completion = ['<C-k>']
 let g:ycm_min_num_of_chars_for_completion = 1
-"let g:ycm_python_binary_path='/home/ktaebum/.py37/bin/python3.7'
-let g:ycm_python_binary_path='/home/ktaebum/anaconda3/bin/python3.6'
+let g:ycm_python_binary_path='/home/ktaebum/Program/anaconda3/bin/python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '--'
@@ -178,6 +177,10 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+"turn off ycm syntax check for cuda
+au Bufread,BufNewFile *.cu,*.c,*.cc let g:ycm_show_diagnostics_ui = 0
+
 
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
@@ -189,8 +192,9 @@ noremap <silent> <F6> /^\(<<<<<<<\\|=======\\|>>>>>>>\)<cr>
 """" ale """"
 let g:ale_linters = {
 \   'python': ['pylint'],
-\   'c': [],
-\   'cuda': [],
+\   'c': ['gcc'],
+\   'cpp': ['gcc'],
+\   'cuda': ['nvcc'],
 \}
 let g:ale_sign_error = '<>'
 let g:ale_sign_warning = '-'
@@ -207,7 +211,6 @@ augroup autoformat_settings
     "autocmd FileType bzl AutoFormatBuffer buildifier
 augroup END
 
-"""" keymapping """"
 """ key mapping
 " nmap <C-n><C-n> :tabnew<CR>
 " nmap <C-w> <C-w><C-w>
@@ -232,26 +235,11 @@ nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-j> <C-W>j
 
-""" multi cursor key mapping
-let g:multi_cursor_use_default_mapping=0
-
-" Default mapping
-"let g:multi_cursor_start_word_key      = '<C-]>'
-"let g:multi_cursor_select_all_word_key = '<C-a>'
-"let g:multi_cursor_start_key           = 'g<C-]>'
-"let g:multi_cursor_select_all_key      = 'g<C-a>'
-"let g:multi_cursor_next_key            = '<C-]>'
-"let g:multi_cursor_prev_key            = '<C-[>'
-"let g:multi_cursor_skip_key            = '<C-x>'
-"let g:multi_cursor_quit_key            = '<Esc>'
-
 """" deoplete vim """"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#server_timeout = 1000
 let g:deoplete#sources#jedi#show_docstring = 0
-"let g:deoplete#sources#jedi#python_path='/home/ktaebum/Downloads/tf113/bin/python3.5'
-"let g:deoplete#sources#jedi#python_path='/home/ktaebum/.py37/bin/python3.7'
-let g:deoplete#sources#jedi#python_path='/home/ktaebum/anaconda3/bin/python3.6'
+let g:deoplete#sources#jedi#python_path='/home/ktaebum/Program/anaconda3/bin/python3'
 
 """" jedi vim """"
 let g:jedi#show_call_signatures_delay = 0
