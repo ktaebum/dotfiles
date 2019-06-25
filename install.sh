@@ -21,3 +21,4 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 ### style files
 ln -s ~/.dotfiles/styles/clang-format ~/.clang-format
 ln -s ~/.dotfiles/styles/style_yapf ~/.style.yapf
+ln -s ~/.dotfiles/styles/pylintrc ~/.pylintrc
