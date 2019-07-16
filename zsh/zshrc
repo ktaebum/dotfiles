@@ -131,9 +131,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 export LC_CTYPE=en_US.UTF-8
 
 
+export CMAKE_ROOT=/home/ktaebum/.local/share/cmake-3.14
+
 export TVM_HOME=/home/ktaebum/Program/tvm
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python:${PYTHONPATH}
-export PATH="/home/ktaebum/Program/taco/build/bin:$PATH"
+export PATH="/home/ktaebum/Program/node/bin:$PATH"
 
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
