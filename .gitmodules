@@ -1,7 +1,7 @@
 [submodule "tmux/tmux-onedark-theme"]
   path = tmux/tmux-onedark-theme
-  url = git@github.com:odedlaz/tmux-onedark-theme.git
+  url = https://github.com/odedlaz/tmux-onedark-theme.git
 
 [submodule "tmux/tmux-gruvbox"]
   path = tmux/tmux-gruvbox
-  url = git@github.com:egel/tmux-gruvbox.git
+  url = https://github.com/egel/tmux-gruvbox.git
