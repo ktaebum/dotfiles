@@ -27,12 +27,13 @@ BASE_FLAGS = [
     '-I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed',
     '-I/usr/include/x86_64-linux-gnu',
     '-I/usr/include',
-    '-I/home/ktaebum/Program/anaconda3/lib/python3.6/site-packages/numpy/core/include',
-    '-I/home/ktaebum/Program/anaconda3/include/python3.6m',
+    '-I/home/ktaebum/Program/anaconda3/envs/tvm/lib/python3.6/site-packages/numpy/core/include',
+    '-I/home/ktaebum/Program/anaconda3/envs/tvm/include/python3.6m',
     '-I/usr/local/cuda/include',
     '-I/home/ktaebum/.local/include',
     '-I/home/ktaebum/Program/opencv/include',
     '-I/home/ktaebum/Program/tvm/include',
+    '-I/home/ktaebum/Program/taco/include',
     '-I/home/ktaebum/.local/include/opencv4/opencv2',
 ]
 

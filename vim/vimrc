@@ -200,6 +200,7 @@ let g:ale_linters = {
 let g:ale_sign_error = '<>'
 let g:ale_sign_warning = '-'
 let g:ale_sign_column_always = 1
+let g:ale_cpp_gcc_options = '-std=c++14 -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda/include -I/home/ktaebum/Program/tvm/include -I/home/ktaebum/Program/taco/include -I/home/ktaebum/Program/tvm/3rdparty/dmlc-core/include -I/home/ktaebum/Program/tvm/3rdparty/dlpack/include -I/home/ktaebum/Program/tvm/3rdparty/rang/include'
 
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign

@@ -147,8 +147,8 @@ export LIBRARY_PATH=/usr/local/cuda/lib64:$LIBRARY_PATH
 export C_INCLUDE_PATH=/usr/local/cuda/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/usr/local/cuda/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/opencv/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/opencv/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=/home/ktaebum/Program/taco/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=/home/ktaebum/Program/taco/include:$CPP_INCLUDE_PATH
 
 export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$CPP_INCLUDE_PATH
