@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 """ color schemes
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -109,9 +110,11 @@ let g:PaperColor_Theme_Options = {
 "color afterglow
 "color PaperColor
 "color one
-"color seoul256
-color gruvbox
+"let g:seoul256_background = 236
+color seoul256
+"color gruvbox
 "color flattened_light
+"color onehalflight
 set background=dark
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -134,14 +137,13 @@ syntax on
 let g:onedark_terminal_italics = 0
 let g:onedark_termcolors = 16
 
-let g:seoul256_background = 237
 "set background=dark
 
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'hard'
 
 """" python language set """"
-au FileType python setl sw=2 sts=2 et
+au FileType python setl sw=4 sts=4 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -159,9 +161,10 @@ let g:airline_theme='papercolor'
 let g:airline_theme='molokai'
 let g:airline_theme='jellybeans'
 let g:airline_theme='one'
-let g:airline_theme='seoul256'
-let g:airline_theme='zenburn'
 let g:airline_theme='gruvbox'
+let g:airline_theme='seoul256'
+let g:airline_theme='onehalflight'
+let g:airline_theme='zenburn'
 
 """" YCM setting """"
 set completeopt-=preview
