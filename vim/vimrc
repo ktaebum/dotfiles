@@ -110,7 +110,7 @@ let g:PaperColor_Theme_Options = {
 "color afterglow
 "color PaperColor
 "color one
-"let g:seoul256_background = 236
+let g:seoul256_background = 237
 color seoul256
 "color gruvbox
 "color flattened_light
