@@ -34,6 +34,7 @@ BASE_FLAGS = [
     '-I/home/ktaebum/Program/opencv/include',
     '-I/home/ktaebum/Program/tvm/include',
     '-I/home/ktaebum/Program/taco/include',
+    '-I/home/ktaebum/Program/pytorch/torch/include',
     '-I/home/ktaebum/.local/include/opencv4/opencv2',
 ]
 
