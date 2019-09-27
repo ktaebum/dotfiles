@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 """ color schemes
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'sheerun/vim-polyglot'
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
