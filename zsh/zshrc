@@ -129,7 +129,7 @@ export EDITOR="$VISUAL"
 
 #export flags="--config=opt --config=cuda -k"
 #alias tmux="TERM=screen-256color-bce tmux"
-alias tmux="tmux -2"
+alias tmux="env TERM=xterm-256color tmux"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 export LC_CTYPE=en_US.UTF-8
 
@@ -158,6 +158,9 @@ export CPP_INCLUDE_PATH=/home/ktaebum/Program/taco/include:$CPP_INCLUDE_PATH
 export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$CPP_INCLUDE_PATH
 
+export C_INCLUDE_PATH=/home/ktaebum/Program/pybind11/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=/home/ktaebum/Program/pybind11/include:$CPP_INCLUDE_PATH
+
 export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dlpack/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dlpack/include:$CPP_INCLUDE_PATH
 
@@ -173,23 +176,24 @@ export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/HalideIR/include:$CPP
 export C_INCLUDE_PATH=/home/ktaebum/Program/pytorch/torch/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/home/ktaebum/Program/pytorch/torch/include:$CPP_INCLUDE_PATH
 
-export CMAKE_PREFIX_PATH=/home/ktaebum/.local
+#export CMAKE_PREFIX_PATH=/home/ktaebum/.local
+export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/home/ktaebum/Program/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-    #eval "$__conda_setup"
-#else
-    #if [ -f "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh" ]; then
-        #. "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh"
-    #else
-        #export PATH="/home/ktaebum/Program/anaconda3/bin:$PATH"
-    #fi
-#fi
-#unset __conda_setup
+__conda_setup="$('/home/ktaebum/Program/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ktaebum/Program/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 
 #conda activate tvm
-alias pyopt="source ~/.envs/opt/bin/activate"
-pyopt
+#alias pyopt="source ~/.envs/opt/bin/activate"
+#pyopt

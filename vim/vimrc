@@ -3,7 +3,8 @@ set nocompatible
 set splitbelow
 
 "let g:python3_host_prog = '/home/ktaebum/Program/anaconda3/envs/tvm/bin/python3.6'
-let g:python3_host_prog = '/home/ktaebum/.envs/opt/bin/python3'
+"let g:python3_host_prog = '/home/ktaebum/.envs/opt/bin/python3'
+let g:python3_host_prog = '/home/ktaebum/Program/anaconda3/bin/python3.7'
 
 
 filetype off
@@ -108,17 +109,6 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
   \}
-"color jellybeans
-"color OceanicNext
-"color afterglow
-"color PaperColor
-"color one
-let g:seoul256_background = 237
-color seoul256
-"color gruvbox
-"color flattened_light
-"color onehalflight
-set background=dark
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -135,8 +125,25 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
 "color onedark
+"color jellybeans
+"color OceanicNext
+"color afterglow
+"color PaperColor
+let g:seoul256_background = 237
+color seoul256
+"color one
+"color gruvbox
+"color flattened_light
+"color onehalflight
+"color PaperColor
+set background=dark
 syntax on
+
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
+
 let g:onedark_terminal_italics = 0
 let g:onedark_termcolors = 16
 
@@ -176,7 +183,8 @@ let g:ycm_key_list_select_completion = ['<C-j>' ]
 let g:ycm_key_list_previous_completion = ['<C-k>']
 let g:ycm_min_num_of_chars_for_completion = 1
 "let g:ycm_python_binary_path='/home/ktaebum/Program/anaconda3/envs/tvm/bin/python3.6'
-let g:ycm_python_binary_path='/home/ktaebum/.envs/opt/bin/python3'
+"let g:ycm_python_binary_path='/home/ktaebum/.envs/opt/bin/python3'
+let g:ycm_python_binary_path='/home/ktaebum/Program/anaconda3/bin/python3.7'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '--'
@@ -207,7 +215,7 @@ let g:ale_linters = {
 let g:ale_sign_error = '<>'
 let g:ale_sign_warning = '-'
 let g:ale_sign_column_always = 1
-let g:ale_cpp_gcc_options = '-std=c++14 -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda/include -I/home/ktaebum/Program/tvm/include -I/home/ktaebum/Program/taco/include -I/home/ktaebum/Program/tvm/3rdparty/dmlc-core/include -I/home/ktaebum/Program/tvm/3rdparty/dlpack/include -I/home/ktaebum/Program/tvm/3rdparty/rang/include -I/home/ktaebum/Program/pytorch/torch/include'
+let g:ale_cpp_gcc_options = '-std=c++14 -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda/include -I/home/ktaebum/Program/tvm/include -I/home/ktaebum/Program/taco/include -I/home/ktaebum/Program/tvm/3rdparty/dmlc-core/include -I/home/ktaebum/Program/tvm/3rdparty/dlpack/include -I/home/ktaebum/Program/tvm/3rdparty/rang/include -I/home/ktaebum/Program/pytorch/torch/include -I/home/ktaebum/Program/pybind11/include'
 
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
@@ -249,7 +257,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#server_timeout = 1000
 let g:deoplete#sources#jedi#show_docstring = 0
 "let g:deoplete#sources#jedi#python_path='/home/ktaebum/Program/anaconda3/envs/tvm/bin/python3.6'
-let g:deoplete#sources#jedi#python_path='/home/ktaebum/.envs/opt/bin/python3'
+"let g:deoplete#sources#jedi#python_path='/home/ktaebum/.envs/opt/bin/python3'
+let g:deoplete#sources#jedi#python_path='/home/ktaebum/Program/anaconda3/bin/python3.7'
 
 """" jedi vim """"
 let g:jedi#show_call_signatures_delay = 0
