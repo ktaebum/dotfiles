@@ -130,15 +130,15 @@ endif
 "color jellybeans
 "color OceanicNext
 "color afterglow
-"color PaperColor
+color PaperColor
 let g:seoul256_background = 237
-color seoul256
+"color seoul256
 "color one
 "color gruvbox
 "color flattened_light
 "color onehalflight
 "color PaperColor
-set background=dark
+set background=light
 syntax on
 
 set t_8b=^[[48;2;%lu;%lu;%lum
