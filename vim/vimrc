@@ -74,6 +74,7 @@ set nu
 set relativenumber
 set noshowmode
 set autowrite
+set colorcolumn=80
 highlight Comment cterm=italic
 set tabstop=2
 set softtabstop=2
