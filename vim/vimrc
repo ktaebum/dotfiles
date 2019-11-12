@@ -114,14 +114,14 @@ let g:PaperColor_Theme_Options = {
 "color OceanicNext
 "color afterglow
 "color PaperColor
-let g:seoul256_background = 237
-"color seoul256
+let g:seoul256_background = 236
+color seoul256
 "color one
 "color gruvbox
 "color flattened_light
 "color onehalflight
 "color PaperColor
-color onehalfdark
+"color onehalfdark
 set background=dark
 syntax on
 
@@ -155,9 +155,9 @@ let g:airline_theme='one'
 let g:airline_theme='gruvbox'
 let g:airline_theme='seoul256'
 let g:airline_theme='onehalflight'
-let g:airline_theme='zenburn'
 let g:airline_theme='solarized'
 let g:airline_theme='onehalfdark'
+let g:airline_theme='zenburn'
 
 """" YCM setting """"
 set completeopt-=preview
