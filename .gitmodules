@@ -5,3 +5,7 @@
 [submodule "tmux/tmux-gruvbox"]
   path = tmux/tmux-gruvbox
   url = https://github.com/egel/tmux-gruvbox.git
+
+[submodule "tmux/tmux-themepack"]
+	path = tmux/tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack.git
