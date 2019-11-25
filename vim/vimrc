@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 """ color schemes
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-Plugin 'sheerun/vim-polyglot'
+Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
 Plugin 'jnurmine/Zenburn'
 Plugin 'ktaebum/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
@@ -29,10 +29,8 @@ Plugin 'SirVer/ultisnips'                         " snippets
 Plugin 'honza/vim-snippets'                       " snippets
 
 """""" auto completers
-Plugin 'Valloric/YouCompleteMe'                   " auto complete except for python
-
-Plugin 'davidhalter/jedi-vim', {'for': 'python'}  " auto-completer for python/latex
-Plugin 'zchee/deoplete-jedi'
+Plugin 'Valloric/YouCompleteMe'                   " auto complete
+Plugin 'davidhalter/jedi-vim', {'for': 'python'}  " for python call signature
 "
 " """""" searcher and file/tag navigators
 Plugin 'scrooloose/nerdtree'                      " file navigator
@@ -52,15 +50,13 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 "
 " """""" syntax checker
-Plugin 'w0rp/ale'
-" Plugin 'vim-syntastic/syntastic'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 filetype plugin indent on
 
 
 """" basic editor setting """"
-
 
 set mouse=a
 set ruler
@@ -258,12 +254,6 @@ nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-j> <C-W>j
-
-"""" deoplete vim """"
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#server_timeout = 1000
-let g:deoplete#sources#jedi#show_docstring = 0
-let g:deoplete#sources#jedi#python_path='$HOME/Program/anaconda3/envs/janus/bin/python3.7'
 
 """" jedi vim """"
 let g:jedi#show_call_signatures_delay = 0
