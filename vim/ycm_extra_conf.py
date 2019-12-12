@@ -27,15 +27,15 @@ BASE_FLAGS = [
     '-I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed',
     '-I/usr/include/x86_64-linux-gnu',
     '-I/usr/include',
-    '-I/home/ktaebum/Program/anaconda3/envs/tvm/lib/python3.6/site-packages/numpy/core/include',
-    '-I/home/ktaebum/Program/anaconda3/envs/tvm/include/python3.6m',
+    '-I$HOME/Program/anaconda3/envs/tvm/lib/python3.6/site-packages/numpy/core/include',
+    '-I$HOME/Program/anaconda3/envs/tvm/include/python3.6m',
     '-I/usr/local/cuda/include',
-    '-I/home/ktaebum/.local/include',
-    '-I/home/ktaebum/Program/opencv/include',
-    '-I/home/ktaebum/Program/tvm/include',
-    '-I/home/ktaebum/Program/taco/include',
-    '-I/home/ktaebum/Program/pytorch/torch/include',
-    '-I/home/ktaebum/.local/include/opencv4/opencv2',
+    '-I$HOME/.local/include',
+    '-I$HOME/Program/opencv/include',
+    '-I$HOME/Program/tvm/include',
+    '-I$HOME/Program/taco/include',
+    '-I$HOME/Workspace/janus-v2/pytorch/torch/include',
+    '-I$HOME/.local/include/opencv4/opencv2',
 ]
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']

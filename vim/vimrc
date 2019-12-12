@@ -192,12 +192,12 @@ noremap <silent> <F6> /^\(<<<<<<<\\|=======\\|>>>>>>>\)<cr>
 """" ale """"
 let g:ale_linters = {
 \   'python': ['flake8'],
-\   'c': ['gcc'],
-\   'cpp': ['gcc'],
+\   'c': ['clang', 'clang-format', 'clangtidy'],
+\   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
 \}
 "let g:ale_sign_error = '<>'
-"let g:ale_sign_warning = '-'
+"let g:ale_sign_wrning = '-'
 "
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
@@ -207,7 +207,7 @@ highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 
-      \ "-std=c++14 
+      \ -std=c++11
       \ -I/usr/include/c++/7 
       \ -I/usr/include 
       \ -I/usr/local/cuda/include 
@@ -227,6 +227,7 @@ let g:ale_cpp_gcc_options =
 """ Google CodeFMT
 augroup autoformat_settings
     "autocmd FileType c,cpp,java,javascript,typescript AutoFormatBuffer clang-format
+    "autocmd FileType cpp AutoFormatBuffer clang-format
     "autocmd FileType python AutoFormatBuffer yapf
     "autocmd FileType bzl AutoFormatBuffer buildifier
 augroup END
