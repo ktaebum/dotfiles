@@ -2,14 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ktaebum/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="gruvbox"
+ZSH_THEME="zeta"
+#ZSH_THEME="sunaku"
 SOLARIZED_THEME="dark"
 #ZSH_THEME="jreese"
 
@@ -116,9 +117,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vi="vim"
+alias jnotebook="jupyter notebook --no-browser --port=8889"
 
 export PATH="$PATH:$HOME/bin"
-export PATH=/home/ktaebum/.local/bin:$PATH
+export PATH=$HOME.local/bin:$PATH
 
 #export LC_ALL=C
 
@@ -134,68 +136,65 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 export LC_CTYPE=en_US.UTF-8
 
 
-#export CMAKE_ROOT=/home/ktaebum/.local/share/cmake-3.14
-
-#export TVM_HOME=/home/ktaebum/Program/tvm
-export TVM_HOME=/home/ktaebum/Program/pytvm/tvm
+export TVM_HOME=$HOME/Program/incubator-tvm
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python:${PYTHONPATH}
-export PATH="/home/ktaebum/Program/node/bin:$PATH"
+export PATH=$HOME/Program/node/bin:$PATH
 
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export LIBRARY_PATH=/usr/local/cuda/lib64:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/ktaebum/.envs/opt/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=/home/ktaebum/.envs/opt/lib:$LD_LIBRARY_PATH
-#export LD_LIBRARY_PATH=/home/ktaebum/Program/pytorch/torch/lib:$LD_LIBRARY_PATH
-#export LIBRARY_PATH=/home/ktaebum/Program/pytorch/torch/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/.envs/opt/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$HOME/.envs/opt/lib:$LD_LIBRARY_PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/Program/jdk1.8/bin:$PATH
+export PATH=$HOME/Program/gradle-6.1.1/bin:$PATH
+export NDK_HOME=$HOME/Program/android-ndk-r20b
 
 export C_INCLUDE_PATH=/usr/local/cuda/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=/usr/local/cuda/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/taco/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/taco/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/taco/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/taco/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/tvm/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/tvm/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/pybind11/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/pybind11/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/pybind11/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/pybind11/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dlpack/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dlpack/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/dlpack/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/dlpack/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dmlc-core/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/dmlc-core/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/dmlc-core/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/dmlc-core/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/rang/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/rang/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/rang/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/rang/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/HalideIR/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/tvm/3rdparty/HalideIR/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/HalideIR/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/tvm/3rdparty/HalideIR/include:$CPP_INCLUDE_PATH
 
-export C_INCLUDE_PATH=/home/ktaebum/Program/pytorch/torch/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/home/ktaebum/Program/pytorch/torch/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/Program/pytorch/torch/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$HOME/Program/pytorch/torch/include:$CPP_INCLUDE_PATH
 
-#export CMAKE_PREFIX_PATH=/home/ktaebum/.local
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ktaebum/Program/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/Program/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/Program/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/Program/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/ktaebum/Program/anaconda3/bin:$PATH"
+        export PATH="$HOME/Program/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate iccv
+#conda activate janus
+conda activate misc
 
-#conda activate tvm
-#alias pyopt="source ~/.envs/opt/bin/activate"
-#pyopt
+export CUDA_VISIBLE_DEVICES=5

@@ -9,3 +9,9 @@
 [submodule "tmux/tmux-themepack"]
 	path = tmux/tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack.git
+[submodule "tmux/tmux-tomorrow"]
+	path = tmux/tmux-tomorrow
+	url = https://github.com/edouard-lopez/tmux-tomorrow.git
+[submodule "tmux/nord-tmux"]
+	path = tmux/nord-tmux
+	url = https://github.com/arcticicestudio/nord-tmux.git

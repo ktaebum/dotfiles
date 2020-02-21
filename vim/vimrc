@@ -52,6 +52,9 @@ Plugin 'google/vim-glaive'
 " """""" syntax checker
 Plugin 'dense-analysis/ale'
 
+" """""" rust plugins
+Plugin 'rust-lang/rust.vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -78,6 +81,9 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
+
+"""" ctags """"
+au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
 
 """" paper color scheme """"
 set t_Co=256
@@ -112,7 +118,7 @@ let g:PaperColor_Theme_Options = {
 "color OceanicNext
 "color afterglow
 "color PaperColor
-let g:seoul256_background = 236
+let g:seoul256_background = 235
 "color seoul256
 "color one
 "color gruvbox
@@ -158,8 +164,8 @@ let g:airline_theme='seoul256'
 let g:airline_theme='onehalflight'
 let g:airline_theme='solarized'
 let g:airline_theme='onehalfdark'
-let g:airline_theme='zenburn'
 let g:airline_theme='molokai'
+let g:airline_theme='zenburn'
 let g:airline_theme='monokai_tasty'
 
 """" YCM setting """"
@@ -195,6 +201,7 @@ let g:ale_linters = {
 \   'c': ['clang', 'clang-format', 'clangtidy'],
 \   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
+\   'rust': ['cargo', 'rustfmt']
 \}
 "let g:ale_sign_error = '<>'
 "let g:ale_sign_wrning = '-'
@@ -207,7 +214,7 @@ highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 
-      \ -std=c++11
+      \ "-std=c++11
       \ -I/usr/include/c++/7 
       \ -I/usr/include 
       \ -I/usr/local/cuda/include 
@@ -266,3 +273,6 @@ let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "2"
 let g:jedi#max_doc_height = 20
 let g:jedi#auto_close_doc = 0
+
+"""" rust vim """"
+let g:rustfmt_autosave=1
