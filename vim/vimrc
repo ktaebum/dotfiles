@@ -16,6 +16,7 @@ Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
 Plugin 'jnurmine/Zenburn'
 Plugin 'ktaebum/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'thinkpixellab/flatland'
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -119,7 +120,7 @@ let g:PaperColor_Theme_Options = {
 "color afterglow
 "color PaperColor
 let g:seoul256_background = 235
-"color seoul256
+"color seoul256-light
 "color one
 "color gruvbox
 "color flattened_light
@@ -127,15 +128,14 @@ let g:seoul256_background = 235
 "color PaperColor
 "color onehalfdark
 "color molokai
-color monokai_pro
+"color monokai_pro
+color nord
 let g:molokai_original = 1
 set background=dark
 syntax on
 
 let g:onedark_terminal_italics = 0
 let g:onedark_termcolors = 16
-
-"set background=dark
 
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'hard'
@@ -167,6 +167,7 @@ let g:airline_theme='onehalfdark'
 let g:airline_theme='molokai'
 let g:airline_theme='zenburn'
 let g:airline_theme='monokai_tasty'
+let g:airline_theme='nord'
 
 """" YCM setting """"
 set completeopt-=preview
@@ -209,8 +210,11 @@ let g:ale_linters = {
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 let g:ale_set_highlights = 0
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
+"use nord
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 

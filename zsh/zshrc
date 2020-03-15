@@ -197,4 +197,4 @@ unset __conda_setup
 #conda activate janus
 conda activate misc
 
-export CUDA_VISIBLE_DEVICES=5
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
