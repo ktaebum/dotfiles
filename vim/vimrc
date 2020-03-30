@@ -120,7 +120,7 @@ let g:PaperColor_Theme_Options = {
 "color afterglow
 "color PaperColor
 let g:seoul256_background = 235
-"color seoul256-light
+color seoul256
 "color one
 "color gruvbox
 "color flattened_light
@@ -129,7 +129,7 @@ let g:seoul256_background = 235
 "color onehalfdark
 "color molokai
 "color monokai_pro
-color nord
+"color nord
 let g:molokai_original = 1
 set background=dark
 syntax on
@@ -141,7 +141,7 @@ let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'hard'
 
 """" python language set """"
-au FileType python setl sw=4 sts=4 et
+au FileType python setl sw=2 sts=2 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -158,16 +158,16 @@ let g:airline_theme='onedark'
 let g:airline_theme='papercolor'
 let g:airline_theme='molokai'
 let g:airline_theme='jellybeans'
-let g:airline_theme='one'
-let g:airline_theme='gruvbox'
 let g:airline_theme='seoul256'
 let g:airline_theme='onehalflight'
 let g:airline_theme='solarized'
 let g:airline_theme='onehalfdark'
 let g:airline_theme='molokai'
-let g:airline_theme='zenburn'
-let g:airline_theme='monokai_tasty'
 let g:airline_theme='nord'
+let g:airline_theme='one'
+let g:airline_theme='monokai_tasty'
+let g:airline_theme='gruvbox'
+let g:airline_theme='zenburn'
 
 """" YCM setting """"
 set completeopt-=preview
@@ -210,11 +210,15 @@ let g:ale_linters = {
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 let g:ale_set_highlights = 0
+"monokai pro
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
-"use nord
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
+"seoul 256
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
+"nord
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 

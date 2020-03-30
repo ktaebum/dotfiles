@@ -15,3 +15,6 @@
 [submodule "tmux/nord-tmux"]
 	path = tmux/nord-tmux
 	url = https://github.com/arcticicestudio/nord-tmux.git
+[submodule "spaceship-prompt"]
+	path = zsh/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git

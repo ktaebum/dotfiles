@@ -10,6 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="zeta"
+#ZSH_THEME="spaceship"
 #ZSH_THEME="sunaku"
 SOLARIZED_THEME="dark"
 #ZSH_THEME="jreese"
@@ -197,4 +198,5 @@ unset __conda_setup
 #conda activate janus
 conda activate misc
 
-test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+#test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+export PYTHONPATH=$HOME/Workspace/models:${PYTHONPATH}
