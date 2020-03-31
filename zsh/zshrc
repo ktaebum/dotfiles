@@ -195,8 +195,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#conda activate janus
-conda activate misc
-
 #test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 export PYTHONPATH=$HOME/Workspace/models:${PYTHONPATH}

@@ -6,6 +6,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 rm ~/.zshrc
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/skylerlee/zeta-zsh-theme/master/scripts/install.sh)"
 
 ### tmux link
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
