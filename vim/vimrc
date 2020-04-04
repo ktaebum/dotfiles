@@ -49,6 +49,10 @@ Plugin 'scrooloose/nerdcommenter'                 " easy-commenting
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+
+" """""" Bazel
+Plugin 'bazelbuild/vim-bazel'
+
 "
 " """""" syntax checker
 Plugin 'dense-analysis/ale'
