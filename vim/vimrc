@@ -88,7 +88,7 @@ set smarttab
 set expandtab
 
 """" ctags """"
-au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
+"au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
 
 """" paper color scheme """"
 set t_Co=256
@@ -235,8 +235,8 @@ let g:ale_cpp_gcc_options =
       \ -I$HOME/Program/tvm/3rdparty/dmlc-core/include 
       \ -I$HOME/Program/tvm/3rdparty/dlpack/include 
       \ -I$HOME/Program/tvm/3rdparty/rang/include 
-      \ -I$HOME/Workspace/janus-v2/pytorch/torch/include 
       \ -I$HOME/Program/pybind11/include
+      \ -I$HOME/Workspace/tensorflow_internal
       \ -I$HOME/Program/anaconda3/include/python3.7m"
 
 " highlight clear ALEErrorSign

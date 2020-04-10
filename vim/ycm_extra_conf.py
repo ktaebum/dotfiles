@@ -27,15 +27,11 @@ BASE_FLAGS = [
     '-I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed',
     '-I/usr/include/x86_64-linux-gnu',
     '-I/usr/include',
-    '-I$HOME/Program/anaconda3/envs/tvm/lib/python3.6/site-packages/numpy/core/include',
-    '-I$HOME/Program/anaconda3/envs/tvm/include/python3.6m',
     '-I/usr/local/cuda/include',
+    '-I$HOME/Program/anaconda3/include/python3.7m',
+    '-I$HOME/Program/anaconda3/include',
     '-I$HOME/.local/include',
-    '-I$HOME/Program/opencv/include',
-    '-I$HOME/Program/tvm/include',
-    '-I$HOME/Program/taco/include',
-    '-I$HOME/Workspace/janus-v2/pytorch/torch/include',
-    '-I$HOME/.local/include/opencv4/opencv2',
+    '-I$HOME/Workspace/tensorflow_internal',
 ]
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
