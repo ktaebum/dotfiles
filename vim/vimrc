@@ -124,7 +124,7 @@ let g:PaperColor_Theme_Options = {
 "color afterglow
 "color PaperColor
 let g:seoul256_background = 235
-color seoul256
+"color seoul256
 "color one
 "color gruvbox
 "color flattened_light
@@ -132,8 +132,8 @@ color seoul256
 "color PaperColor
 "color onehalfdark
 "color molokai
-"color monokai_pro
 "color nord
+color monokai_pro
 let g:molokai_original = 1
 set background=dark
 syntax on
@@ -167,17 +167,17 @@ let g:airline_theme='onehalflight'
 let g:airline_theme='solarized'
 let g:airline_theme='onehalfdark'
 let g:airline_theme='molokai'
-let g:airline_theme='nord'
 let g:airline_theme='one'
-let g:airline_theme='monokai_tasty'
 let g:airline_theme='gruvbox'
 let g:airline_theme='zenburn'
+let g:airline_theme='nord'
+let g:airline_theme='monokai_tasty'
 
 """" YCM setting """"
 set completeopt-=preview
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_list_select_completion = ['<C-j>' ]
-let g:ycm_key_list_previous_completion = ['<C-k>']
+let g:ycm_key_list_select_completion = ['<C-n>' ]
+let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_python_binary_path='$HOME/Program/anaconda3/bin/python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
@@ -218,11 +218,11 @@ let g:ale_set_highlights = 0
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
 "seoul 256
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
 "nord
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 
@@ -267,7 +267,7 @@ nmap <C-m> <C-W>\| <C-W>_
 nmap <C-n> <C-W>1\|
 nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
-nmap <C-s> :sp<CR>
+nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
 nmap <leader><space> :noh<CR>
 nnoremap <silent> <C-h> <C-W>h
