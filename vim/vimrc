@@ -14,7 +14,7 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
 Plugin 'jnurmine/Zenburn'
-Plugin 'ktaebum/vim-monokai-pro'
+Plugin 'phanviet/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'thinkpixellab/flatland'
 
@@ -22,8 +22,11 @@ Plugin 'thinkpixellab/flatland'
 Plugin 'hdima/python-syntax'                      " python syntax
 
 """""" powerline plugins
-Plugin 'vim-airline/vim-airline'                  " airline (powerline)
-Plugin 'vim-airline/vim-airline-themes'           " vim-airline themes
+Plugin 'itchyny/lightline.vim'
+Plugin 'mengelbrecht/lightline-bufferline'
+Plugin 'ryanoasis/vim-devicons'
+"Plugin 'vim-airline/vim-airline'                  " airline (powerline)
+"Plugin 'vim-airline/vim-airline-themes'           " vim-airline themes
 
 """""" snippets plugins
 Plugin 'SirVer/ultisnips'                         " snippets
@@ -86,6 +89,8 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
+set laststatus=2
+set showtabline=2
 
 """" ctags """"
 "au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
@@ -131,9 +136,11 @@ let g:seoul256_background = 235
 "color onehalflight
 "color PaperColor
 "color onehalfdark
-"color molokai
+"color monokai
 "color nord
 color monokai_pro
+"color gruvbox
+"color molokai
 let g:molokai_original = 1
 set background=dark
 syntax on
@@ -153,25 +160,25 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 """" airline setting """"
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_theme='oceanicnext'
-let g:airline_theme='afterglow'
-let g:airline_theme='onedark'
-let g:airline_theme='papercolor'
-let g:airline_theme='molokai'
-let g:airline_theme='jellybeans'
-let g:airline_theme='seoul256'
-let g:airline_theme='onehalflight'
-let g:airline_theme='solarized'
-let g:airline_theme='onehalfdark'
-let g:airline_theme='molokai'
-let g:airline_theme='one'
-let g:airline_theme='gruvbox'
-let g:airline_theme='zenburn'
-let g:airline_theme='nord'
-let g:airline_theme='monokai_tasty'
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tabline#fnamemod=':t'
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+"let g:airline_theme='oceanicnext'
+"let g:airline_theme='afterglow'
+"let g:airline_theme='onedark'
+"let g:airline_theme='papercolor'
+"let g:airline_theme='molokai'
+"let g:airline_theme='jellybeans'
+"let g:airline_theme='seoul256'
+"let g:airline_theme='onehalflight'
+"let g:airline_theme='solarized'
+"let g:airline_theme='onehalfdark'
+"let g:airline_theme='molokai'
+"let g:airline_theme='one'
+"let g:airline_theme='nord'
+"let g:airline_theme='gruvbox'
+"let g:airline_theme='zenburn'
+"let g:airline_theme='monokai_tasty'
 
 """" YCM setting """"
 set completeopt-=preview
@@ -208,21 +215,20 @@ let g:ale_linters = {
 \   'cuda': ['nvcc'],
 \   'rust': ['cargo', 'rustfmt']
 \}
-"let g:ale_sign_error = '<>'
-"let g:ale_sign_wrning = '-'
-"
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 let g:ale_set_highlights = 0
 "monokai pro
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
 "seoul 256
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
 "nord
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 
@@ -252,17 +258,13 @@ augroup autoformat_settings
 augroup END
 
 """ key mapping
-" nmap <C-n><C-n> :tabnew<CR>
-" nmap <C-w> <C-w><C-w>
 nmap <Tab> :bn<CR>
 nmap <C-y> :vertical resize +10<CR>
 nmap <C-t> :vertical resize -10<CR>
 nmap <C-W>y :resize +10<CR>
 nmap <C-W>t :resize -10<CR>
 nmap <leader>t :NERDTreeToggle<CR>
-nmap <leader> :TagbarToggle<CR>
-" nmap <C-W>M <C-W>\| <C-W>_
-" nmap <C-W>m <C-W>=
+nmap <leader>y :TagbarToggle<CR>
 nmap <C-m> <C-W>\| <C-W>_
 nmap <C-n> <C-W>1\|
 nmap <C-e> <C-W>=
@@ -274,6 +276,16 @@ nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-j> <C-W>j
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 """" jedi vim """"
 let g:jedi#show_call_signatures_delay = 0
@@ -288,3 +300,28 @@ let g:jedi#auto_close_doc = 0
 
 """" rust vim """"
 let g:rustfmt_autosave=1
+
+"""" lightline config """""
+let g:lightline = {
+      \ 'colorscheme': 'monokai_pro',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+let g:lightline#bufferline#composed_number_map = {
+      \ 1:  '⑴ ', 2:  '⑵ ', 3:  '⑶ ', 4:  '⑷ ', 5:  '⑸ ',
+      \ 6:  '⑹ ', 7:  '⑺ ', 8:  '⑻ ', 9:  '⑼ ', 10: '⑽ ',
+      \ 11: '⑾ ', 12: '⑿ ', 13: '⒀ ', 14: '⒁ ', 15: '⒂ ',
+      \ 16: '⒃ ', 17: '⒄ ', 18: '⒅ ', 19: '⒆ ', 20: '⒇ '}
+let g:lightline#bufferline#enable_devicons = 1
