@@ -17,6 +17,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'phanviet/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'thinkpixellab/flatland'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -138,10 +139,12 @@ let g:seoul256_background = 235
 "color onehalfdark
 "color monokai
 "color nord
-color monokai_pro
+"color monokai_pro
 "color gruvbox
 "color molokai
+color dracula
 let g:molokai_original = 1
+let g:dracula_italic = 0
 set background=dark
 syntax on
 
@@ -221,14 +224,17 @@ let g:ale_set_highlights = 0
 "monokai pro
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
 "seoul 256
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
 "nord
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
+"dracula
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#44475a
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#44475a
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = 
@@ -303,7 +309,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'monokai_pro',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },

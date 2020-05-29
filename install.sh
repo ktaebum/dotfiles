@@ -10,6 +10,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/skylerlee/zeta-zsh-theme
 
 ### tmux link
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### vimrc link
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
