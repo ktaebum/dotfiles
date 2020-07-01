@@ -34,11 +34,11 @@ BASE_FLAGS = [
     '-I$HOME/Workspace/tensorflow_internal',
 ]
 
-SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
+SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm', '.cu']
 
 SOURCE_DIRECTORIES = ['src', 'lib']
 
-HEADER_EXTENSIONS = ['.h', '.hxx', '.hpp', '.hh']
+HEADER_EXTENSIONS = ['.h', '.hxx', '.hpp', '.hh', '.cuh']
 
 HEADER_DIRECTORIES = ['include']
 

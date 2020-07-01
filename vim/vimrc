@@ -18,6 +18,7 @@ Plugin 'phanviet/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'thinkpixellab/flatland'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'sainnhe/gruvbox-material'
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -69,6 +70,8 @@ filetype plugin indent on
 
 
 """" basic editor setting """"
+
+"let g:dracula_colorterm = 0
 
 set mouse=a
 set ruler
@@ -142,7 +145,9 @@ let g:seoul256_background = 235
 "color monokai_pro
 "color gruvbox
 "color molokai
-color dracula
+"color dracula
+color dracula_pro
+"color gruvbox-material
 let g:molokai_original = 1
 let g:dracula_italic = 0
 set background=dark
@@ -151,6 +156,8 @@ syntax on
 let g:onedark_terminal_italics = 0
 let g:onedark_termcolors = 16
 
+let g:gruvbox_material_enable_italic = 0
+let g:gruvbox_material_disable_italic_comment = 1
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'hard'
 
@@ -190,6 +197,7 @@ let g:ycm_key_list_select_completion = ['<C-n>' ]
 let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_python_binary_path='$HOME/Program/anaconda3/bin/python3'
+"let g:ycm_python_binary_path='$HOME/Program/anaconda3/envs/mobile/bin/python3.8'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '--'
@@ -241,7 +249,7 @@ let g:ale_cpp_gcc_options =
       \ "-std=c++11
       \ -I/usr/include/c++/7 
       \ -I/usr/include 
-      \ -I/usr/local/cuda/include 
+      \ -I/usr/local/cuda-10.0/include
       \ -I$HOME/Program/tvm/include 
       \ -I$HOME/Program/taco/include 
       \ -I$HOME/Program/tvm/3rdparty/dmlc-core/include 
@@ -309,7 +317,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'dracula_pro',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },
