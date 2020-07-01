@@ -206,6 +206,7 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_clangd_binary_path='$HOME/Program/llvm-10.0.0/bin/clangd'
 
 "turn off ycm syntax check for cuda
 au Bufread,BufNewFile *.cu,*.c,*.cc let g:ycm_show_diagnostics_ui = 0
