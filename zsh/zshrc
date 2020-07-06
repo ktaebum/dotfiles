@@ -120,15 +120,12 @@ alias l='ls -CF'
 alias vi="vim"
 alias jnotebook="jupyter notebook --no-browser --port=8889"
 
-export PATH="$PATH:$HOME/bin"
-export PATH=$HOME.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 #export LC_ALL=C
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH"
 
 #export flags="--config=opt --config=cuda -k"
 #alias tmux="TERM=screen-256color-bce tmux"
@@ -136,23 +133,40 @@ alias tmux="env TERM=xterm-256color tmux"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 export LC_CTYPE=en_US.UTF-8
 
+export PATH=$HOME/Program/llvm-10.0.0/bin:$PATH
+export LIBRARY_PATH=$HOME/Program/llvm-10.0.0/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/Program/llvm-10.0.0/lib:$LD_LIBRARY_PATH
+
+export PATH=$HOME/Program/go/bin:$PATH
+export LIBRARY_PATH=$HOME/Program/go/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/Program/go/lib:$LD_LIBRARY_PATH
 
 export TVM_HOME=$HOME/Program/incubator-tvm
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python:${PYTHONPATH}
 export PATH=$HOME/Program/node/bin:$PATH
 
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-export LIBRARY_PATH=/usr/local/cuda/lib64:$LIBRARY_PATH
-export LD_LIBRARY_PATH=$HOME/.envs/opt/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=$HOME/.envs/opt/lib:$LD_LIBRARY_PATH
+# CUDA related
+#export CUDA_HOME=/usr/local/cuda-10.0
+export CUDA_HOME=$HOME/.local/cuda-10.1
+export TF_CUDA_PATHS=$CUDA_HOME
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$CUDA_HOME/lib64:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/extras/Debugger/lib64:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$CUDA_HOME/extras/Debugger/lib64:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$CUDA_HOME/extras/CUPTI/lib64:$LIBRARY_PATH
+export C_INCLUDE_PATH=$CUDA_HOME/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$CUDA_HOME/include:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$CUDA_HOME/extras/CUPTI/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$CUDA_HOME/extras/CUPTIinclude:$CPP_INCLUDE_PATH
+export C_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$CPP_INCLUDE_PATH
+
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8/bin:$PATH
 export PATH=$HOME/Program/gradle-6.1.1/bin:$PATH
 export NDK_HOME=$HOME/Program/android-ndk-r20b
-
-export C_INCLUDE_PATH=/usr/local/cuda/include:$C_INCLUDE_PATH
-export CPP_INCLUDE_PATH=/usr/local/cuda/include:$CPP_INCLUDE_PATH
 
 export C_INCLUDE_PATH=$HOME/Program/taco/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$HOME/Program/taco/include:$CPP_INCLUDE_PATH
@@ -182,18 +196,17 @@ export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/Program/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/ktaebum/Program/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/Program/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/Program/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ktaebum/Program/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/Program/anaconda3/bin:$PATH"
+        export PATH="/home/ktaebum/Program/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 export PYTHONPATH=$HOME/Workspace/models:${PYTHONPATH}
