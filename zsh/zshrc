@@ -215,3 +215,4 @@ unset __conda_setup
 
 export PYTHONPATH=$HOME/Workspace/models:${PYTHONPATH}
 export PYTHONPATH=$HOME/Workspace/terra/experiments/transformers/src:${PYTHONPATH}
+export PYTHONPATH=$HOME/Workspace/terra/experiments/tf2rl:${PYTHONPATH}
