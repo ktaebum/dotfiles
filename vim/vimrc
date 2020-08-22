@@ -10,7 +10,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """ color schemes
-Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
 Plugin 'jnurmine/Zenburn'
@@ -20,6 +19,11 @@ Plugin 'thinkpixellab/flatland'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'sainnhe/sonokai'
+Plugin 'mhartington/oceanic-next'
+Plugin 'tomasr/molokai'
+Plugin 'danilo-augusto/vim-afterglow'
+Plugin 'nanotech/jellybeans.vim'
+
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -133,6 +137,22 @@ let g:sonokai_style = 'atlantis'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 1
 
+let g:oceanic_next_terminal_bold = 0
+let g:oceanic_next_terminal_italic = 0
+
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+let g:dracula_italic = 0
+
+let g:onedark_terminal_italics = 0
+let g:onedark_termcolors = 16
+
+let g:gruvbox_material_enable_italic = 0
+let g:gruvbox_material_disable_italic_comment = 1
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_light = 'hard'
+
 "color onedark
 "color jellybeans
 "color OceanicNext
@@ -151,22 +171,14 @@ let g:seoul256_background = 235
 "color monokai_pro
 "color gruvbox
 "color molokai
-"color dracula
+color dracula
 "color dracula_pro
 "color gruvbox-material
-color sonokai
-let g:molokai_original = 1
-let g:dracula_italic = 0
+"color sonokai
+"color gruvbox-material
+"color molokai
 set background=dark
 syntax on
-
-let g:onedark_terminal_italics = 0
-let g:onedark_termcolors = 16
-
-let g:gruvbox_material_enable_italic = 0
-let g:gruvbox_material_disable_italic_comment = 1
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_contrast_light = 'hard'
 
 """" python language set """"
 au FileType python setl sw=2 sts=2 et
@@ -325,7 +337,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'sonokai',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },
