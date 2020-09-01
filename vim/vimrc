@@ -23,7 +23,8 @@ Plugin 'mhartington/oceanic-next'
 Plugin 'tomasr/molokai'
 Plugin 'danilo-augusto/vim-afterglow'
 Plugin 'nanotech/jellybeans.vim'
-
+Plugin 'junegunn/seoul256.vim'
+Plugin 'ajmwagar/vim-deus'
 
 """""" python plugin 
 Plugin 'hdima/python-syntax'                      " python syntax
@@ -159,7 +160,7 @@ let g:gruvbox_contrast_light = 'hard'
 "color afterglow
 "color PaperColor
 let g:seoul256_background = 235
-"color seoul256
+color seoul256
 "color one
 "color gruvbox
 "color flattened_light
@@ -171,7 +172,7 @@ let g:seoul256_background = 235
 "color monokai_pro
 "color gruvbox
 "color molokai
-color dracula
+"color dracula
 "color dracula_pro
 "color gruvbox-material
 "color sonokai
@@ -181,7 +182,7 @@ set background=dark
 syntax on
 
 """" python language set """"
-au FileType python setl sw=2 sts=2 et
+au FileType python setl sw=2 sts=4 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -320,6 +321,7 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+nmap ; :
 
 """" jedi vim """"
 let g:jedi#show_call_signatures_delay = 0
@@ -337,7 +339,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },
