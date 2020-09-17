@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 """ color schemes
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
 Plugin 'jnurmine/Zenburn'
 Plugin 'phanviet/vim-monokai-pro'
 Plugin 'patstockwell/vim-monokai-tasty'
@@ -26,8 +25,11 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'ajmwagar/vim-deus'
 
-"""""" python plugin 
-Plugin 'hdima/python-syntax'                      " python syntax
+"""""" syntax highlight
+"Plugin 'hdima/python-syntax'                      " python syntax
+Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
+Plugin 'octol/vim-cpp-enhanced-highlight'         " c++ syntax highlight
+
 
 """""" powerline plugins
 Plugin 'itchyny/lightline.vim'
@@ -70,6 +72,12 @@ Plugin 'dense-analysis/ale'
 
 " """""" rust plugins
 Plugin 'rust-lang/rust.vim'
+
+" """"" with tmux
+Plugin 'christoomey/vim-tmux-navigator'
+
+" """"" indent line
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on
@@ -160,7 +168,7 @@ let g:gruvbox_contrast_light = 'hard'
 "color afterglow
 "color PaperColor
 let g:seoul256_background = 235
-color seoul256
+"color seoul256
 "color one
 "color gruvbox
 "color flattened_light
@@ -169,7 +177,7 @@ color seoul256
 "color onehalfdark
 "color monokai
 "color nord
-"color monokai_pro
+color monokai_pro
 "color gruvbox
 "color molokai
 "color dracula
@@ -182,7 +190,7 @@ set background=dark
 syntax on
 
 """" python language set """"
-au FileType python setl sw=2 sts=4 et
+au FileType python setl sw=4 sts=4 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -241,7 +249,7 @@ noremap <silent> <F6> /^\(<<<<<<<\\|=======\\|>>>>>>>\)<cr>
 
 """" ale """"
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['flake8'],
 \   'c': ['clang', 'clang-format', 'clangtidy'],
 \   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
@@ -251,10 +259,10 @@ let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 let g:ale_set_highlights = 0
 "monokai pro
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
+highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
+highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
 "seoul 256
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
@@ -278,7 +286,7 @@ let g:ale_cpp_gcc_options =
       \ -I$HOME/Program/tvm/3rdparty/rang/include 
       \ -I$HOME/Program/pybind11/include
       \ -I$HOME/Workspace/tensorflow_internal
-      \ -I$HOME/Program/anaconda3/include/python3.7m"
+      \ -I$HOME/Program/anaconda3/envs/py38/include/python3.8"
 
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
@@ -339,7 +347,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'monokai_pro',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },
@@ -368,3 +376,11 @@ let g:lightline#bufferline#composed_number_map = {
       \ 6:  '⑹ ', 7:  '⑺ ', 8:  '⑻ ', 9:  '⑼ ', 10: '⑽ ',
       \ 11: '⑾ ', 12: '⑿ ', 13: '⒀ ', 14: '⒁ ', 15: '⒂ ',
       \ 16: '⒃ ', 17: '⒄ ', 18: '⒅ ', 19: '⒆ ', 20: '⒇ '}
+
+"""" c++ highlight (vim-cpp-enhanced-highlight)
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+"let g:cpp_experimental_simple_template_highlight = 1 (slow down)
+let c_no_curly_error=1
