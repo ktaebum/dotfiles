@@ -2,7 +2,7 @@ set encoding=utf-8
 set nocompatible
 set splitbelow
 
-let g:python3_host_prog = '$HOME/Program/anaconda3/bin/python3'
+let g:python3_host_prog = '$HOME/Program/anaconda3/envs/tach/bin/python3'
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,7 +28,7 @@ Plugin 'ajmwagar/vim-deus'
 """""" syntax highlight
 "Plugin 'hdima/python-syntax'                      " python syntax
 Plugin 'sheerun/vim-polyglot'                     " advanced syntax highlight
-Plugin 'octol/vim-cpp-enhanced-highlight'         " c++ syntax highlight
+"Plugin 'octol/vim-cpp-enhanced-highlight'         " c++ syntax highlight
 
 
 """""" powerline plugins
@@ -130,6 +130,7 @@ if &term =~ '256color'
 endif
 
 let g:python_highlight_all = 1
+let g:python_highlight_class_vars = 1
 let g:PaperColor_Theme_Options = {
   \ 'language': {
   \   'python': {
@@ -224,8 +225,8 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<C-n>' ]
 let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_python_binary_path='$HOME/Program/anaconda3/bin/python3'
-"let g:ycm_python_binary_path='$HOME/Program/anaconda3/envs/mobile/bin/python3.8'
+"let g:ycm_python_binary_path='$HOME/Program/anaconda3/bin/python3'
+let g:ycm_python_binary_path='$HOME/Program/anaconda3/envs/tach/bin/python3.8'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '--'
@@ -378,9 +379,9 @@ let g:lightline#bufferline#composed_number_map = {
       \ 16: '⒃ ', 17: '⒄ ', 18: '⒅ ', 19: '⒆ ', 20: '⒇ '}
 
 """" c++ highlight (vim-cpp-enhanced-highlight)
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-"let g:cpp_experimental_simple_template_highlight = 1 (slow down)
-let c_no_curly_error=1
+"let g:cpp_class_scope_highlight = 0
+"let g:cpp_member_variable_highlight = 0
+"let g:cpp_class_decl_highlight = 0
+"let g:cpp_posix_standard = 0
+""let g:cpp_experimental_simple_template_highlight = 1 (slow down)
+"let c_no_curly_error=1
