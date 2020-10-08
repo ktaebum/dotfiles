@@ -136,6 +136,11 @@ export PATH=$HOME/.local/bin:$PATH
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+if [ -f "$HOME/.local/bin/vim" ]; then
+  alias vi="$HOME/.local/bin/vim"
+  alias vim="$HOME/.local/bin/vim"
+fi
+
 #export flags="--config=opt --config=cuda -k"
 #alias tmux="TERM=screen-256color-bce tmux"
 alias tmux="env TERM=xterm-256color tmux"
