@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+CC=/usr/bin/gcc-8
+CXX=/usr/bin/g++-8
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -165,7 +168,8 @@ export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python:$
 
 # CUDA related
 #export CUDA_HOME=/usr/local/cuda-10.0
-export CUDA_HOME=$HOME/.local/cuda-10.1
+#export CUDA_HOME=$HOME/.local/cuda-10.1
+export CUDA_HOME=$HOME/.local/cuda-10.2
 export TF_CUDA_PATHS=$CUDA_HOME
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH

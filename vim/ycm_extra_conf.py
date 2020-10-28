@@ -86,6 +86,8 @@ get_python_inc(),
 '/usr/include',
 '-I',
 '$HOME/.local/include',
+'-I',
+'/usr/local/openmpi-4.0.1/include',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
