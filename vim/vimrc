@@ -2,7 +2,7 @@ set encoding=utf-8
 set nocompatible
 set splitbelow
 
-let g:python3_host_prog = '$HOME/Program/anaconda3/envs/terra/bin/python3'
+let g:python3_host_prog = '$HOME/Program/anaconda3/envs/tach/bin/python3'
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -144,7 +144,7 @@ let g:PaperColor_Theme_Options = {
   \}
 
 " The configuration options should be placed before `colorscheme sonokai`.
-let g:sonokai_style = 'atlantis'
+let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 1
 
@@ -179,20 +179,20 @@ let g:seoul256_background = 235
 "color onehalfdark
 "color monokai
 "color nord
-color monokai_pro
+"color monokai_pro
 "color gruvbox
 "color molokai
 "color dracula
 "color dracula_pro
 "color gruvbox-material
-"color sonokai
+color sonokai
 "color gruvbox-material
 "color molokai
 set background=dark
 syntax on
 
 """" python language set """"
-au FileType python setl sw=2 sts=4 et
+au FileType python setl sw=4 sts=4 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -226,7 +226,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<C-n>' ]
 let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_python_binary_path='$HOME/Program/anaconda3/envs/terra/bin/python3.8'
+let g:ycm_python_binary_path='$HOME/Program/anaconda3/envs/tach/bin/python3.8'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '--'
@@ -260,10 +260,10 @@ let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 let g:ale_set_highlights = 0
 "monokai pro
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
-highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
-highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
+"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
+"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
 "seoul 256
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
@@ -339,7 +339,7 @@ let g:rustfmt_autosave=1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'monokai_pro',
+      \ 'colorscheme': 'sonokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]

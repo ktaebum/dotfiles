@@ -150,7 +150,7 @@ alias tmux="env TERM=xterm-256color tmux"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=30'
 export LC_CTYPE=en_US.UTF-8
 
-export LLVM_HOME=$HOME/Program/llvm-10.0.0
+export LLVM_HOME=$HOME/.local/llvm-10.0.0
 export PATH=$LLVM_HOME/bin:$PATH
 export LIBRARY_PATH=$LLVM_HOME/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$LLVM_HOME/lib:$LD_LIBRARY_PATH
@@ -161,14 +161,15 @@ export CPP_INCLUDE_PATH=$LLVM_HOME/include/c++/v1:$CPP_INCLUDE_PATH
 #export LD_LIBRARY_PATH=$HOME/Program/go/lib:$LD_LIBRARY_PATH
 
 export TVM_HOME=$HOME/Program/incubator-tvm
-export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python:${PYTHONPATH}
+export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 #export PATH=$HOME/Program/node/bin:$PATH
 #export AUTO_HOME=$HOME/Program/FlexTensor
 #export PYTHONPATH=$AUTO_HOME:$PYTHONPATH
+export PYTHONPATH=$HOME/Workspace/tftachyon
 
 # CUDA related
 #export CUDA_HOME=/usr/local/cuda-10.0
-export CUDA_HOME=$HOME/.local/cuda-10.1
+export CUDA_HOME=$HOME/.local/cuda-11.0
 #export CUDA_HOME=$HOME/.local/cuda-10.2
 export TF_CUDA_PATHS=$CUDA_HOME
 export PATH=$CUDA_HOME/bin:$PATH
@@ -187,6 +188,7 @@ export CPP_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$CPP_INCLUDE_PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8.0_251/bin:$PATH
+export PATH=$HOME/Program/protobuf/bin:$PATH
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #export ANDROID_NDK_ROOT=$HOME/Android/Ndk
@@ -231,15 +233,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-#export PYTHONPATH=$HOME/Workspace/models:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/transformers/src:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/tf2rl:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/bert_ner:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/nlpgnn:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/spektral:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/terra/experiments/gpt2_tf:${PYTHONPATH}
-#export PYTHONPATH=$HOME/Workspace/tachyon:${PYTHONPATH}
 
 export C_INCLUDE_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/include:$C_INCLUDE_PATH
 export C_INCLUDE_PATH=/usr/include:$C_INCLUDE_PATH
