@@ -129,7 +129,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias vi="vim"
 alias jnotebook="jupyter notebook --no-browser --port=8889"
 
 export PATH=$HOME/.local/bin:$PATH
@@ -139,9 +138,9 @@ export PATH=$HOME/.local/bin:$PATH
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-if [ -f "$HOME/.local/bin/vim" ]; then
-  alias vi="$HOME/.local/bin/vim"
-  alias vim="$HOME/.local/bin/vim"
+if [ -f "$HOME/.local/bin/nvim" ]; then
+  alias vi="$HOME/.local/bin/nvim"
+  alias vim="$HOME/.local/bin/nvim"
 fi
 
 #export flags="--config=opt --config=cuda -k"
@@ -168,8 +167,8 @@ export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 export PYTHONPATH=$HOME/Workspace/tftachyon
 
 # CUDA related
-#export CUDA_HOME=/usr/local/cuda-10.0
-export CUDA_HOME=$HOME/.local/cuda-11.0
+export CUDA_HOME=$HOME/.local/cuda-10.1
+#export CUDA_HOME=$HOME/.local/cuda-11.0
 #export CUDA_HOME=$HOME/.local/cuda-10.2
 export TF_CUDA_PATHS=$CUDA_HOME
 export PATH=$CUDA_HOME/bin:$PATH
@@ -189,6 +188,7 @@ export CPP_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$CPP_INCLUDE_PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8.0_251/bin:$PATH
 export PATH=$HOME/Program/protobuf/bin:$PATH
+export PATH=$HOME/.local/node/bin:$PATH
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #export ANDROID_NDK_ROOT=$HOME/Android/Ndk
