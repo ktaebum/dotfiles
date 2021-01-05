@@ -167,8 +167,8 @@ export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 export PYTHONPATH=$HOME/Workspace/tftachyon
 
 # CUDA related
-export CUDA_HOME=$HOME/.local/cuda-10.1
-#export CUDA_HOME=$HOME/.local/cuda-11.0
+#export CUDA_HOME=$HOME/.local/cuda-10.1
+export CUDA_HOME=$HOME/.local/cuda-11.0
 #export CUDA_HOME=$HOME/.local/cuda-10.2
 export TF_CUDA_PATHS=$CUDA_HOME
 export PATH=$CUDA_HOME/bin:$PATH

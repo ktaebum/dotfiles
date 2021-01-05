@@ -50,7 +50,7 @@ Plug 'gisphm/vim-gitignore'                     " git ignore
 Plug 'scrooloose/nerdcommenter'                 " easy-commenting
 
 " """""" syntax checker
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " """"" with tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -74,7 +74,6 @@ set ruler
 set hlsearch
 set incsearch
 set showmatch
-"set completeopt-=preview
 set backspace=indent,eol,start
 set nu
 set relativenumber
@@ -181,16 +180,16 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 """" ale """"
-"let g:ale_linters = {
-"\   'python': ['pylint'],
-"\   'c': ['clang', 'clang-format', 'clangtidy'],
-"\   'cpp': ['clang', 'clang-format', 'clangtidy'],
-"\   'cuda': ['nvcc'],
-"\   'rust': ['cargo', 'rustfmt']
-"\}
-"let g:ale_sign_error = "E"
-"let g:ale_sign_warning = "W"
-"let g:ale_set_highlights = 0
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'c': ['clang', 'clang-format', 'clangtidy'],
+\   'cpp': ['clang', 'clang-format', 'clangtidy'],
+\   'cuda': ['nvcc'],
+\   'rust': ['cargo', 'rustfmt']
+\}
+let g:ale_sign_error = "E"
+let g:ale_sign_warning = "W"
+let g:ale_set_highlights = 0
 "monokai pro
 "highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
 "highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
@@ -254,6 +253,7 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 nmap ; :
+imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
@@ -308,6 +308,12 @@ set shortmess+=c
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_enable_snippet = 'UltiSnips'
 
+augroup CompletionTriggerCharacter
+    autocmd!
+    autocmd BufEnter * let g:completion_trigger_character = ['.']
+    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::', '->']
+augroup end
+
 command! Format execute 'lua vim.lsp.buf.formatting()'
 
 :lua << EOF
@@ -319,6 +325,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{on_attach=on_attach}
   end
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
