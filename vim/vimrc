@@ -22,6 +22,7 @@ Plug 'danilo-augusto/vim-afterglow'
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ajmwagar/vim-deus'
+Plug 'sainnhe/edge'
 
 """""" syntax highlight
 Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
@@ -61,6 +62,9 @@ Plug 'Yggdroot/indentLine'
 " """"" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+
+" """"" Tmuxline
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -165,10 +169,11 @@ let g:seoul256_background = 235
 "color dracula
 "color dracula_pro
 "color gruvbox-material
-color sonokai
+"color sonokai
 "color gruvbox-material
 "color molokai
-set background=dark
+color edge
+set background=light
 syntax on
 
 """" python language set """"
@@ -257,7 +262,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'sonokai',
+      \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
