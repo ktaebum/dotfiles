@@ -164,7 +164,7 @@ export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 #export PATH=$HOME/Program/node/bin:$PATH
 #export AUTO_HOME=$HOME/Program/FlexTensor
 #export PYTHONPATH=$AUTO_HOME:$PYTHONPATH
-export PYTHONPATH=$HOME/Workspace/tftachyon
+#export PYTHONPATH=$HOME/Workspace/tftachyon
 
 # CUDA related
 #export CUDA_HOME=$HOME/.local/cuda-10.1
@@ -184,6 +184,7 @@ export C_INCLUDE_PATH=$CUDA_HOME/extras/CUPTI/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$CUDA_HOME/extras/CUPTIinclude:$CPP_INCLUDE_PATH
 export C_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$CPP_INCLUDE_PATH
+export TFTACHYON_CUDA_HOME=$CUDA_HOME
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8.0_251/bin:$PATH
