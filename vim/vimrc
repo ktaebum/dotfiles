@@ -27,8 +27,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sainnhe/everforest'
 
 """""" syntax highlight
-"Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 
 """""" powerline plugins
@@ -86,7 +86,7 @@ set nu
 set relativenumber
 set noshowmode
 set autowrite
-set colorcolumn=120
+set colorcolumn=80
 highlight Comment cterm=italic
 set tabstop=2
 set softtabstop=2
@@ -186,7 +186,7 @@ set background=dark
 syntax on
 
 """" python language set """"
-au FileType python setl sw=4 sts=4 et
+au FileType python setl sw=2 sts=2 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -335,7 +335,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   local on_attach = function(_, bufnr)
     require('completion').on_attach()
   end
-  local servers = {'clangd', 'vimls', 'pyls'}
+  local servers = {'clangd', 'vimls', 'pyright'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{on_attach=on_attach}
   end
