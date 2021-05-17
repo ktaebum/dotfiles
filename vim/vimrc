@@ -176,13 +176,13 @@ let g:seoul256_background = 235
 "color dracula
 "color dracula_pro
 "color gruvbox-material
-color sonokai
+color edge
 "color gruvbox-material
 "color molokai
 "color edge
 "color ayu
 "color everforest
-set background=dark
+set background=light
 syntax on
 
 """" python language set """"
@@ -271,7 +271,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'sonokai',
+      \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
