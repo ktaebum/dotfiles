@@ -25,6 +25,8 @@ Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/edge'
 Plug 'ayu-theme/ayu-vim'
 Plug 'sainnhe/everforest'
+Plug 'arcticicestudio/nord-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 """""" syntax highlight
 Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
@@ -126,9 +128,19 @@ let g:PaperColor_Theme_Options = {
   \   },
   \   'cpp': {
   \     'highlight_standard_library': 1
+  \   },
+  \   'c': {
+  \     'highlight_standard_library': 1
   \   }
   \ }
   \}
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 0
+  \     }
+  \   }
+  \ }
 
 " The configuration options should be placed before `colorscheme sonokai`.
 let g:sonokai_style = 'maia'
@@ -176,10 +188,11 @@ let g:seoul256_background = 235
 "color dracula
 "color dracula_pro
 "color gruvbox-material
-color edge
+"color sonokai
 "color gruvbox-material
 "color molokai
 "color edge
+color PaperColor
 "color ayu
 "color everforest
 set background=light
@@ -271,7 +284,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'edge',
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]

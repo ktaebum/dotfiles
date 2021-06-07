@@ -168,6 +168,7 @@ export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 
 # CUDA related
 #export CUDA_HOME=$HOME/.local/cuda-10.1
+export CUDA_DIR=$HOME/.local/cuda-11.0
 export CUDA_HOME=$HOME/.local/cuda-11.0
 #export CUDA_HOME=$HOME/.local/cuda-10.2
 export TF_CUDA_PATHS=$CUDA_HOME
@@ -185,6 +186,12 @@ export CPP_INCLUDE_PATH=$CUDA_HOME/extras/CUPTIinclude:$CPP_INCLUDE_PATH
 export C_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$CUDA_HOME/extras/Debugger/include:$CPP_INCLUDE_PATH
 export TFTACHYON_CUDA_HOME=$CUDA_HOME
+
+export PATH=$CUDA_HOME/nvvm/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/nvvm/lib64:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$CUDA_HOME/nvvm/lib64:$LIBRARY_PATH
+export C_INCLUDE_PATH=$CUDA_HOME/nvvm/include:$C_INCLUDE_PATH
+export CPP_INCLUDE_PATH=$CUDA_HOME/nvvm/include:$CPP_INCLUDE_PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8.0_251/bin:$PATH
