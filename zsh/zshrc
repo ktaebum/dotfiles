@@ -146,7 +146,7 @@ fi
 #export flags="--config=opt --config=cuda -k"
 #alias tmux="TERM=screen-256color-bce tmux"
 alias tmux="env TERM=xterm-256color tmux"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=30'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 export LC_CTYPE=en_US.UTF-8
 
 export LLVM_HOME=$HOME/.local/llvm-10.0.0
@@ -192,6 +192,8 @@ export LD_LIBRARY_PATH=$CUDA_HOME/nvvm/lib64:$LD_LIBRARY_PATH
 export LIBRARY_PATH=$CUDA_HOME/nvvm/lib64:$LIBRARY_PATH
 export C_INCLUDE_PATH=$CUDA_HOME/nvvm/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$CUDA_HOME/nvvm/include:$CPP_INCLUDE_PATH
+
+export LD_LIBRARY_PATH=$HOME/Program/anaconda3/envs/temp/lib/python3.8/site-packages/tensorflow:$LD_LIBRARY_PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/Program/jdk1.8.0_251/bin:$PATH
