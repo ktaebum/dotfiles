@@ -29,6 +29,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'NLKNguyen/papercolor-theme'
 
 """""" syntax highlight
+Plug 'vim-python/python-syntax'
 Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
@@ -121,7 +122,6 @@ if &term =~ '256color'
 endif
 
 let g:python_highlight_all = 1
-let g:python_highlight_class_vars = 1
 let g:PaperColor_Theme_Options = {
   \ 'language': {
   \   'python': {
@@ -133,30 +133,21 @@ let g:PaperColor_Theme_Options = {
   \   'c': {
   \     'highlight_standard_library': 1
   \   }
-  \ }
-  \}
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 0
+  \ },
+  \ 'theme': {
+  \   'default.light': {
+  \     'override' : {
+  \       'color00' : ['#f7f7f7', ''],
+  \       'linenumber_bg' : ['#f4f4f4', ''],
+  \       'linenumber_fg' : ['#afafaf', ''],
+  \       'error_bg' : ['#f7f7f7', ''],
+  \       'error_fg' : ['#d70000', ''],
+  \       'todo_bg' : ['#f7f7f7', ''],
+  \       'todo_fg' : ['#d75f00', ''],
+  \       'vertsplit_bg' : ['#f7f7f7', ''],
   \     }
   \   }
   \ }
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.light': {
-  \       'override' : {
-  \         'color00' : ['#f7f7f7', ''],
-  \         'linenumber_bg' : ['#f4f4f4', ''],
-  \         'linenumber_fg' : ['#afafaf', ''],
-  \         'error_bg' : ['#f7f7f7', ''],
-  \         'error_fg' : ['#d70000', ''],
-  \         'todo_bg' : ['#f7f7f7', ''],
-  \         'todo_fg' : ['#d75f00', ''],
-  \         'vertsplit_bg' : ['#f7f7f7', ''],
-  \       }
-  \     }
-  \   }
   \ }
 
 " The configuration options should be placed before `colorscheme sonokai`.
@@ -301,7 +292,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]

@@ -146,7 +146,7 @@ fi
 #export flags="--config=opt --config=cuda -k"
 #alias tmux="TERM=screen-256color-bce tmux"
 alias tmux="env TERM=xterm-256color tmux"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 export LC_CTYPE=en_US.UTF-8
 
 export LLVM_HOME=$HOME/.local/llvm-10.0.0
