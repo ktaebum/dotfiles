@@ -158,7 +158,7 @@ let g:sonokai_disable_italic_comment = 1
 let g:oceanic_next_terminal_bold = 0
 let g:oceanic_next_terminal_italic = 0
 
-let g:molokai_original = 1
+let g:molokai_original = 0
 let g:rehash256 = 1
 
 let g:dracula_italic = 0
@@ -192,7 +192,7 @@ let g:seoul256_background = 235
 "color nord
 "color monokai_pro
 "color gruvbox
-"color molokai
+color molokai
 "color dracula
 "color dracula_pro
 "color gruvbox-material
@@ -200,10 +200,10 @@ let g:seoul256_background = 235
 "color gruvbox-material
 "color molokai
 "color edge
-color PaperColor
+"color PaperColor
 "color ayu
 "color everforest
-set background=light
+set background=dark
 syntax on
 
 """" python language set """"
@@ -292,7 +292,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'edge',
+      \ 'colorscheme': 'molokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
