@@ -67,7 +67,11 @@ Plug 'Yggdroot/indentLine'
 
 " """"" LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " """"" Tmuxline
 Plug 'edkolev/tmuxline.vim'
@@ -207,7 +211,7 @@ set background=dark
 syntax on
 
 """" python language set """"
-au FileType python setl sw=2 sts=2 et
+au FileType python setl sw=4 sts=4 et
 
 """" different cursor for different mode """"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -244,9 +248,9 @@ let g:ale_set_highlights = 0
 
 let g:ale_sign_column_always = 1
 let g:ale_cpp_clang_options =
-      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/anaconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
+      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/miniconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
 let g:ale_c_clang_options =
-      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/anaconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
+      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/miniconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
 
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
@@ -355,14 +359,59 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
 
 :lua << EOF
   local nvim_lsp = require('lspconfig')
-  local on_attach = function(_, bufnr)
-    require('completion').on_attach()
-  end
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   local servers = {'clangd', 'vimls', 'pyright', 'tsserver'}
   for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup{on_attach=on_attach}
+    nvim_lsp[lsp].setup{
+      capabilities=capabilities
+    }
   end
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+  local cmp = require 'cmp'
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    mapping = {
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
+      ['<Tab>'] = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+        else
+          fallback()
+        end
+      end,
+      ['<S-Tab>'] = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+        else
+          fallback()
+        end
+      end,
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+  }
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
