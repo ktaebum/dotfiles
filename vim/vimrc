@@ -197,8 +197,8 @@ let g:seoul256_background = 235
 "color nord
 "color monokai_pro
 "color gruvbox
-color molokai
-"color dracula
+"color molokai
+color dracula
 "color dracula_pro
 "color gruvbox-material
 "color sonokai
@@ -299,7 +299,7 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
