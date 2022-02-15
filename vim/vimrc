@@ -41,9 +41,9 @@ Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
 
 """""" snippets plugins
-"Plug 'SirVer/ultisnips'                         " snippets
 Plug 'honza/vim-snippets'                       " snippets
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 " """""" searcher and file/tag navigators
 Plug 'scrooloose/nerdtree'                      " file navigator
@@ -221,7 +221,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 """" ale """"
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['autoimport', 'pyright', 'pylint'],
 \   'c': ['clang', 'clang-format', 'clangtidy'],
 \   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
@@ -345,18 +345,15 @@ let g:lightline#bufferline#composed_number_map = {
 "set secure
 
 """"" Neovim LSP related
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noinsert,noselect
 set shortmess+=c
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_enable_snippet = 'UltiSnips'
 
 augroup CompletionTriggerCharacter
     autocmd!
     autocmd BufEnter * let g:completion_trigger_character = ['.']
     autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::', '->']
 augroup end
-
-command! Format execute 'lua vim.lsp.buf.formatting()'
 
 :lua << EOF
   local nvim_lsp = require('lspconfig')
@@ -372,10 +369,10 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   end
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
   local cmp = require 'cmp'
-  cmp.setup {
+  cmp.setup ({
     snippet = {
       expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+        vim.fn["vsnip#anonymous"](args.body)
       end,
     },
     mapping = {
@@ -386,11 +383,11 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
       ['<C-e>'] = cmp.mapping.close(),
       ['<C-Space>'] = cmp.mapping.complete(),
     },
-    sources = {
+    sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    },
-  }
+      { name = 'vsnip' },
+    })
+  })
 EOF
 
 "['<CR>'] = cmp.mapping.confirm {
