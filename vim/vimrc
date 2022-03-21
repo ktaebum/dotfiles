@@ -2,7 +2,7 @@ set encoding=utf-8
 set nocompatible
 set splitbelow
 
-let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python'
+let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python3'
 
 filetype off
 call plug#begin('$HOME/.vim/plugged')
@@ -23,27 +23,24 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/edge'
-Plug 'ayu-theme/ayu-vim'
-Plug 'sainnhe/everforest'
 Plug 'arcticicestudio/nord-vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ayu-theme/ayu-vim'
+Plug 'sickill/vim-monokai'
+Plug 'morhetz/gruvbox'
+Plug 'lfenzo/vim-fusion'
+Plug 'haystackandroid/snow'
+
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
-Plug 'sheerun/vim-polyglot'                     " advanced syntax highlight
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
+Plug 'sheerun/vim-polyglot'
 
 """""" powerline plugins
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
-
-"""""" snippets plugins
-Plug 'honza/vim-snippets'                       " snippets
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
 
 " """""" searcher and file/tag navigators
 Plug 'scrooloose/nerdtree'                      " file navigator
@@ -53,7 +50,7 @@ Plug 'majutsushi/tagbar'                        " displays tags in a window
 Plug 'tpope/vim-fugitive'                       " git integration
 Plug 'airblade/vim-gitgutter'                   " git diff line by line
 Plug 'gisphm/vim-gitignore'                     " git ignore
-"
+
 " """""" commenters
 Plug 'scrooloose/nerdcommenter'                 " easy-commenting
 
@@ -73,16 +70,25 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+" """"" markdown
+Plug 'plasticboy/vim-markdown'
 
 " """"" Tmuxline
 Plug 'edkolev/tmuxline.vim'
 
+Plug 'tarekbecker/vim-yaml-formatter'
+
+" """"" Typescript
+" Plug 'leafgarland/typescript-vim'
+
+" """"" Html
+Plug 'alvan/vim-closetag'
+
 call plug#end()
 filetype plugin indent on
-
-"""" basic editor setting """"
-
-"let g:dracula_colorterm = 0
 
 set mouse=a
 set ruler
@@ -103,12 +109,15 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
-set laststatus=2
+set laststatus=3
 set showtabline=2
 set fillchars+=vert:\|
 
-"""" ctags """"
-"au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
+"""" vim tex """"
+let g:tex_conceal = ''
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 """" paper color scheme """"
 set t_Co=256
@@ -155,115 +164,18 @@ let g:PaperColor_Theme_Options = {
   \ }
   \ }
 
-" The configuration options should be placed before `colorscheme sonokai`.
+let g:edge_enable_italic = 0
 let g:sonokai_style = 'maia'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 1
+let ayucolor="dark"
+let g:seoul256_background = 233
+let g:gruvbox_contrast_dark = "hard"
 
-let g:oceanic_next_terminal_bold = 0
-let g:oceanic_next_terminal_italic = 0
-
-let g:molokai_original = 0
-let g:rehash256 = 1
-
-let g:dracula_italic = 0
-
-let g:onedark_terminal_italics = 0
-let g:onedark_termcolors = 16
-
-let g:gruvbox_material_enable_italic = 0
-let g:gruvbox_material_disable_italic_comment = 1
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_contrast_light = 'hard'
-
-let ayucolor = 'mirage'
-
-let g:everforest_background = 'hard'
-
-"color onedark
-"color jellybeans
-"color OceanicNext
-"color afterglow
-"color PaperColor
-let g:seoul256_background = 235
-"color seoul256
-"color one
-"color gruvbox
-"color flattened_light
-"color onehalflight
-"color PaperColor
-"color onehalfdark
-"color monokai
-"color nord
-"color monokai_pro
-"color gruvbox
 color molokai
-"color dracula
-"color dracula_pro
-"color gruvbox-material
-"color sonokai
-"color gruvbox-material
-"color molokai
-"color edge
-"color PaperColor
-"color ayu
-"color everforest
 set background=dark
 syntax on
 
 """" python language set """"
 au FileType python setl sw=4 sts=4 et
-
-"""" different cursor for different mode """"
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-"""" ale """"
-let g:ale_linters = {
-\   'python': ['autoimport', 'pyright', 'pylint'],
-\   'c': ['clang', 'clang-format', 'clangtidy'],
-\   'cpp': ['clang', 'clang-format', 'clangtidy'],
-\   'cuda': ['nvcc'],
-\   'rust': ['cargo', 'rustfmt']
-\}
-highlight ALEErrorSign guifg=#F92672 guibg=#232526
-highlight ALEWarningSign guifg=#ED6237 guibg=#232526
-let g:ale_sign_error = "E"
-let g:ale_sign_warning = "W"
-let g:ale_set_highlights = 0
-"monokai pro
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#423f42
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#423f42
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3a3a3a
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3a3a3a
-"seoul 256
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#3F3F3F
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#3F3F3F
-"nord
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#2e3440
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#2e3440
-"dracula
-"highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#44475a
-"highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#44475a
-
-let g:ale_sign_column_always = 1
-let g:ale_cpp_clang_options =
-      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/miniconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
-let g:ale_c_clang_options =
-      \ "-std=c++11 -isystem -I/usr/include/c++/7 -I/usr/include -I/usr/local/cuda-10.2/include -I$HOME/Workspace/tensorflow_internal -I$HOME/Program/miniconda3/envs/terra/include/python3.8 -I/usr/local/openmpi-4.0.1/include"
-
-" highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
-
-"""" google codefmt """"
-""" Google CodeFMT
-augroup autoformat_settings
-    "autocmd FileType c,cpp,java,javascript,typescript AutoFormatBuffer clang-format
-    "autocmd FileType cpp AutoFormatBuffer clang-format
-    "autocmd FileType python AutoFormatBuffer yapf
-    "autocmd FileType bzl AutoFormatBuffer buildifier
-augroup END
 
 """ key mapping
 nmap <Tab> :bn<CR>
@@ -295,7 +207,25 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 nmap ; :
-imap <silent> <c-space> <Plug>(completion_trigger)
+
+"""" ale """"
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'c': ['clang', 'clang-format', 'clangtidy'],
+\   'cpp': ['clang', 'clang-format', 'clangtidy'],
+\   'cuda': ['nvcc'],
+\   'rust': ['cargo', 'rustfmt'],
+\   'html': ['angular'],
+\   'typescript': ['eslint'],
+\}
+"highlight ALEErrorSign ctermfg=9 ctermbg=233 guifg=#C30500 guibg=#232526
+"highlight ALEWarningSign ctermfg=11 ctermbg=233 guifg=#ED6237 guibg=#232526
+highlight ALEErrorSign guifg=#F92672 guibg=#232526
+highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+let g:ale_sign_error = "E"
+let g:ale_sign_warning = "W"
+let g:ale_set_highlights = 0
+let g:ale_linters_explicit = 1
 
 """" lightline config """""
 let g:lightline = {
@@ -340,12 +270,9 @@ let g:lightline#bufferline#composed_number_map = {
       \ 11: '⑾ ', 12: '⑿ ', 13: '⒀ ', 14: '⒁ ', 15: '⒂ ',
       \ 16: '⒃ ', 17: '⒄ ', 18: '⒅ ', 19: '⒆ ', 20: '⒇ '}
 
-""" enable project-specific vimrc
-"set exrc
-"set secure
 
 """"" Neovim LSP related
-set completeopt=menu,menuone,noinsert,noselect
+set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
@@ -355,21 +282,26 @@ augroup CompletionTriggerCharacter
     autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::', '->']
 augroup end
 
+command! Format execute 'lua vim.lsp.buf.formatting()'
+
 :lua << EOF
   local nvim_lsp = require('lspconfig')
 
+  -- Set local servers.
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-  local servers = {'clangd', 'vimls', 'pyright', 'tsserver'}
+  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
       capabilities=capabilities
     }
   end
+
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+
   local cmp = require 'cmp'
-  cmp.setup ({
+  -- key bindings
+  cmp.setup({
     snippet = {
       expand = function(args)
         vim.fn["vsnip#anonymous"](args.body)
@@ -380,20 +312,47 @@ augroup end
       ['<C-n>'] = cmp.mapping.select_next_item(),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+      }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
-    sources = cmp.config.sources({
+    sources = {
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
+    }, {
+      { name = 'buffer' },
+    }
+  })
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
     })
   })
 EOF
 
-"['<CR>'] = cmp.mapping.confirm {
-"behavior = cmp.ConfirmBehavior.Replace,
-"select = true,
-"},
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 "nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
@@ -403,3 +362,11 @@ nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 "nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 "nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 "nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
+highlight WinSeparator guibg=None
+
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeWinSize=50
