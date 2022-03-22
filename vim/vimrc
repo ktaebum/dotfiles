@@ -4,7 +4,6 @@ set splitbelow
 
 let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python3'
 
-filetype off
 call plug#begin('$HOME/.vim/plugged')
 
 """ color schemes
@@ -177,6 +176,9 @@ syntax on
 """" python language set """"
 au FileType python setl sw=4 sts=4 et
 
+"""" HTML language set """"
+au BufNewFile,BufRead *.html set filetype=html
+
 """ key mapping
 nmap <Tab> :bn<CR>
 nmap <C-y> :vertical resize +10<CR>
@@ -317,7 +319,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
             c = cmp.mapping.close(),
       }),
       ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-l>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
       { name = 'nvim_lsp' },
