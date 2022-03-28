@@ -193,6 +193,7 @@ nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
+nmap <leader>r :NERDTreeFind<CR>
 nmap <leader><space> :noh<CR>
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
@@ -292,7 +293,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   -- Set local servers.
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html'}
+  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html', 'tailwindcss', 'cssmodules_ls', 'cssls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
       capabilities=capabilities
