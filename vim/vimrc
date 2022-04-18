@@ -86,6 +86,8 @@ Plug 'tarekbecker/vim-yaml-formatter'
 " """"" Html
 Plug 'alvan/vim-closetag'
 
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 filetype plugin indent on
 
@@ -159,6 +161,14 @@ let g:PaperColor_Theme_Options = {
   \       'todo_fg' : ['#d75f00', ''],
   \       'vertsplit_bg' : ['#f7f7f7', ''],
   \     }
+  \   },
+  \   'default.dark': {
+  \     'override' : {
+  \       'error_bg' : ['#1c1c1c', ''],
+  \       'error_fg' : ['#d70000', ''],
+  \       'todo_bg' : ['#f7f7f7', ''],
+  \       'todo_fg' : ['#d75f00', ''],
+  \     }
   \   }
   \ }
   \ }
@@ -169,7 +179,7 @@ let ayucolor="dark"
 let g:seoul256_background = 233
 let g:gruvbox_contrast_dark = "hard"
 
-color molokai
+color PaperColor
 set background=dark
 syntax on
 
@@ -193,6 +203,7 @@ nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
+nmap <C-o> :FloatermNew<CR>
 nmap <leader>r :NERDTreeFind<CR>
 nmap <leader><space> :noh<CR>
 nnoremap <silent> <C-h> <C-W>h
@@ -221,10 +232,10 @@ let g:ale_linters = {
 \   'html': ['angular'],
 \   'typescript': ['eslint'],
 \}
-"highlight ALEErrorSign ctermfg=9 ctermbg=233 guifg=#C30500 guibg=#232526
-"highlight ALEWarningSign ctermfg=11 ctermbg=233 guifg=#ED6237 guibg=#232526
-highlight ALEErrorSign guifg=#F92672 guibg=#232526
-highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+" highlight ALEErrorSign guifg=#F92672 guibg=#232526
+" highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+highlight ALEErrorSign guifg=#F92672 guibg=#1c1c1c
+highlight ALEWarningSign guifg=#ED6237 guibg=#1c1c1c
 let g:ale_sign_error = "E"
 let g:ale_sign_warning = "W"
 let g:ale_set_highlights = 0
@@ -232,7 +243,7 @@ let g:ale_linters_explicit = 1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
