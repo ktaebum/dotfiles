@@ -74,6 +74,7 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 " """"" markdown
 Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " """"" Tmuxline
 Plug 'edkolev/tmuxline.vim'
@@ -119,6 +120,8 @@ let g:tex_conceal = ''
 
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
 
 """" paper color scheme """"
 set t_Co=256
@@ -197,8 +200,8 @@ nmap <C-W>y :resize +10<CR>
 nmap <C-W>t :resize -10<CR>
 nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>y :TagbarToggle<CR>
-nmap <C-m> <C-W>\| <C-W>_
-nmap <C-n> <C-W>1\|
+nmap <C-m> <C-W><Bar><C-W>_
+nmap <C-n> <C-W>1<Bar>
 nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
@@ -384,3 +387,39 @@ highlight WinSeparator guibg=None
 
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinSize=50
+
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 1
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = ''
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
