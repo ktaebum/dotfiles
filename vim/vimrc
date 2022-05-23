@@ -227,7 +227,7 @@ nmap ; :
 
 """" ale """"
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['pylint', 'pyright'],
 \   'c': ['clang', 'clang-format', 'clangtidy'],
 \   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
