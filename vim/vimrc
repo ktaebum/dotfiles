@@ -28,7 +28,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sickill/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'lfenzo/vim-fusion'
-Plug 'haystackandroid/snow'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 
 """""" syntax highlight
