@@ -182,7 +182,7 @@ let ayucolor="dark"
 let g:seoul256_background = 233
 let g:gruvbox_contrast_dark = "hard"
 
-color PaperColor
+color molokai
 set background=dark
 syntax on
 
@@ -247,7 +247,7 @@ let g:ale_linters_explicit = 1
 
 """" lightline config """""
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'molokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
