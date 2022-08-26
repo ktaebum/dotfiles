@@ -201,16 +201,14 @@ nmap <C-W>y :resize +10<CR>
 nmap <C-W>t :resize -10<CR>
 nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>y :TagbarToggle<CR>
-nmap <C-W>M <C-W><Bar><C-W>_
-nmap <C-m> <C-W><Bar><C-W>_
-nmap <C-n> <C-W>1<Bar>
+nmap <leader>m <C-W><Bar><C-W>_
+nmap <leader>n <C-W>1<Bar>
 nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
 nmap <C-o> :FloatermNew<CR>
 nmap <leader>r :NERDTreeFind<CR>
-nmap <leader><space> :noh<CR>
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-k> <C-W>k
