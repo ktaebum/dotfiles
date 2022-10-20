@@ -115,6 +115,10 @@ set laststatus=3
 set showtabline=2
 set fillchars+=vert:\|
 
+" project specific vimrc
+set exrc
+set secure
+
 """" vim tex """"
 let g:tex_conceal = ''
 
@@ -296,7 +300,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 augroup CompletionTriggerCharacter
     autocmd!
     autocmd BufEnter * let g:completion_trigger_character = ['.']
-    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::', '->']
+    autocmd BufEnter *.c,*.cpp,*.cc let g:completion_trigger_character = ['.', '::', '->']
 augroup end
 
 command! Format execute 'lua vim.lsp.buf.formatting()'
