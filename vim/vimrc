@@ -233,6 +233,7 @@ nmap ; :
 let g:ale_linters = {
 \   'python': ['pylint', 'pyright'],
 \   'c': ['clang', 'clang-format', 'clangtidy'],
+\   'cc': ['clang', 'clang-format', 'clangtidy'],
 \   'cpp': ['clang', 'clang-format', 'clangtidy'],
 \   'cuda': ['nvcc'],
 \   'rust': ['cargo', 'rustfmt'],
@@ -309,8 +310,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   local nvim_lsp = require('lspconfig')
 
   -- Set local servers.
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html', 'tailwindcss', 'cssmodules_ls', 'cssls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
