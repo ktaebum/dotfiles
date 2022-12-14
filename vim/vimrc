@@ -7,33 +7,20 @@ let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python3'
 call plug#begin('$HOME/.vim/plugged')
 
 """ color schemes
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'jnurmine/Zenburn'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'thinkpixellab/flatland'
 Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'sainnhe/gruvbox-material'
-Plug 'sainnhe/sonokai'
-Plug 'mhartington/oceanic-next'
 Plug 'tomasr/molokai'
-Plug 'danilo-augusto/vim-afterglow'
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'sainnhe/edge'
-Plug 'arcticicestudio/nord-vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'ayu-theme/ayu-vim'
-Plug 'sickill/vim-monokai'
 Plug 'morhetz/gruvbox'
-Plug 'lfenzo/vim-fusion'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
+Plug 'projekt0n/github-nvim-theme'
+Plug 'tiagovla/tokyodark.nvim'
+Plug 'tomasiser/vim-code-dark'
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 """""" powerline plugins
 Plug 'itchyny/lightline.vim'
