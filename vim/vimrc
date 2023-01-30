@@ -23,15 +23,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter'
 
 """""" powerline plugins
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'maximbaz/lightline-ale'
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lualine/lualine.nvim'
 
 " """""" searcher and file/tag navigators
-Plug 'scrooloose/nerdtree'                      " file navigator
-Plug 'majutsushi/tagbar'                        " displays tags in a window
-"
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
+
 " """""" git plugins
 Plug 'tpope/vim-fugitive'                       " git integration
 Plug 'airblade/vim-gitgutter'                   " git diff line by line
@@ -190,8 +191,8 @@ nmap <C-y> :vertical resize +10<CR>
 nmap <C-t> :vertical resize -10<CR>
 nmap <C-W>y :resize +10<CR>
 nmap <C-W>t :resize -10<CR>
-nmap <leader>t :NERDTreeToggle<CR>
-nmap <leader>y :TagbarToggle<CR>
+nmap <leader>t :NvimTreeToggle<CR>
+nmap <leader>f :Telescope find_files<CR>
 nmap <leader>m <C-W><Bar><C-W>_
 nmap <leader>n <C-W>1<Bar>
 nmap <C-e> <C-W>=
@@ -199,21 +200,21 @@ nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
 nmap <C-o> :FloatermNew<CR>
-nmap <leader>r :NERDTreeFind<CR>
+nmap <leader>r :NvimTreeFindFile<CR>
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-j> <C-W>j
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+nmap <Leader>1 :LualineBuffersJump 1<CR>
+nmap <Leader>2 :LualineBuffersJump 2<CR>
+nmap <Leader>3 :LualineBuffersJump 3<CR>
+nmap <Leader>4 :LualineBuffersJump 4<CR>
+nmap <Leader>5 :LualineBuffersJump 5<CR>
+nmap <Leader>6 :LualineBuffersJump 6<CR>
+nmap <Leader>7 :LualineBuffersJump 7<CR>
+nmap <Leader>8 :LualineBuffersJump 8<CR>
+nmap <Leader>9 :LualineBuffersJump 9<CR>
+nmap <Leader>` :LualineBuffersJump $<CR>
 nmap ; :
 
 """" ale """"
@@ -235,50 +236,6 @@ let g:ale_sign_error = "E"
 let g:ale_sign_warning = "W"
 let g:ale_set_highlights = 0
 let g:ale_linters_explicit = 1
-
-"""" lightline config """""
-let g:lightline = {
-      \ 'colorscheme': 'molokai',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [[ 'linter_checking', 'linter_errors','linter_warnings', 'linter_infos', 'linter_ok' ]]
-      \ },
-      \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors': 'lightline#ale#errors',
-      \   'linter_ok': 'lightline#ale#ok',
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel',
-      \   'linter_checking': 'right',
-      \   'linter_infos': 'right',
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
-      \   'linter_ok': 'right',
-      \ }
-      \ }
-autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
-let g:lightline#bufferline#min_buffer_count = 2
-let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#shorten_path = 1
-let g:lightline#bufferline#unnamed      = '[No Name]'
-let g:lightline#bufferline#enable_devicons = 1
-let g:lightline#bufferline#number_map = {
-      \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-      \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
-let g:lightline#bufferline#composed_number_map = {
-      \ 1:  '⑴ ', 2:  '⑵ ', 3:  '⑶ ', 4:  '⑷ ', 5:  '⑸ ',
-      \ 6:  '⑹ ', 7:  '⑺ ', 8:  '⑻ ', 9:  '⑼ ', 10: '⑽ ',
-      \ 11: '⑾ ', 12: '⑿ ', 13: '⒀ ', 14: '⒁ ', 15: '⒂ ',
-      \ 16: '⒃ ', 17: '⒄ ', 18: '⒅ ', 19: '⒆ ', 20: '⒇ '}
-
 
 """"" Neovim LSP related
 set completeopt=menuone,noinsert,noselect
@@ -359,6 +316,78 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
       { name = 'cmdline' }
     })
   })
+
+  -- disable netrw at the very start of your init.lua (strongly advised)
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
+  -- set termguicolors to enable highlight groups
+  vim.opt.termguicolors = true
+
+  -- empty setup using defaults
+  require("nvim-tree").setup()
+
+  -- OR setup with some options
+  require("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    view = {
+      width = 30,
+      mappings = {
+        list = {
+          { key = "u", action = "dir_up" },
+        },
+      },
+    },
+    renderer = {
+      group_empty = true,
+    },
+    filters = {
+      dotfiles = true,
+    },
+  })
+
+  require('lualine').setup {
+    options = {
+      icons_enabled = true,
+      theme = 'auto',
+      component_separators = { left = '', right = ''},
+      section_separators = { left = '', right = ''},
+      disabled_filetypes = {
+        statusline = {},
+        winbar = {},
+      },
+      ignore_focus = {},
+      always_divide_middle = true,
+      globalstatus = false,
+      refresh = {
+        statusline = 1000,
+        tabline = 1000,
+        winbar = 1000,
+      }
+    },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_c = {'filename'},
+      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress'},
+      lualine_z = {'location'}
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {'filename'},
+      lualine_x = {'location'},
+      lualine_y = {},
+      lualine_z = {}
+    },
+    tabline = {
+      lualine_a = {'buffers'},
+    },
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+  }
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -375,9 +404,6 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 highlight WinSeparator guibg=None
-
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeWinSize=50
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
