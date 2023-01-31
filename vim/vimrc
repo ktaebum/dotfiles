@@ -28,7 +28,6 @@ Plug 'nvim-lualine/lualine.nvim'
 " """""" searcher and file/tag navigators
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
@@ -40,6 +39,7 @@ Plug 'gisphm/vim-gitignore'                     " git ignore
 
 " """""" commenters
 Plug 'scrooloose/nerdcommenter'                 " easy-commenting
+Plug 'folke/todo-comments.nvim'
 
 " """""" syntax checker
 Plug 'dense-analysis/ale'
@@ -57,8 +57,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
 
 " """"" markdown
 Plug 'plasticboy/vim-markdown'
@@ -66,6 +65,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " """"" Tmuxline
 Plug 'edkolev/tmuxline.vim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 Plug 'tarekbecker/vim-yaml-formatter'
 
@@ -75,7 +75,6 @@ Plug 'tarekbecker/vim-yaml-formatter'
 " """"" Html
 Plug 'alvan/vim-closetag'
 
-Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 filetype plugin indent on
@@ -199,7 +198,7 @@ nmap <C-e> <C-W>=
 nmap <C-v> :vs<CR>
 nmap <C-W>v :sp<CR>
 nmap <C-p> :bp<CR>
-nmap <C-o> :FloatermNew<CR>
+nmap <C-o> :ToggleTerm<CR>
 nmap <leader>r :NvimTreeFindFile<CR>
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
@@ -269,7 +268,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   cmp.setup({
     snippet = {
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -286,7 +285,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'vsnip' },
+      { name = 'luasnip' },
     }, {
       { name = 'buffer' },
     }
@@ -390,6 +389,10 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
     inactive_winbar = {},
     extensions = {}
   }
+
+  require("todo-comments").setup {}
+
+  require("toggleterm").setup {}
 EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
