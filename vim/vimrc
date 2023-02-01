@@ -187,10 +187,10 @@ au BufNewFile,BufRead *.html set filetype=html
 
 """ key mapping
 nmap <Tab> :bn<CR>
-nmap <C-y> :vertical resize +10<CR>
-nmap <C-t> :vertical resize -10<CR>
-nmap <C-W>y :resize +10<CR>
-nmap <C-W>t :resize -10<CR>
+nmap <C-[>Up :vertical resize +10<CR>
+nmap <C-]> :vertical resize -10<CR>
+nmap <C-W>[ :resize +10<CR>
+nmap <C-W>] :resize -10<CR>
 nmap <leader>t :NvimTreeToggle<CR>
 nmap <leader>f :Telescope find_files<CR>
 nmap <leader>m <C-W><Bar><C-W>_
@@ -396,15 +396,15 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   require("toggleterm").setup {}
 EOF
 
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 "nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <c-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
 "nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 "nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 "nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 "nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-"nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
