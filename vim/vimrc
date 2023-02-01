@@ -192,7 +192,10 @@ nmap <C-]> :vertical resize -10<CR>
 nmap <C-W>[ :resize +10<CR>
 nmap <C-W>] :resize -10<CR>
 nmap <leader>t :NvimTreeToggle<CR>
-nmap <leader>f :Telescope find_files<CR>
+nmap <leader>ff <cmd>Telescope find_files<cr>
+nmap <leader>fg <cmd>Telescope live_grep<cr>
+nmap <leader>fb <cmd>Telescope buffers<cr>
+nmap <leader>fh <cmd>Telescope help_tags<cr>
 nmap <leader>m <C-W><Bar><C-W>_
 nmap <leader>n <C-W>1<Bar>
 nmap <C-e> <C-W>=
