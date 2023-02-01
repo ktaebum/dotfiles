@@ -1,6 +1,7 @@
 set encoding=utf-8
 set nocompatible
 set splitbelow
+set tags=./tags;/
 
 let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python3'
 
