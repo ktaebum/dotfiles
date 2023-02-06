@@ -17,6 +17,8 @@ Plug 'morhetz/gruvbox'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'EdenEast/nightfox.nvim'
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
@@ -107,139 +109,6 @@ set fillchars+=vert:\|
 set exrc
 set secure
 
-"""" vim tex """"
-let g:tex_conceal = ''
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
-
-"""" paper color scheme """"
-set t_Co=256
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-if &term =~ '256color'
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
-let g:python_highlight_all = 1
-let g:PaperColor_Theme_Options = {
-  \ 'language': {
-  \   'python': {
-  \     'highlight_builtins' : 1
-  \   },
-  \   'cpp': {
-  \     'highlight_standard_library': 1
-  \   },
-  \   'c': {
-  \     'highlight_standard_library': 1
-  \   }
-  \ },
-  \ 'theme': {
-  \   'default.light': {
-  \     'override' : {
-  \       'color00' : ['#f7f7f7', ''],
-  \       'linenumber_bg' : ['#f4f4f4', ''],
-  \       'linenumber_fg' : ['#afafaf', ''],
-  \       'error_bg' : ['#f7f7f7', ''],
-  \       'error_fg' : ['#d70000', ''],
-  \       'todo_bg' : ['#f7f7f7', ''],
-  \       'todo_fg' : ['#d75f00', ''],
-  \       'vertsplit_bg' : ['#f7f7f7', ''],
-  \     }
-  \   },
-  \   'default.dark': {
-  \     'override' : {
-  \       'error_bg' : ['#1c1c1c', ''],
-  \       'error_fg' : ['#d70000', ''],
-  \       'todo_bg' : ['#f7f7f7', ''],
-  \       'todo_fg' : ['#d75f00', ''],
-  \     }
-  \   }
-  \ }
-  \ }
-
-let g:edge_enable_italic = 0
-let g:sonokai_style = 'maia'
-let ayucolor="dark"
-let g:seoul256_background = 233
-let g:gruvbox_contrast_dark = "hard"
-let mapleader=" "
-
-color molokai
-set background=dark
-syntax on
-
-"""" python language set """"
-au FileType python setl sw=4 sts=4 et
-
-"""" HTML language set """"
-au BufNewFile,BufRead *.html set filetype=html
-
-""" key mapping
-nmap <Tab> :bn<CR>
-nmap <C-[>Up :vertical resize +10<CR>
-nmap <C-]> :vertical resize -10<CR>
-nmap <C-W>[ :resize +10<CR>
-nmap <C-W>] :resize -10<CR>
-nmap <leader>t :NvimTreeToggle<CR>
-nmap <leader>ff <cmd>Telescope find_files<cr>
-nmap <leader>fg <cmd>Telescope live_grep<cr>
-nmap <leader>fb <cmd>Telescope buffers<cr>
-nmap <leader>fh <cmd>Telescope help_tags<cr>
-nmap <leader>m <C-W><Bar><C-W>_
-nmap <leader>n <C-W>1<Bar>
-nmap <C-e> <C-W>=
-nmap <C-v> :vs<CR>
-nmap <C-W>v :sp<CR>
-nmap <C-p> :bp<CR>
-nmap <C-o> :ToggleTerm<CR>
-nmap <leader>r :NvimTreeFindFile<CR>
-nnoremap <silent> <C-h> <C-W>h
-nnoremap <silent> <C-l> <C-W>l
-nnoremap <silent> <C-k> <C-W>k
-nnoremap <silent> <C-j> <C-W>j
-nmap <Leader>1 :LualineBuffersJump 1<CR>
-nmap <Leader>2 :LualineBuffersJump 2<CR>
-nmap <Leader>3 :LualineBuffersJump 3<CR>
-nmap <Leader>4 :LualineBuffersJump 4<CR>
-nmap <Leader>5 :LualineBuffersJump 5<CR>
-nmap <Leader>6 :LualineBuffersJump 6<CR>
-nmap <Leader>7 :LualineBuffersJump 7<CR>
-nmap <Leader>8 :LualineBuffersJump 8<CR>
-nmap <Leader>9 :LualineBuffersJump 9<CR>
-nmap <Leader>` :LualineBuffersJump $<CR>
-nmap ; :
-
-"""" ale """"
-let g:ale_linters = {
-\   'python': ['pylint', 'pyright'],
-\   'c': ['clang', 'clang-format', 'clangtidy'],
-\   'cc': ['clang', 'clang-format', 'clangtidy'],
-\   'cpp': ['clang', 'clang-format', 'clangtidy'],
-\   'cuda': ['nvcc'],
-\   'rust': ['cargo', 'rustfmt'],
-\   'html': ['angular'],
-\   'typescript': ['eslint'],
-\}
-highlight ALEErrorSign guifg=#F92672 guibg=#232526
-highlight ALEWarningSign guifg=#ED6237 guibg=#232526
-"highlight ALEErrorSign guifg=#F92672 guibg=#1c1c1c
-"highlight ALEWarningSign guifg=#ED6237 guibg=#1c1c1c
-let g:ale_sign_error = "E"
-let g:ale_sign_warning = "W"
-let g:ale_set_highlights = 0
-let g:ale_linters_explicit = 1
-
 """"" Neovim LSP related
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
@@ -253,19 +122,25 @@ augroup end
 
 command! Format execute 'lua vim.lsp.buf.formatting()'
 
+""""" lua setup
 :lua << EOF
   local nvim_lsp = require('lspconfig')
 
   -- Set local servers.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html', 'tailwindcss', 'cssmodules_ls', 'cssls'}
+  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html', 'tailwindcss', 'cssmodules_ls', 'cssls', 'cmake'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
-      capabilities=capabilities
+      capabilities=capabilities,
+      handlers = {["textDocument/publishDiagnostics"] = function(...) end}
     }
   end
 
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false
+    }
+  )
 
   local cmp = require 'cmp'
   -- key bindings
@@ -388,6 +263,8 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
     },
     tabline = {
       lualine_a = {'buffers'},
+      lualine_c = {'filename'},
+      lualine_z = {'tabs'},
     },
     winbar = {},
     inactive_winbar = {},
@@ -399,6 +276,146 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   require("toggleterm").setup {}
 EOF
 
+"""" vim tex """"
+let g:tex_conceal = ''
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
+
+"""" paper color scheme """"
+set t_Co=256
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
+let g:python_highlight_all = 1
+let g:PaperColor_Theme_Options = {
+  \ 'language': {
+  \   'python': {
+  \     'highlight_builtins' : 1
+  \   },
+  \   'cpp': {
+  \     'highlight_standard_library': 1
+  \   },
+  \   'c': {
+  \     'highlight_standard_library': 1
+  \   }
+  \ },
+  \ 'theme': {
+  \   'default.light': {
+  \     'override' : {
+  \       'color00' : ['#f7f7f7', ''],
+  \       'linenumber_bg' : ['#f4f4f4', ''],
+  \       'linenumber_fg' : ['#afafaf', ''],
+  \       'error_bg' : ['#f7f7f7', ''],
+  \       'error_fg' : ['#d70000', ''],
+  \       'todo_bg' : ['#f7f7f7', ''],
+  \       'todo_fg' : ['#d75f00', ''],
+  \       'vertsplit_bg' : ['#f7f7f7', ''],
+  \     }
+  \   },
+  \   'default.dark': {
+  \     'override' : {
+  \       'error_bg' : ['#1c1c1c', ''],
+  \       'error_fg' : ['#d70000', ''],
+  \       'todo_bg' : ['#f7f7f7', ''],
+  \       'todo_fg' : ['#d75f00', ''],
+  \     }
+  \   }
+  \ }
+  \ }
+
+let g:edge_enable_italic = 0
+let g:sonokai_style = 'maia'
+let ayucolor="dark"
+let g:seoul256_background = 233
+let g:gruvbox_contrast_dark = "hard"
+let mapleader=" "
+
+color PaperColor
+set background=dark
+syntax on
+
+"""" python language set """"
+au FileType python setl sw=4 sts=4 et
+
+"""" HTML language set """"
+au BufNewFile,BufRead *.html set filetype=html
+
+""" key mapping
+nmap <Tab> :bn<CR>
+nmap <C-[>Up :vertical resize +10<CR>
+nmap <C-]> :vertical resize -10<CR>
+nmap <C-W>[ :resize +10<CR>
+nmap <C-W>] :resize -10<CR>
+nmap <leader>t :NvimTreeToggle<CR>
+nmap <leader>ff <cmd>Telescope find_files<cr>
+nmap <leader>fg <cmd>Telescope live_grep<cr>
+nmap <leader>fb <cmd>Telescope buffers<cr>
+nmap <leader>fh <cmd>Telescope help_tags<cr>
+nmap <leader>m <C-W><Bar><C-W>_
+nmap <leader>n <C-W>1<Bar>
+nmap <C-e> <C-W>=
+nmap <C-v> :vs<CR>
+nmap <C-W>v :sp<CR>
+nmap <C-p> :bp<CR>
+nmap <C-o> :ToggleTerm<CR>
+nmap <leader>r :NvimTreeFindFile<CR>
+nnoremap <silent> <C-h> <C-W>h
+nnoremap <silent> <C-l> <C-W>l
+nnoremap <silent> <C-k> <C-W>k
+nnoremap <silent> <C-j> <C-W>j
+nmap <Leader>1 :LualineBuffersJump 1<CR>
+nmap <Leader>2 :LualineBuffersJump 2<CR>
+nmap <Leader>3 :LualineBuffersJump 3<CR>
+nmap <Leader>4 :LualineBuffersJump 4<CR>
+nmap <Leader>5 :LualineBuffersJump 5<CR>
+nmap <Leader>6 :LualineBuffersJump 6<CR>
+nmap <Leader>7 :LualineBuffersJump 7<CR>
+nmap <Leader>8 :LualineBuffersJump 8<CR>
+nmap <Leader>9 :LualineBuffersJump 9<CR>
+nmap <Leader>` :LualineBuffersJump $<CR>
+nmap ; :
+
+"""" ale """"
+let g:ale_linters = {
+\   'python': ['pylint', 'pyright'],
+\   'c': ['clang', 'clang-format', 'clangtidy'],
+\   'cc': ['clang', 'clang-format', 'clangtidy'],
+\   'cpp': ['clang', 'clang-format', 'clangtidy'],
+\   'cuda': ['nvcc'],
+\   'rust': ['cargo', 'rustfmt'],
+\   'html': ['angular'],
+\   'typescript': ['eslint'],
+\}
+"molokai
+"highlight ALEErrorSign guifg=#F92672 guibg=#232526
+"highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+"carbonfox
+"highlight ALEErrorSign guifg=#F16DA6 guibg=#0c0c0c
+"highlight ALEWarningSign guifg=#2dc7c4 guibg=#0c0c0c
+"kanagawa
+"highlight ALEErrorSign guifg=#E82424 guibg=#1F1F28
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#1F1F28
+"papercolor
+highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
+highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
+let g:ale_sign_error = " "
+let g:ale_sign_warning = " "
+let g:ale_set_highlights = 0
+let g:ale_linters_explicit = 1
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 "nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
