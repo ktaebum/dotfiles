@@ -503,7 +503,7 @@ au BufNewFile,BufRead *.html set filetype=html
 """ key mapping
 let mapleader=" "
 nmap <Tab> :bn<CR>
-nmap <C-[>Up :vertical resize +10<CR>
+nmap <C-[> :vertical resize +10<CR>
 nmap <C-]> :vertical resize -10<CR>
 nmap <C-W>[ :resize +10<CR>
 nmap <C-W>] :resize -10<CR>
