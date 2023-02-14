@@ -20,6 +20,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'sainnhe/everforest'
+Plug 'folke/tokyonight.nvim'
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
@@ -62,8 +63,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'SirVer/ultisnips'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 " """"" markdown
 Plug 'plasticboy/vim-markdown'
@@ -150,7 +151,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
   cmp.setup({
     snippet = {
       expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -167,7 +168,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'ultisnips' },
+      { name = 'luasnip' },
     }, {
       { name = 'buffer' },
     }
