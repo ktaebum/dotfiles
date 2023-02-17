@@ -504,10 +504,10 @@ au BufNewFile,BufRead *.html set filetype=html
 """ key mapping
 let mapleader=" "
 nmap <Tab> :bn<CR>
-nmap <C-[> :vertical resize +10<CR>
-nmap <C-]> :vertical resize -10<CR>
-nmap <C-W>[ :resize +10<CR>
-nmap <C-W>] :resize -10<CR>
+nmap <leader>= :vertical resize +10<CR>
+nmap <leader>9 :vertical resize -10<CR>
+nmap <leader>- :resize +10<CR>
+nmap <leader>0 :resize -10<CR>
 nmap <leader>t :NvimTreeToggle<CR>
 nmap <leader>ff <cmd>Telescope find_files<cr>
 nmap <leader>fg <cmd>Telescope live_grep<cr>
@@ -533,7 +533,7 @@ nmap <Leader>5 :LualineBuffersJump 5<CR>
 nmap <Leader>6 :LualineBuffersJump 6<CR>
 nmap <Leader>7 :LualineBuffersJump 7<CR>
 nmap <Leader>8 :LualineBuffersJump 8<CR>
-nmap <Leader>9 :LualineBuffersJump 9<CR>
+"nmap <Leader>9 :LualineBuffersJump 9<CR>
 nmap <Leader>` :LualineBuffersJump $<CR>
 nmap ; :
 
