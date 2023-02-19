@@ -555,8 +555,8 @@ let g:ale_linters = {
 "highlight ALEErrorSign guifg=#F16DA6 guibg=#0c0c0c
 "highlight ALEWarningSign guifg=#2dc7c4 guibg=#0c0c0c
 "kanagawa
-highlight ALEErrorSign guifg=#E82424 guibg=#1F1F28
-highlight ALEWarningSign guifg=#FF9E3B guibg=#1F1F28
+"highlight ALEErrorSign guifg=#E82424 guibg=#1F1F28
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#1F1F28
 "papercolor
 "highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
 "highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
