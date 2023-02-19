@@ -491,7 +491,7 @@ let g:seoul256_background = 233
 let g:gruvbox_contrast_dark = "hard"
 let g:everforest_background = "hard"
 
-color seoul256
+color PaperColor
 set background=dark
 syntax on
 
@@ -558,8 +558,8 @@ let g:ale_linters = {
 "highlight ALEErrorSign guifg=#E82424 guibg=#1F1F28
 "highlight ALEWarningSign guifg=#FF9E3B guibg=#1F1F28
 "papercolor
-"highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
-"highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
+highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
+highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
 let g:ale_sign_error = " "
 let g:ale_sign_warning = " "
 let g:ale_set_highlights = 0
