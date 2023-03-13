@@ -21,6 +21,7 @@ Plug 'rebelot/kanagawa.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'sainnhe/everforest'
 Plug 'folke/tokyonight.nvim'
+Plug 'ayu-theme/ayu-vim'
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
@@ -431,14 +432,8 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
 
-"""" paper color scheme """"
 set t_Co=256
-
-if exists('+termguicolors')
-  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+set termguicolors
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
@@ -447,6 +442,7 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+"""" paper color scheme """"
 let g:python_highlight_all = 1
 let g:PaperColor_Theme_Options = {
   \ 'language': {
@@ -497,6 +493,7 @@ syntax on
 
 """" python language set """"
 au FileType python setl sw=4 sts=4 et
+let g:python_highlight_space_errors = 0
 
 """" HTML language set """"
 au BufNewFile,BufRead *.html set filetype=html
@@ -560,6 +557,9 @@ highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "papercolor
 "highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
 "highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
+"ayu
+"highlight ALEErrorSign guifg=#D70000 guibg=#14191F
+"highlight ALEWarningSign guifg=#FFAF00 guibg=#14191F
 let g:ale_sign_error = " "
 let g:ale_sign_warning = " "
 let g:ale_set_highlights = 0
