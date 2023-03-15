@@ -14,6 +14,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'tomasiser/vim-code-dark'
@@ -22,6 +23,9 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'sainnhe/everforest'
 Plug 'folke/tokyonight.nvim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'sainnhe/sonokai'
+Plug 'tomasiser/vim-code-dark'
+Plug 'joshdick/onedark.vim'
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
@@ -422,6 +426,18 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
     }
   }
 })
+
+  require('kanagawa').setup({
+    theme = "wave",
+    background = {
+      dark = "wave",
+      light = "lotus"
+    },
+  })
+
+  require("tokyonight").setup({
+    style = "night"
+  })
 EOF
 
 """" vim tex """"
@@ -481,11 +497,13 @@ let g:PaperColor_Theme_Options = {
   \ }
 
 let g:edge_enable_italic = 0
-let g:sonokai_style = 'maia'
+let g:sonokai_style = 'default'
 let ayucolor="dark"
 let g:seoul256_background = 233
 let g:gruvbox_contrast_dark = "hard"
-let g:everforest_background = "hard"
+let g:gruvbox_material_background = "medium"
+let g:gruvbox_material_ui_contrast = "high"
+let g:everforest_background = "medium"
 
 color molokai
 set background=dark
@@ -552,14 +570,20 @@ highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "highlight ALEErrorSign guifg=#F16DA6 guibg=#0c0c0c
 "highlight ALEWarningSign guifg=#2dc7c4 guibg=#0c0c0c
 "kanagawa
-"highlight ALEErrorSign guifg=#E82424 guibg=#1F1F28
-"highlight ALEWarningSign guifg=#FF9E3B guibg=#1F1F28
+"highlight ALEErrorSign guifg=#E82424 guibg=#2A2A37
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#2A2A37
 "papercolor
 "highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
 "highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
 "ayu
 "highlight ALEErrorSign guifg=#D70000 guibg=#14191F
 "highlight ALEWarningSign guifg=#FFAF00 guibg=#14191F
+"kanagawa-dragon
+"highlight ALEErrorSign guifg=#E82424 guibg=#282727
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#282727
+"codedark
+"highlight ALEErrorSign guifg=#E82424 guibg=#1E1E1E
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#1E1E1E
 let g:ale_sign_error = " "
 let g:ale_sign_warning = " "
 let g:ale_set_highlights = 0
