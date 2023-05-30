@@ -498,7 +498,7 @@ let g:gruvbox_material_background = "medium"
 let g:gruvbox_material_ui_contrast = "high"
 let g:everforest_background = "medium"
 
-color iceberg
+color molokai
 set background=dark
 syntax on
 
@@ -557,8 +557,8 @@ let g:ale_linters = {
 \   'typescript': ['eslint'],
 \}
 "molokai
-"highlight ALEErrorSign guifg=#F92672 guibg=#232526
-"highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+highlight ALEErrorSign guifg=#F92672 guibg=#232526
+highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "carbonfox
 "highlight ALEErrorSign guifg=#F16DA6 guibg=#0c0c0c
 "highlight ALEWarningSign guifg=#2dc7c4 guibg=#0c0c0c
@@ -578,8 +578,8 @@ let g:ale_linters = {
 "highlight ALEErrorSign guifg=#E82424 guibg=#1E1E1E
 "highlight ALEWarningSign guifg=#FF9E3B guibg=#1E1E1E
 "iceberg
-highlight ALEErrorSign guifg=#E82424 guibg=#1e2132
-highlight ALEWarningSign guifg=#FF9E3B guibg=#1e2132
+"highlight ALEErrorSign guifg=#E82424 guibg=#1e2132
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#1e2132
 let g:ale_sign_error = " "
 let g:ale_sign_warning = " "
 let g:ale_set_highlights = 0
