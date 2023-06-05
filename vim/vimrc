@@ -580,8 +580,8 @@ highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "iceberg
 "highlight ALEErrorSign guifg=#E82424 guibg=#1e2132
 "highlight ALEWarningSign guifg=#FF9E3B guibg=#1e2132
-let g:ale_sign_error = " "
-let g:ale_sign_warning = " "
+let g:ale_sign_error = "\uf188"
+let g:ale_sign_warning = "\uf071"
 let g:ale_set_highlights = 0
 let g:ale_linters_explicit = 1
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
