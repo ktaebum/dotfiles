@@ -3,7 +3,7 @@ set nocompatible
 set splitbelow
 set tags=./tags;/
 
-let g:python3_host_prog = '$HOME/Program/miniconda3/bin/python3'
+let g:python3_host_prog = '$HOME/program/miniconda3/bin/python3'
 
 call plug#begin('$HOME/.vim/plugged')
 
@@ -28,6 +28,9 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'joshdick/onedark.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'cocopon/iceberg.vim'
+Plug 'savq/melange-nvim'
+Plug 'jacoborus/tender.vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 """""" syntax highlight
 Plug 'vim-python/python-syntax'
@@ -103,7 +106,7 @@ set nu
 set relativenumber
 set noshowmode
 set autowrite
-set colorcolumn=120
+set colorcolumn=100
 highlight Comment cterm=italic
 set tabstop=2
 set softtabstop=2
@@ -498,12 +501,13 @@ let g:gruvbox_material_background = "medium"
 let g:gruvbox_material_ui_contrast = "high"
 let g:everforest_background = "medium"
 
-color molokai
+color kanagawa
 set background=dark
 syntax on
 
 """" python language set """"
 au FileType python setl sw=4 sts=4 et
+au FileType cpp,c,cuda setl sw=2 sts=2 et
 let g:python_highlight_space_errors = 0
 
 """" HTML language set """"
@@ -557,14 +561,14 @@ let g:ale_linters = {
 \   'typescript': ['eslint'],
 \}
 "molokai
-highlight ALEErrorSign guifg=#F92672 guibg=#232526
-highlight ALEWarningSign guifg=#ED6237 guibg=#232526
+"highlight ALEErrorSign guifg=#F92672 guibg=#232526
+"highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "carbonfox
 "highlight ALEErrorSign guifg=#F16DA6 guibg=#0c0c0c
 "highlight ALEWarningSign guifg=#2dc7c4 guibg=#0c0c0c
 "kanagawa
-"highlight ALEErrorSign guifg=#E82424 guibg=#2A2A37
-"highlight ALEWarningSign guifg=#FF9E3B guibg=#2A2A37
+highlight ALEErrorSign guifg=#E82424 guibg=#2A2A37
+highlight ALEWarningSign guifg=#FF9E3B guibg=#2A2A37
 "papercolor
 "highlight ALEErrorSign guifg=#D70000 guibg=#1C1C1C
 "highlight ALEWarningSign guifg=#FFAF00 guibg=#1C1C1C
@@ -580,6 +584,9 @@ highlight ALEWarningSign guifg=#ED6237 guibg=#232526
 "iceberg
 "highlight ALEErrorSign guifg=#E82424 guibg=#1e2132
 "highlight ALEWarningSign guifg=#FF9E3B guibg=#1e2132
+"melange
+"highlight ALEErrorSign guifg=#E82424 guibg=#292522
+"highlight ALEWarningSign guifg=#FF9E3B guibg=#292522
 let g:ale_sign_error = "\uf188"
 let g:ale_sign_warning = "\uf071"
 let g:ale_set_highlights = 0
