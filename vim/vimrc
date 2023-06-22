@@ -142,7 +142,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
 
   -- Set local servers.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'angularls', 'html', 'tailwindcss', 'cssmodules_ls', 'cssls', 'cmake'}
+  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'cmake', 'texlab'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
       capabilities=capabilities,
@@ -217,6 +217,8 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
 
   -- set termguicolors to enable highlight groups
   vim.opt.termguicolors = true
+
+  require("nvim-web-devicons").get_icons()
 
   require("nvim-tree").setup({
     sort_by = "case_sensitive",
