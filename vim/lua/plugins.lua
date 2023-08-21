@@ -53,6 +53,14 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons", opt = true }
   })
 
+  -- Blankline
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("configs.blankline")
+    end,
+  })
+
   -- LSP / Completions
   use({
     "neovim/nvim-lspconfig",
@@ -116,5 +124,7 @@ return require("packer").startup(function(use)
   })
 
   -- Colorscheme
+  use("marko-cerovac/material.nvim")
   use("tanvirtin/monokai.nvim")
+  use({ "ellisonleao/gruvbox.nvim" })
 end)
