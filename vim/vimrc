@@ -146,7 +146,7 @@ command! Format execute 'lua vim.lsp.buf.formatting()'
 
   -- Set local servers.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'cmake', 'texlab'}
+  local servers = {'clangd', 'vimls', 'pyright', 'tsserver', 'gopls', 'cmake', 'texlab', 'lua_ls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
       capabilities=capabilities,
