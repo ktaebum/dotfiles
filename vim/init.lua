@@ -110,4 +110,4 @@ require("monokai-pro").setup({
   override = function(c) end,
 })
 
-vim.cmd("colorscheme ayu")
+vim.cmd("colorscheme gruvbox")
