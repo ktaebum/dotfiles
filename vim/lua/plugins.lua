@@ -123,6 +123,14 @@ return require("packer").startup(function(use)
     end
   })
 
+  -- Comment
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('configs.comment')
+    end
+  })
+
   -- Colorscheme
   use("marko-cerovac/material.nvim")
   use("tanvirtin/monokai.nvim")
