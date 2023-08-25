@@ -113,6 +113,7 @@ return require("packer").startup(function(use)
       require("configs.autopairs")
     end,
   })
+  use("Vimjas/vim-python-pep8-indent")
 
   -- Terminal
   use({
@@ -130,6 +131,12 @@ return require("packer").startup(function(use)
       require('configs.comment')
     end
   })
+  use({
+    "folke/todo-comments.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end
+  })
 
   -- Colorscheme
   use("marko-cerovac/material.nvim")
@@ -139,4 +146,9 @@ return require("packer").startup(function(use)
   use("savq/melange-nvim")
   use("Shatur/neovim-ayu")
   use("loctvl842/monokai-pro.nvim")
+  use("projekt0n/github-nvim-theme")
+  use("Mofiqul/vscode.nvim")
+  use("sainnhe/everforest")
+  use("fenetikm/falcon")
+  use("Mofiqul/dracula.nvim")
 end)

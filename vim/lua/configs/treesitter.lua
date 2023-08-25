@@ -25,4 +25,8 @@ ts.setup({
   },
   auto_install = true,
   sync_install = true,
+  indent = {
+    enable = true,
+    disable = {"python"},
+  }
 })

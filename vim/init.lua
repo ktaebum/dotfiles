@@ -110,4 +110,5 @@ require("monokai-pro").setup({
   override = function(c) end,
 })
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("let g:everforest_background = 'hard'")
+vim.cmd("colorscheme github_dark")
