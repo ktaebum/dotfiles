@@ -65,12 +65,19 @@ return require("packer").startup(function(use)
   use({
     "neovim/nvim-lspconfig",
   })
+  use({
+    "williamboman/mason.nvim",
+    config = function()
+      require("configs.mason")
+    end,
+  })
   use("onsails/lspkind-nvim")
   use({
     "L3MON4D3/LuaSnip",
     tag = "v2.*",
     run = "make install_jsregexp",
   })
+  use("saadparwaiz1/cmp_luasnip")
   use({
     "hrsh7th/cmp-nvim-lsp",
     config = function()
@@ -126,7 +133,7 @@ return require("packer").startup(function(use)
 
   -- Comment
   use({
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
       require('configs.comment')
     end
@@ -136,6 +143,12 @@ return require("packer").startup(function(use)
     config = function()
       require("todo-comments").setup()
     end
+  })
+
+  -- Linter / Debugging
+  use({
+    "folke/trouble.nvim",
+    requires = { "nvim-tree/nvim-web-devicons", opt = true },
   })
 
   -- Colorscheme
