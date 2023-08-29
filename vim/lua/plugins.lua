@@ -77,7 +77,10 @@ return require("packer").startup(function(use)
     tag = "v2.*",
     run = "make install_jsregexp",
   })
-  use("saadparwaiz1/cmp_luasnip")
+  use({
+    "saadparwaiz1/cmp_luasnip",
+    after = "nvim-cmp"
+  })
   use({
     "hrsh7th/cmp-nvim-lsp",
     config = function()
