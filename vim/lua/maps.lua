@@ -26,6 +26,7 @@ map("n", "<leader>6", "<CMD>LualineBuffersJump 6<CR>")
 map("n", "<leader>7", "<CMD>LualineBuffersJump 7<CR>")
 map("n", "<leader>8", "<CMD>LualineBuffersJump 8<CR>")
 map("n", "<leader>`", "<CMD>LualineBuffersJump $<CR>")
+map("n", ";", ":")
 
 local treeStatus, nvimTree = pcall(require, "nvim-tree")
 if treeStatus then

@@ -33,3 +33,4 @@ o.showcmd = true -- Show (partial) command in the last line of the screen. Set t
 o.showmatch = true -- When a bracket is inserted, briefly jump to the matching one.
 o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smagic, :snomagic and user commands with the :command-preview flag as you type.
 o.splitbelow = "splitright" -- When on, splitting a window will put the new window below the current one
+o.colorcolumn = "100"
