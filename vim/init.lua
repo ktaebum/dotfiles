@@ -111,4 +111,4 @@ require("monokai-pro").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme github_dark")
+vim.cmd("colorscheme monokai")

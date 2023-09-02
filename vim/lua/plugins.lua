@@ -106,6 +106,22 @@ return require("packer").startup(function(use)
     end,
     event = "InsertEnter",
   })
+  use({
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  })
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    after = "nvim-web-devicons", -- keep this if you're using NvChad
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
 
   --- Tmux
   use("alexghergh/nvim-tmux-navigation")
@@ -167,4 +183,5 @@ return require("packer").startup(function(use)
   use("sainnhe/everforest")
   use("fenetikm/falcon")
   use("Mofiqul/dracula.nvim")
+  use("nyoom-engineering/oxocarbon.nvim")
 end)

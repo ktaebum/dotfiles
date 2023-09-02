@@ -8,6 +8,7 @@ vim.scriptencoding = "utf-8"
 global.mapleader = " "
 global.maplocalleader = " "
 
+o.tags = "tags"
 o.number = true -- Print the line number in front of each line
 o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = "unnamedplus" -- uses the clipboard register for all operations except yank.
