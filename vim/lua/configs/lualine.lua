@@ -40,9 +40,9 @@ lualine.setup({
     lualine_z = {},
   },
   tabline = {
-    lualine_a = { "buffers" },
-    lualine_c = { "filename" },
-    lualine_z = { "tabs" },
+    -- lualine_a = { "buffers" },
+    -- lualine_c = { "filename" },
+    -- lualine_z = { "tabs" },
   },
   winbar = {},
   inactive_winbar = {},
