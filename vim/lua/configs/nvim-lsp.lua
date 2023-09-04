@@ -17,6 +17,7 @@ local non_diagnostic_servers = {
   "cmake", -- Cmake
   "texlab", -- Latex
   "lua_ls", -- Lua
+  "bashls", -- Bash
 }
 
 local on_attach = function(client, bufnr)
