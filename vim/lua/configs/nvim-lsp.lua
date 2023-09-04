@@ -19,22 +19,24 @@ local non_diagnostic_servers = {
   "lua_ls", -- Lua
 }
 
+local on_attach = function(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
+end
+
 for _, lsp in ipairs(non_diagnostic_servers) do
   nvimLsp[lsp].setup({
     capabilities = capabilities,
     handlers = { ["textDocument/publishDiagnostics"] = function(...) end },
-    on_attach = function(client, bufnr)
-      navic.attach(client, bufnr)
-    end,
+    on_attach = on_attach,
   })
 end
 
 for _, lsp in ipairs(diagnostic_servers) do
   nvimLsp[lsp].setup({
     capabilities = capabilities,
-    on_attach = function(client, bufnr)
-      navic.attach(client, bufnr)
-    end,
+    on_attach = on_attach,
   })
 end
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

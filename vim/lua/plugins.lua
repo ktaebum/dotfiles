@@ -52,6 +52,14 @@ return require("packer").startup(function(use)
     end,
     requires = { "nvim-tree/nvim-web-devicons", opt = true }
   })
+  use({
+    "akinsho/bufferline.nvim",
+    tag = "*",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("configs.bufferline")
+    end,
+  })
 
   -- Blankline
   use({
