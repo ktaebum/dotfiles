@@ -27,8 +27,8 @@ map("n", "<leader>7", "<CMD>LualineBuffersJump 7<CR>")
 map("n", "<leader>8", "<CMD>LualineBuffersJump 8<CR>")
 map("n", "<leader>`", "<CMD>LualineBuffersJump $<CR>")
 map("n", ";", ":")
-map("x", "<leader>gl", ":'<,'>GetCommitLink<CR>")
-map("n", "<leader>gl", "<CMD>GetCommitLink<CR>")
+map("x", "<leader>gl", ":'<,'>GetCurrentCommitLink<CR>")
+map("n", "<leader>gl", "<CMD>GetCurrentCommitLink<CR>")
 
 local treeStatus, nvimTree = pcall(require, "nvim-tree")
 if treeStatus then
