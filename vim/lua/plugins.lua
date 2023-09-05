@@ -42,6 +42,7 @@ return require("packer").startup(function(use)
       require("configs.gitsigns")
     end,
   })
+  use("knsh14/vim-github-link")
 
   -- Statusline
   use({

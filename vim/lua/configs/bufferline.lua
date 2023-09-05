@@ -6,7 +6,7 @@ end
 
 bufferline.setup({
   options = {
-    numbers = "buffer_id",
+    numbers = "ordinal",
     diagnostics = "nvim_lsp",
     style_preset = bufferline.style_preset.minimal,
   }
