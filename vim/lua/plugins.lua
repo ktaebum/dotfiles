@@ -131,6 +131,7 @@ return require("packer").startup(function(use)
       require("barbecue").setup()
     end,
   })
+  use("simrat39/rust-tools.nvim")
 
   --- Tmux
   use("alexghergh/nvim-tmux-navigation")
@@ -177,6 +178,16 @@ return require("packer").startup(function(use)
   use({
     "folke/trouble.nvim",
     requires = { "nvim-tree/nvim-web-devicons", opt = true },
+  })
+
+  -- Key Bindings
+  use({
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup()
+    end
   })
 
   -- Colorscheme

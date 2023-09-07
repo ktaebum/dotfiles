@@ -7,10 +7,8 @@ end
 local navic = require("nvim-navic")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local diagnostic_servers = {
-  "pyright", -- Python
-}
-local non_diagnostic_servers = {
   "clangd", -- C++ / C
+  "pyright", -- Python
   "vimls", -- Vim
   "tsserver", -- Typescript
   "gopls", -- Go
@@ -18,6 +16,9 @@ local non_diagnostic_servers = {
   "texlab", -- Latex
   "lua_ls", -- Lua
   "bashls", -- Bash
+}
+
+local non_diagnostic_servers = {
 }
 
 local on_attach = function(client, bufnr)
