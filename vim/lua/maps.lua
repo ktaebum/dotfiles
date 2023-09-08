@@ -44,3 +44,13 @@ if tmuxStatus then
   map("n", "<C-k>", "<CMD>NvimTmuxNavigateUp<CR>")
   map("n", "<C-l>", "<CMD>NvimTmuxNavigateRight<CR>")
 end
+
+local troubleStatus, trouble = pcall(require, "trouble")
+if troubleStatus then
+  map("n", "<leader>do", trouble.open)
+  map("n", "<leader>dw", function() trouble.open("workspace_diagnostics") end)
+  map("n", "<leader>dd", function() trouble.open("document_diagnostics") end)
+  map("n", "<leader>dq", function() trouble.open("quickfix") end)
+  map("n", "<leader>dl", function() trouble.open("loclist") end)
+  map("n", "<leader>dr", function() trouble.open("lsp_references") end)
+end
