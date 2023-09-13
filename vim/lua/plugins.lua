@@ -205,4 +205,20 @@ return require("packer").startup(function(use)
   use("Mofiqul/dracula.nvim")
   use("nyoom-engineering/oxocarbon.nvim")
   use("folke/tokyonight.nvim")
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
+  use("EdenEast/nightfox.nvim")
+  use("nordtheme/vim")
+  use("shaunsingh/nord.nvim")
+  use({
+    "rose-pine/neovim",
+    as = "rose-pine"
+  })
+  use({
+    "bluz71/vim-nightfly-colors",
+    as = "nightfly"
+  })
+  use("arzg/vim-colors-xcode")
 end)

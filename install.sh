@@ -53,6 +53,7 @@ function install_nvim {
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ${PACKER_DIR}
   fi
   NVIM_CONFIG_PATH="${HOME}/.config/nvim"
+  mkdir -p "${HOME}/.config"
 
   if [ -L ${NVIM_CONFIG_PATH} ] ;
   then
