@@ -221,4 +221,8 @@ return require("packer").startup(function(use)
     as = "nightfly"
   })
   use("arzg/vim-colors-xcode")
+  use({
+    "daltonmenezes/aura-theme",
+    rtp = "packages/neovim",
+  })
 end)

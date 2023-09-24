@@ -20,6 +20,7 @@ map("n", "<C-o>", "<CMD>ToggleTerm<CR>")
 map("n", ";", ":")
 map("x", "<leader>gl", ":'<,'>GetCurrentCommitLink<CR>")
 map("n", "<leader>gl", "<CMD>GetCurrentCommitLink<CR>")
+-- map("n", "<leader>fo", function() vim.lsp.buf.format { async = true } end)
 
 local treeStatus, nvimTree = pcall(require, "nvim-tree")
 if treeStatus then
