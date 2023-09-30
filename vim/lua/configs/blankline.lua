@@ -1,4 +1,4 @@
-local status, blankline = pcall(require, "indent_blankline")
+local status, ibl = pcall(require, "ibl")
 
 if not status then
   return
@@ -6,7 +6,19 @@ end
 
 vim.opt.list = true
 
-blankline.setup({
-  show_end_of_line = true,
-  show_trailing_blankline_indent = true,
+local highlight = {
+  "Whitespace",
+}
+
+ibl.setup({
+  indent = {
+    highlight = highlight,
+  },
+  whitespace = {
+    highlight = highlight,
+    remove_blankline_trail = false,
+  },
+  scope = {
+    enabled = false,
+  },
 })
