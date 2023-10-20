@@ -116,4 +116,4 @@ require("onedark").setup {
 }
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme github_dark")
+vim.cmd("colorscheme tokyonight")
