@@ -110,5 +110,10 @@ require("monokai-pro").setup({
   override = function(c) end,
 })
 
+-- onedark
+require("onedark").setup {
+  style = "dark"
+}
+
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme nordfox")
+vim.cmd("colorscheme tokyonight")
