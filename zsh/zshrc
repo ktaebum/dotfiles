@@ -110,11 +110,6 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-if [ -d "$HOME/.local/nvim" ]; then
-  alias vi="$HOME/.local/nvim/bin/nvim"
-  alias vim="$HOME/.local/nvim/bin/nvim"
-fi
-
 alias tmux="env TERM=xterm-256color tmux"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
@@ -133,6 +128,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.local/llvm/lib:$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=$HOME/.local/llvm/include:$C_INCLUDE_PATH
 export CPP_INCLUDE_PATH=$HOME/.local/llvm/include:$CPP_INCLUDE_PATH
+
+if [ -x "$(command -v nvim)" ]; then
+  alias vi="nvim"
+  alias vim="nvim"
+fi
 
 # CUDA
 export CUDA_HOME=/usr/local/cuda
