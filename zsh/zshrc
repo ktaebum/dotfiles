@@ -150,6 +150,10 @@ export CPP_INCLUDE_PATH=$CUDA_HOME/extras/CUPIT/include:$CPP_INCLUDE_PATH
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# SPACESHIP PROMPT
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$($HOME/program/miniconda3/bin/conda 'shell.bash' 'hook' 2> /dev/null)"
