@@ -16,6 +16,11 @@ local diagnostic_servers = {
   "texlab", -- Latex
   "lua_ls", -- Lua
   "bashls", -- Bash
+  "jsonls", -- Json
+  "docker_compose_language_service", -- docker-compose
+  "dockerls", -- Dockerfile
+  "rust_analyzer", -- Rust
+  "yamlls" -- yaml
 }
 
 local non_diagnostic_servers = {

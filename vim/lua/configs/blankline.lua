@@ -13,6 +13,7 @@ local highlight = {
 ibl.setup({
   indent = {
     highlight = highlight,
+    char="┊"
   },
   whitespace = {
     highlight = highlight,
