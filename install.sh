@@ -8,6 +8,7 @@ function install_zsh {
   echo "Install zshrc..."
   ZSHRC_PATH="${HOME}/.zshrc"
   ZSH_PLUGINS_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
+  ZSH_THEMES_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes"
   if [ ! -d ${ZSH_PLUGINS_DIR}/zsh-autosuggestions ] ;
   then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_PLUGINS_DIR}/zsh-autosuggestions
@@ -16,6 +17,12 @@ function install_zsh {
   if [ ! -d ${ZSH_PLUGINS_DIR}/zsh-syntax-highlighting ] ;
   then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_PLUGINS_DIR}/zsh-syntax-highlighting
+  fi
+
+  if [ ! -d ${ZSH_THEMES_DIR}/spaceship-prompt ];
+  then
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_THEMES_DIR/spaceship-prompt" --depth=1
+    ln -s "$ZSH_THEMES_DIR/spaceship-prompt/spaceship.zsh-theme" "$ZSH_THEMES_DIR/spaceship.zsh-theme"
   fi
 
   if [ -L ${ZSHRC_PATH} ] ;
