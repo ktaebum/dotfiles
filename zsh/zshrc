@@ -162,6 +162,8 @@ SPACESHIP_PROMPT_ORDER=(
   git
   char
 )
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
