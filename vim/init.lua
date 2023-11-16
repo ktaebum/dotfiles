@@ -112,7 +112,14 @@ require("monokai-pro").setup({
 
 -- onedark
 require("onedark").setup({
-  style = "dark"
+  style = "dark",
+  code_style = {
+    comments = "italic",
+    keywords = "italic,bold",
+    functions = "bold",
+    strings = "none",
+    variables = "none"
+  },
 })
 
 require("github-theme").setup({
@@ -127,4 +134,4 @@ require("github-theme").setup({
 })
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme onedark")
