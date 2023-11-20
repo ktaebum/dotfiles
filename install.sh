@@ -44,8 +44,8 @@ function install_nvim {
   if [ ! -d "${HOME}/.local/nvim" ] ;
   then
     # install neovim
-    git clone git@github.com:neovim/neovim.git ${HOME}/program/neovim
-    sudo apt-get install -y ninja-build gettext cmake unzip curl
+    git clone https://github.com/neovim/neovim.git ${HOME}/program/neovim
+    sudo apt-get update && sudo apt-get install -y ninja-build gettext cmake unzip curl
     cd ${HOME}/program/neovim
     git fetch --tags
     LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
