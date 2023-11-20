@@ -134,4 +134,4 @@ require("github-theme").setup({
 })
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme catppuccin-macchiato")
