@@ -229,4 +229,9 @@ return require("packer").startup(function(use)
   use("rktjmp/lush.nvim")
   use("AlexvZyl/nordic.nvim")
   use("navarasu/onedark.nvim")
+  use({
+    "embark-theme/vim",
+    as = "embark"
+  })
+  use("oxfist/night-owl.nvim")
 end)

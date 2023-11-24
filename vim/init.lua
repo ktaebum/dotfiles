@@ -120,6 +120,9 @@ require("onedark").setup({
     strings = "none",
     variables = "none"
   },
+  lualine = {
+    transparent = false, -- lualine center bar transparency
+  },
 })
 
 require("github-theme").setup({
@@ -134,4 +137,4 @@ require("github-theme").setup({
 })
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme nordic")
