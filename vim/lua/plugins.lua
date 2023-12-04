@@ -220,6 +220,10 @@ return require("packer").startup(function(use)
     "bluz71/vim-nightfly-colors",
     as = "nightfly"
   })
+  use({
+    "bluz71/vim-moonfly-colors",
+    as = "moonfly"
+  })
   use("arzg/vim-colors-xcode")
   use({
     "daltonmenezes/aura-theme",
@@ -234,4 +238,9 @@ return require("packer").startup(function(use)
     as = "embark"
   })
   use("oxfist/night-owl.nvim")
+  use({
+    "kepano/flexoki-neovim",
+    as = "flexoki"
+  })
+  use("rmehri01/onenord.nvim")
 end)

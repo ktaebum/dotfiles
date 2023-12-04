@@ -136,5 +136,9 @@ require("github-theme").setup({
   }
 })
 
+-- nightfly
+vim.g.nightflyWinSeparator = 2
+vim.g.nightflyCursorColor = true
+
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme nordic")
+vim.cmd("colorscheme nightfly")
