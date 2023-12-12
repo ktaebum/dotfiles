@@ -127,11 +127,17 @@ require("onedark").setup({
 
 require("github-theme").setup({
   options = {
+    dim_inactive = true,
     styles = {
       comments = "italic",
       keywords = "bold",
       conditionals = "bold",
       constants = "italic,bold",
+    },
+    groups = {
+      all = {
+        Error = { link = "Comment" },
+      },
     }
   }
 })
@@ -141,4 +147,4 @@ vim.g.nightflyWinSeparator = 2
 vim.g.nightflyCursorColor = true
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme nightfly")
+vim.cmd("colorscheme github_dark")
