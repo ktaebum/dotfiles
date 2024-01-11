@@ -243,4 +243,6 @@ return require("packer").startup(function(use)
     as = "flexoki"
   })
   use("rmehri01/onenord.nvim")
+  use("ramojus/mellifluous.nvim")
+  use("olivercederborg/poimandres.nvim")
 end)
