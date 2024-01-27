@@ -35,25 +35,32 @@ require("kanagawa").setup({
   compile = false,             -- enable compiling the colorscheme
   undercurl = true,            -- enable undercurls
   commentStyle = { italic = true },
-  functionStyle = {},
-  keywordStyle = { italic = true},
-  statementStyle = { bold = true },
+  functionStyle = { bold = true },
+  keywordStyle = { italic = true, bold = true},
+  statementStyle = {},
   typeStyle = {},
   transparent = false,         -- do not set background color
-  dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+  dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
   colors = {                   -- add/modify theme and palette colors
-    palette = {},
+    palette = {
+      fujiWhite = "#F0ECD5",
+    },
     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
   },
-  overrides = function(colors) -- add/modify highlights
-    return {}
+  overrides = function(colors)
+    local theme = colors.theme
+    return {
+      ["@lsp.type.comment"] = {
+        link = "Comment",
+      },
+      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },  -- add `blend = vim.o.pumblend` to enable transparency
+      PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+      PmenuSbar = { bg = theme.ui.bg_m1 },
+      PmenuThumb = { bg = theme.ui.bg_p2 },
+    }
   end,
   theme = "wave",              -- Load "wave" theme when 'background' option is not set
-  background = {               -- map the value of 'background' option to a theme
-    dark = "wave",           -- try "dragon" !
-    light = "lotus"
-  },
 })
 
 -- ayu
@@ -240,6 +247,57 @@ require("tokyonight").setup({
 -- nightfly
 vim.g.nightflyWinSeparator = 2
 vim.g.nightflyCursorColor = true
+
+require('bamboo').setup {
+  -- Main options --
+  -- NOTE: to use the light theme, set `vim.o.background = 'light'`
+  style = 'multiplex', -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+  toggle_style_key = nil, -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
+  toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
+  transparent = false, -- Show/hide background
+  dim_inactive = false, -- Dim inactive windows/buffers
+  term_colors = true, -- Change terminal color as per the selected theme style
+  ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+  cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+  -- Change code style ---
+  -- Options are italic, bold, underline, none
+  -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+  code_style = {
+    comments = 'italic',
+    conditionals = 'italic',
+    keywords = 'none',
+    functions = 'none',
+    namespaces = 'italic',
+    parameters = 'italic',
+    strings = 'none',
+    variables = 'none',
+  },
+
+  -- Lualine options --
+  lualine = {
+    transparent = false, -- lualine center bar transparency
+  },
+
+  -- Custom Highlights --
+  colors = {}, -- Override default colors
+  highlights = {}, -- Override highlight groups
+
+  -- Plugins Config --
+  diagnostics = {
+    darker = false, -- darker colors for diagnostic
+    undercurl = true, -- use undercurl instead of underline for diagnostics
+    background = true, -- use background color for virtual text
+  },
+}
+
+-- nord
+vim.g.nord_contrast = true
+vim.g.nord_borders = true
+vim.g.nord_disable_background = false
+vim.g.nord_italic = true
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = true
 
 vim.cmd("let g:everforest_background = 'medium'")
 vim.cmd("colorscheme tokyonight")
