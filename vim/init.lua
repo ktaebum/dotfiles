@@ -300,4 +300,4 @@ vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = true
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme kanagawa")
