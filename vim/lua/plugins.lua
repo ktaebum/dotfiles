@@ -246,4 +246,9 @@ return require("packer").startup(function(use)
   use("ramojus/mellifluous.nvim")
   use("olivercederborg/poimandres.nvim")
   use("ribru17/bamboo.nvim")
+  use("luisiacc/gruvbox-baby")
+  use({
+    "uloco/bluloco.nvim",
+    requires = { "rktjmp/lush.nvim" }
+  })
 end)

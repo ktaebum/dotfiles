@@ -65,7 +65,7 @@ require("kanagawa").setup({
 
 -- ayu
 require('ayu').setup({
-  mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+  mirage = true, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
   overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
 })
 
@@ -129,6 +129,12 @@ require("onedark").setup({
   },
   lualine = {
     transparent = false, -- lualine center bar transparency
+  },
+  -- Plugins Config --
+  diagnostics = {
+    darker = true, -- darker colors for diagnostic
+    undercurl = true,   -- use undercurl instead of underline for diagnostics
+    background = true,    -- use background color for virtual text
   },
 })
 
@@ -300,4 +306,4 @@ vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = true
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme tokyonight")
