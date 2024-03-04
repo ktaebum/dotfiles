@@ -21,6 +21,7 @@ return require("packer").startup(function(use)
       require("configs.treesitter")
     end,
   })
+  -- use("nvim-treesitter/nvim-treesitter-context")
 
   -- Tree search
   use("nvim-tree/nvim-web-devicons")

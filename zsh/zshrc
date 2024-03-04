@@ -124,6 +124,8 @@ export PATH=$HOME/.local/node/bin:$PATH
 export PATH=$HOME/.local/ctags/bin:$PATH
 export PATH=$HOME/.local/llvm/bin:$PATH
 export PATH=$HOME/.local/gh/bin:$PATH
+export PATH=$HOME/.local/protoc/bin:$PATH
+export PATH=$HOME/.local/valgrind/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.local/llvm/lib:$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=$HOME/.local/llvm/include:$C_INCLUDE_PATH
@@ -149,6 +151,10 @@ export CPP_INCLUDE_PATH=$CUDA_HOME/extras/CUPIT/include:$CPP_INCLUDE_PATH
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+export ORCA_HOME=$HOME/workspace/orca
+export HF_HUB_CACHE="/data/huggingface/hub"
+export HF_DATASETS_CACHE="/data/huggingface/datasets"
 
 # SPACESHIP PROMPT
 SPACESHIP_PROMPT_ADD_NEWLINE=false
