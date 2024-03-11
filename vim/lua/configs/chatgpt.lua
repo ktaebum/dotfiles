@@ -8,7 +8,7 @@ local home = os.getenv("HOME")
 chatgpt.setup({
   openai_params = {
     model = "",
-    max_tokens = 512,
+    max_tokens = 2048,
     top_p = 0.8,
     temperature = 0.9
   },
