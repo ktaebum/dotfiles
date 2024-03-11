@@ -191,6 +191,20 @@ return require("packer").startup(function(use)
     end
   })
 
+  -- ChatGPT
+  use({
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("configs.chatgpt")
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
+
   -- Colorscheme
   use("marko-cerovac/material.nvim")
   use("tanvirtin/monokai.nvim")
