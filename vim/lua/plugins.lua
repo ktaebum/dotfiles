@@ -206,27 +206,18 @@ return require("packer").startup(function(use)
   })
 
   -- Colorscheme
-  use("marko-cerovac/material.nvim")
-  use("tanvirtin/monokai.nvim")
-  use("ellisonleao/gruvbox.nvim")
   use("rebelot/kanagawa.nvim")
-  use("savq/melange-nvim")
-  use("Shatur/neovim-ayu")
   use("loctvl842/monokai-pro.nvim")
   use("projekt0n/github-nvim-theme")
   use("Mofiqul/vscode.nvim")
   use("sainnhe/everforest")
-  use("fenetikm/falcon")
   use("Mofiqul/dracula.nvim")
-  use("nyoom-engineering/oxocarbon.nvim")
   use("folke/tokyonight.nvim")
   use({
     "catppuccin/nvim",
     as = "catppuccin"
   })
   use("EdenEast/nightfox.nvim")
-  use("nordtheme/vim")
-  use("shaunsingh/nord.nvim")
   use({
     "rose-pine/neovim",
     as = "rose-pine"
@@ -239,31 +230,6 @@ return require("packer").startup(function(use)
     "bluz71/vim-moonfly-colors",
     as = "moonfly"
   })
-  use("arzg/vim-colors-xcode")
-  use({
-    "daltonmenezes/aura-theme",
-    rtp = "packages/neovim",
-  })
-  use("yorik1984/newpaper.nvim")
-  use("rktjmp/lush.nvim")
   use("AlexvZyl/nordic.nvim")
   use("navarasu/onedark.nvim")
-  use({
-    "embark-theme/vim",
-    as = "embark"
-  })
-  use("oxfist/night-owl.nvim")
-  use({
-    "kepano/flexoki-neovim",
-    as = "flexoki"
-  })
-  use("rmehri01/onenord.nvim")
-  use("ramojus/mellifluous.nvim")
-  use("olivercederborg/poimandres.nvim")
-  use("ribru17/bamboo.nvim")
-  use("luisiacc/gruvbox-baby")
-  use({
-    "uloco/bluloco.nvim",
-    requires = { "rktjmp/lush.nvim" }
-  })
 end)

@@ -6,30 +6,6 @@ require("maps")
 
 -- Colorschemes
 
--- gruvbox
-require("gruvbox").setup({
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = {
-    strings = true,
-    comments = true,
-    operators = false,
-    folds = true,
-  },
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "soft", -- can be "hard", "soft" or empty string
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = false,
-})
-
 -- kanagawa
 require("kanagawa").setup({
   compile = false,             -- enable compiling the colorscheme
@@ -61,12 +37,6 @@ require("kanagawa").setup({
     }
   end,
   theme = "wave",              -- Load "wave" theme when 'background' option is not set
-})
-
--- ayu
-require('ayu').setup({
-  mirage = true, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
-  overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
 })
 
 -- monokai-pro
@@ -155,65 +125,6 @@ require("github-theme").setup({
   }
 })
 
-require("mellifluous").setup({
-    dim_inactive = false,
-    color_set = "mellifluous",
-    styles = { -- see :h attr-list for options. set {} for NONE, { option = true } for option
-        comments = { italic = true },
-        conditionals = {},
-        folds = {},
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-    },
-    transparent_background = {
-        enabled = false,
-        floating_windows = true,
-        telescope = true,
-        file_tree = true,
-        cursor_line = true,
-        status_line = false,
-    },
-    flat_background = {
-        line_numbers = false,
-        floating_windows = false,
-        file_tree = false,
-        cursor_line_number = false,
-    },
-    plugins = {
-        cmp = true,
-        gitsigns = true,
-        indent_blankline = true,
-        nvim_tree = {
-            enabled = true,
-            show_root = false,
-        },
-        neo_tree = {
-            enabled = true,
-        },
-        telescope = {
-            enabled = true,
-            nvchad_like = true,
-        },
-        startify = true,
-    },
-})
-
-require("poimandres").setup {
-  bold_vert_split = false, -- use bold vertical separators
-  dim_nc_background = false, -- dim 'non-current' window backgrounds
-  disable_background = false, -- disable background
-  disable_float_background = false, -- disable background for floats
-  disable_italics = false, -- disable italics
-}
-
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
@@ -254,56 +165,54 @@ require("tokyonight").setup({
 vim.g.nightflyWinSeparator = 2
 vim.g.nightflyCursorColor = true
 
-require('bamboo').setup {
-  -- Main options --
-  -- NOTE: to use the light theme, set `vim.o.background = 'light'`
-  style = 'multiplex', -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
-  toggle_style_key = nil, -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
-  toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
-  transparent = false, -- Show/hide background
-  dim_inactive = false, -- Dim inactive windows/buffers
-  term_colors = true, -- Change terminal color as per the selected theme style
-  ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-  cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-  -- Change code style ---
-  -- Options are italic, bold, underline, none
-  -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
-  code_style = {
-    comments = 'italic',
-    conditionals = 'italic',
-    keywords = 'none',
-    functions = 'none',
-    namespaces = 'italic',
-    parameters = 'italic',
-    strings = 'none',
-    variables = 'none',
+-- catppuccin
+require("catppuccin").setup({
+  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  background = { -- :h background
+    light = "latte",
+    dark = "macchiato",
   },
-
-  -- Lualine options --
-  lualine = {
-    transparent = false, -- lualine center bar transparency
+  transparent_background = false, -- disables setting the background color.
+  show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
+  term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+  dim_inactive = {
+    enabled = true, -- dims the background color of inactive window
+    shade = "dark",
+    percentage = 0.05, -- percentage of the shade to apply to the inactive window
   },
-
-  -- Custom Highlights --
-  colors = {}, -- Override default colors
-  highlights = {}, -- Override highlight groups
-
-  -- Plugins Config --
-  diagnostics = {
-    darker = false, -- darker colors for diagnostic
-    undercurl = true, -- use undercurl instead of underline for diagnostics
-    background = true, -- use background color for virtual text
+  no_italic = false, -- Force no italic
+  no_bold = false, -- Force no bold
+  no_underline = false, -- Force no underline
+  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { "italic" }, -- Change the style of comments
+    conditionals = { "italic" },
+    loops = {},
+    functions = { "bold" },
+    keywords = { "bold" },
+    strings = { "bold" },
+    variables = {},
+    numbers = { "bold" },
+    booleans = { "bold" },
+    properties = {},
+    types = {},
+    operators = {},
+    -- miscs = {}, -- Uncomment to turn off hard-coded styles
   },
-}
-
--- nord
-vim.g.nord_contrast = true
-vim.g.nord_borders = true
-vim.g.nord_disable_background = false
-vim.g.nord_italic = true
-vim.g.nord_uniform_diff_background = true
-vim.g.nord_bold = true
+  color_overrides = {},
+  custom_highlights = {},
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+        enabled = true,
+        indentscope_color = "",
+    },
+    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+  },
+})
 
 vim.cmd("let g:everforest_background = 'medium'")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme catppuccin")
