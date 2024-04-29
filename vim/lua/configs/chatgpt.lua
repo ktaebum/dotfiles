@@ -15,5 +15,5 @@ chatgpt.setup({
   actions_paths = {
     home .. "/.dotfiles/vim/lua/configs/chatgpt_actions.json"
   },
-  api_host_cmd = "echo -n https://inference.friendli.ai/mixtral-8x7b-instruct-v0-1",
+  api_host_cmd = "echo -n https://inference.friendli.ai/meta-llama-3-70b-instruct",
 })
