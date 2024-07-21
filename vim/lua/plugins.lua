@@ -231,8 +231,18 @@ return require("packer").startup(function(use)
     as = "moonfly"
   })
   use("AlexvZyl/nordic.nvim")
-  use("navarasu/onedark.nvim")
   use("scottmckendry/cyberdream.nvim")
   use("yorik1984/newpaper.nvim")
   use("shaunsingh/solarized.nvim")
+  use({
+    "kepano/flexoki-neovim",
+    as = "flexoki"
+  })
+  use("ellisonleao/gruvbox.nvim")
+  use("olimorris/onedarkpro.nvim")
+  use("shaunsingh/nord.nvim")
+  use({
+    "uloco/bluloco.nvim",
+    requires = { "rktjmp/lush.nvim" }
+  })
 end)
