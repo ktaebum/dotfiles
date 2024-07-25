@@ -245,4 +245,9 @@ return require("packer").startup(function(use)
     "uloco/bluloco.nvim",
     requires = { "rktjmp/lush.nvim" }
   })
+  use({
+    "sho-87/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+  })
 end)

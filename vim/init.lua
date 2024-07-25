@@ -146,7 +146,7 @@ vim.g.nightflyCursorColor = true
 
 -- catppuccin
 require("catppuccin").setup({
-  flavour = "frappe", -- latte, frappe, macchiato, mocha
+  flavour = "macchiato", -- latte, frappe, macchiato, mocha
   background = { -- :h background
     light = "latte",
     dark = "macchiato",
@@ -233,4 +233,4 @@ require("cyberdream").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme vscode")
+vim.cmd("colorscheme catppuccin")
