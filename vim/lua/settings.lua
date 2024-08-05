@@ -37,3 +37,4 @@ o.splitbelow = true
 o.splitright = true
 o.colorcolumn = "100"
 o.termguicolors = true
+-- o.background = "light"
