@@ -308,4 +308,4 @@ require("rose-pine").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme catppuccin")
