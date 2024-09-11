@@ -10,7 +10,7 @@ local diagnostic_servers = {
   "clangd", -- C++ / C
   "pyright", -- Python
   "vimls", -- Vim
-  "tsserver", -- Typescript
+  "ts_ls", -- Typescript
   "gopls", -- Go
   "cmake", -- Cmake
   "texlab", -- Latex
