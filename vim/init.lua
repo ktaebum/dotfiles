@@ -269,4 +269,4 @@ require("rose-pine").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme ayu")
+vim.cmd("colorscheme ayu-mirage")
