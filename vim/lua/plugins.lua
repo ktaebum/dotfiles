@@ -231,9 +231,6 @@ return require("packer").startup(function(use)
     as = "moonfly"
   })
   use("AlexvZyl/nordic.nvim")
-  use("scottmckendry/cyberdream.nvim")
-  use("yorik1984/newpaper.nvim")
-  use("shaunsingh/solarized.nvim")
   use({
     "kepano/flexoki-neovim",
     as = "flexoki"
@@ -241,13 +238,5 @@ return require("packer").startup(function(use)
   use("ellisonleao/gruvbox.nvim")
   use("olimorris/onedarkpro.nvim")
   use("shaunsingh/nord.nvim")
-  use({
-    "uloco/bluloco.nvim",
-    requires = { "rktjmp/lush.nvim" }
-  })
-  use({
-    "sho-87/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
-  })
+  use("Shatur/neovim-ayu")
 end)
