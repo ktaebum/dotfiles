@@ -20,7 +20,7 @@ require("kanagawa").setup({
   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
   colors = {                   -- add/modify theme and palette colors
     palette = {
-      fujiWhite = "#F0ECD5",
+      -- fujiWhite = "#F0ECD5",
     },
     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
   },
@@ -107,7 +107,7 @@ require("github-theme").setup({
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
@@ -146,7 +146,7 @@ vim.g.nightflyCursorColor = true
 
 -- catppuccin
 require("catppuccin").setup({
-  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  flavour = "latte", -- latte, frappe, macchiato, mocha
   background = { -- :h background
     light = "latte",
     dark = "macchiato",
