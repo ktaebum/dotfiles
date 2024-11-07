@@ -162,6 +162,7 @@ export OPENAI_API_KEY=$(echo -n $(cat $HOME/.local/fai))
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_PROMPT_ORDER=(
+  time
   host
   sudo
   conda
@@ -172,6 +173,8 @@ SPACESHIP_PROMPT_ORDER=(
 )
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_FORMAT='%D{%H:%M:%S}'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
