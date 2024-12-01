@@ -294,4 +294,4 @@ require("gruvbox").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme nordic")
+vim.cmd("colorscheme flexoki-dark")
