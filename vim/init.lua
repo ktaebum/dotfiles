@@ -309,7 +309,7 @@ require('material').setup({
         comments = { italic = true },
         strings = { bold = true },
         keywords = { --[[ underline = true ]] },
-        functions = { bold = true, undercurl = true },
+        functions = { bold = true, undercurl = false },
         variables = {},
         operators = {},
         types = {},
