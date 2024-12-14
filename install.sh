@@ -130,6 +130,16 @@ function install_ctags {
   fi
 }
 
+function install_rust {
+  echo "Install rust..."
+  if [ -x "$(command -v cargo)" ] ;
+  then
+    cargo install ripgrep fd-find
+  else
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -138,6 +148,8 @@ then
   install_nvim
   install_tmux
   install_node
+  install_ctags
+  install_rust
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -153,6 +165,9 @@ then
 elif [ "${INSTALL_TARGET}" == "ctags" ] ;
 then
   install_ctags
+elif [ "${INSTALL_TARGET}" == "rust" ] ;
+then
+  install_rust
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
