@@ -140,6 +140,19 @@ function install_rust {
   fi
 }
 
+function install_llvm {
+  echo "Install llvm..."
+  LLVM_DIR="${HOME}/.local/llvm"
+  if [ ! -d ${LLVM_DIR} ] ;
+  then
+    LLVM_VERSION="18.1.8"
+    LLVM_TAR_FILE="clang+llvm-18.1.8-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+    wget "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/${LLVM_TAR_FILE}" -P ${HOME}/.local
+    mkdir -p "${HOME}/.local/llvm" && tar -xvf "${HOME}/.local/${LLVM_TAR_FILE}" -C "${HOME}/.local/llvm" --strip-components=1
+    rm -f "${HOME}/.local/${LLVM_TAR_FILE}"
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -150,6 +163,7 @@ then
   install_node
   install_ctags
   install_rust
+  install_llvm
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -168,6 +182,9 @@ then
 elif [ "${INSTALL_TARGET}" == "rust" ] ;
 then
   install_rust
+elif [ "${INSTALL_TARGET}" == "llvm" ] ;
+then
+  install_llvm
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
