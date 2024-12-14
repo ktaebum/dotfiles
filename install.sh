@@ -99,6 +99,19 @@ function install_tmux {
   ln -s ${DOTFILES}/tmux/tmux.conf ${TMUX_CONF_PATH}
 }
 
+function install_node {
+  echo "Install node..."
+  NODE_DIR="${HOME}/.local/node"
+  if [ ! -d ${NODE_DIR} ] ;
+  then
+    NODE_VERSION="v22.12.0"
+    NODE_TAR_FILE="node-${NODE_VERSION}-linux-x64.tar.xz"
+    wget "https://nodejs.org/dist/${NODE_VERSION}/${NODE_TAR_FILE}" -P "${HOME}/.local"
+    mkdir -p "${HOME}/.local/node-test" && tar -xvf "${HOME}/.local/${NODE_TAR_FILE}" -C "${HOME}/.local/node-test" --strip-components=1
+    rm -f "${HOME}/.local/${NODE_TAR_FILE}"
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -106,6 +119,7 @@ then
   install_zsh
   install_nvim
   install_tmux
+  install_node
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -115,6 +129,9 @@ then
 elif [ "${INSTALL_TARGET}" == "tmux" ] ;
 then
   install_tmux
+elif [ "${INSTALL_TARGET}" == "node" ] ;
+then
+  install_node
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
