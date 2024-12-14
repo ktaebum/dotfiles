@@ -112,6 +112,24 @@ function install_node {
   fi
 }
 
+function install_ctags {
+  echo "Install ctags..."
+
+  if [ ! -d "${HOME}/.local/ctags" ] ;
+  then
+    # install ctags
+    git clone https://github.com/universal-ctags/ctags.git ${HOME}/program/ctags
+    cd ${HOME}/program/ctags
+    git fetch --tags
+    LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+    git checkout ${LATEST_TAG}
+    ./autogen.sh
+    ./configure --prefix=${HOME}/.local/ctags
+    make && make install
+    cd ${DOTFILES}
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -132,6 +150,9 @@ then
 elif [ "${INSTALL_TARGET}" == "node" ] ;
 then
   install_node
+elif [ "${INSTALL_TARGET}" == "ctags" ] ;
+then
+  install_ctags
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
