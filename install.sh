@@ -4,6 +4,16 @@
 
 DOTFILES="$(pwd)"
 
+function install_conda {
+  echo "Install conda..."
+  if [ ! -x "$(command -v conda)" ] ;
+  then
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --directory-prefix=${HOME}/.local
+    sh ${HOME}/.local/Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/.local/test-conda
+    rm ${HOME}/.local/Miniconda3-latest-Linux-x86_64.sh
+  fi
+}
+
 function install_zsh {
   echo "Install zshrc..."
   ZSHRC_PATH="${HOME}/.zshrc"
@@ -157,6 +167,7 @@ INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
 then
+  install_conda
   install_zsh
   install_nvim
   install_tmux
@@ -185,6 +196,9 @@ then
 elif [ "${INSTALL_TARGET}" == "llvm" ] ;
 then
   install_llvm
+elif [ "${INSTALL_TARGET}" == "conda" ] ;
+then
+  install_conda
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
