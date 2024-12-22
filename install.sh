@@ -9,7 +9,7 @@ function install_conda {
   if [ ! -x "$(command -v conda)" ] ;
   then
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --directory-prefix=${HOME}/.local
-    sh ${HOME}/.local/Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/.local/test-conda
+    sh ${HOME}/.local/Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/program/miniconda3
     rm ${HOME}/.local/Miniconda3-latest-Linux-x86_64.sh
   fi
 }
