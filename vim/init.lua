@@ -357,4 +357,4 @@ require('material').setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme material-darker")
