@@ -12,9 +12,9 @@ require("kanagawa").setup({
   undercurl = true,            -- enable undercurls
   commentStyle = { italic = true },
   functionStyle = { bold = true },
-  keywordStyle = { italic = true, bold = true},
+  keywordStyle = { italic = false, bold = true},
   statementStyle = {},
-  typeStyle = {},
+  typeStyle = { bold = true },
   transparent = false,         -- do not set background color
   dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
@@ -401,4 +401,4 @@ require("nightfox").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme kanagawa")
