@@ -401,4 +401,4 @@ require("nightfox").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme kanagawa")
