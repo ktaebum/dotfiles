@@ -8,6 +8,10 @@ require("maps")
 
 -- kanagawa
 require("kanagawa").setup({
+  background = {
+    dark = "dragon",
+    light = "lotus"
+  },
   compile = false,             -- enable compiling the colorscheme
   undercurl = true,            -- enable undercurls
   commentStyle = { italic = true },
@@ -115,7 +119,7 @@ require("tokyonight").setup({
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
     comments = { italic = true },
-    keywords = { italic = true, bold = true },
+    keywords = { italic = false, bold = true },
     functions = { bold = true },
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
@@ -286,7 +290,7 @@ require("gruvbox").setup({
   invert_tabline = false,
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
+  contrast = "medium", -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
@@ -379,7 +383,7 @@ require("nightfox").setup({
       conditionals = "bold",
       constants = "bold",
       functions = "NONE",
-      keywords = "italic",
+      keywords = "bold",
       numbers = "NONE",
       operators = "NONE",
       strings = "NONE",
@@ -400,5 +404,63 @@ require("nightfox").setup({
   groups = {},
 })
 
+require("nordic").setup({
+  -- This callback can be used to override the colors used in the base palette.
+  on_palette = function(palette) end,
+  -- This callback can be used to override the colors used in the extended palette.
+  after_palette = function(palette) end,
+  -- This callback can be used to override highlights before they are applied.
+  on_highlight = function(highlights, _palette)
+    for _, highlight in pairs(highlights) do
+      highlight.italic = false
+      highlight.underline = false
+    end
+  end,
+  -- Enable bold keywords.
+  bold_keywords = true,
+  -- Enable italic comments.
+  italic_comments = true,
+  -- Enable editor background transparency.
+  transparent = {
+    -- Enable transparent background.
+    bg = false,
+    -- Enable transparent background for floating windows.
+    float = false,
+  },
+  -- Enable brighter float border.
+  bright_border = false,
+  -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+  reduced_blue = true,
+  -- Swap the dark background with the normal one.
+  swap_backgrounds = false,
+  -- Cursorline options.  Also includes visual/selection.
+  cursorline = {
+    -- Bold font in cursorline.
+    bold = false,
+    -- Bold cursorline number.
+    bold_number = true,
+    -- Available styles: 'dark', 'light'.
+    theme = "dark",
+    -- Blending the cursorline bg with the buffer bg.
+    blend = 0.85,
+  },
+  noice = {
+    -- Available styles: `classic`, `flat`.
+    style = "classic",
+  },
+  telescope = {
+    -- Available styles: `classic`, `flat`.
+    style = "flat",
+  },
+  leap = {
+    -- Dims the backdrop when using leap.
+    dim_backdrop = true,
+  },
+  ts_context = {
+    -- Enables dark background for treesitter-context window
+    dark_background = true,
+  }
+})
+
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme tokyonight")
