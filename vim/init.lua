@@ -198,7 +198,7 @@ require("catppuccin").setup({
 })
 
 require("rose-pine").setup({
-  variant = "auto", -- auto, main, moon, or dawn
+  variant = "main", -- auto, main, moon, or dawn
   dark_variant = "moon", -- main, moon, or dawn
   dim_inactive_windows = true,
   extend_background_behind_borders = true,
@@ -261,9 +261,9 @@ require("rose-pine").setup({
 
   before_highlight = function(group, highlight, palette)
     -- Disable all undercurls
-    -- if highlight.undercurl then
-    --     highlight.undercurl = false
-    -- end
+    if highlight.undercurl then
+        highlight.undercurl = false
+    end
     --
     -- Change palette colour
     -- if highlight.fg == palette.pine then
@@ -463,4 +463,4 @@ require("nordic").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme rose-pine")
