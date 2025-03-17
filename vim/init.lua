@@ -9,11 +9,11 @@ require("maps")
 -- kanagawa
 require("kanagawa").setup({
   background = {
-    dark = "dragon",
+    dark = "wave",
     light = "lotus"
   },
   compile = false,             -- enable compiling the colorscheme
-  undercurl = true,            -- enable undercurls
+  undercurl = false,            -- enable undercurls
   commentStyle = { italic = true },
   functionStyle = { bold = true },
   keywordStyle = { italic = false, bold = true},
@@ -463,4 +463,4 @@ require("nordic").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme kanagawa")
