@@ -117,7 +117,7 @@ function install_node {
     NODE_VERSION="v22.12.0"
     NODE_TAR_FILE="node-${NODE_VERSION}-linux-x64.tar.xz"
     wget "https://nodejs.org/dist/${NODE_VERSION}/${NODE_TAR_FILE}" -P "${HOME}/.local"
-    mkdir -p "${HOME}/.local/node-test" && tar -xvf "${HOME}/.local/${NODE_TAR_FILE}" -C "${HOME}/.local/node-test" --strip-components=1
+    mkdir -p "${HOME}/.local/node" && tar -xvf "${HOME}/.local/${NODE_TAR_FILE}" -C "${HOME}/.local/node" --strip-components=1
     rm -f "${HOME}/.local/${NODE_TAR_FILE}"
   fi
 }
