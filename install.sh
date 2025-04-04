@@ -58,7 +58,7 @@ function install_nvim {
     sudo apt-get update && sudo apt-get install -y ninja-build gettext cmake unzip curl
     cd ${HOME}/program/neovim
     git fetch --tags
-    LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+    LATEST_TAG=$(git describe --abbrev=0)
     git checkout ${LATEST_TAG}
     make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=${HOME}/.local/nvim install
     cd ${DOTFILES}
