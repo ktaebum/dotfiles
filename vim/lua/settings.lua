@@ -37,4 +37,5 @@ o.splitbelow = true
 o.splitright = true
 o.colorcolumn = "100"
 o.termguicolors = true
+vim.opt.laststatus = 3
 -- o.background = "light"

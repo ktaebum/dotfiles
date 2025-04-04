@@ -205,6 +205,20 @@ return require("packer").startup(function(use)
     }
   })
 
+  -- Avante
+  use("stevearc/dressing.nvim")
+  use("MunifTanjim/nui.nvim")
+  use("MeanderingProgrammer/render-markdown.nvim")
+  use("HakonHarnes/img-clip.nvim")
+  use({
+    "yetone/avante.nvim",
+    branch = "v0.0.23",
+    run = "make",
+    config = function()
+      require("configs.avante").setup()
+    end
+  })
+
   -- Colorscheme
   use("rebelot/kanagawa.nvim")
   use("loctvl842/monokai-pro.nvim")
