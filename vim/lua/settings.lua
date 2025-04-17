@@ -37,5 +37,9 @@ o.splitbelow = true
 o.splitright = true
 o.colorcolumn = "100"
 o.termguicolors = true
-vim.opt.laststatus = 3
+o.laststatus = 3
 -- o.background = "light"
+
+o.wrap = false -- Disable line wrap
+o.autowrite = true -- Enable auto write
+o.smoothscroll = true

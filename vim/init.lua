@@ -463,4 +463,4 @@ require("nordic").setup({
 })
 
 vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme tokyonight")
