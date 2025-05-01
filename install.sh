@@ -64,11 +64,6 @@ function install_nvim {
     cd ${DOTFILES}
   fi
 
-  PACKER_DIR="${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  if [ ! -d ${PACKER_DIR} ] ;
-  then
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim ${PACKER_DIR}
-  fi
   NVIM_CONFIG_PATH="${HOME}/.config/nvim"
   mkdir -p "${HOME}/.config"
 
@@ -82,7 +77,7 @@ function install_nvim {
     rm -r ${NVIM_CONFIG_PATH}
   fi
 
-  ln -s ${DOTFILES}/vim ${NVIM_CONFIG_PATH}
+  ln -s ${DOTFILES}/nvim ${NVIM_CONFIG_PATH}
 }
 
 function install_tmux {
