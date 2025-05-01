@@ -45,5 +45,15 @@ return {
       vim.keymap.set('n', '<leader>fs', builtin.git_status, { desc = 'Telescope git status' })
       vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
     end
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    event = "VeryLazy",
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   }
 }
