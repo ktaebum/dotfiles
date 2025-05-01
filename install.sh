@@ -150,8 +150,8 @@ function install_llvm {
   LLVM_DIR="${HOME}/.local/llvm"
   if [ ! -d ${LLVM_DIR} ] ;
   then
-    UBUNTU_MAJOR_VERSION=$(lsb_release -rs | cut -d. -f1)
-    if [ UBUNTU_MAJOR_VERSION == "24" ]
+    UBUNTU_MAJOR_VERSION="$(lsb_release -rs | cut -d. -f1)"
+    if [ ${UBUNTU_MAJOR_VERSION} = "24" ]
     then
       LLVM_VERSION="20.1.4"
       LLVM_TAR_FILE="LLVM-${LLVM_VERSION}-Linux-X64.tar.xz"
