@@ -150,8 +150,15 @@ function install_llvm {
   LLVM_DIR="${HOME}/.local/llvm"
   if [ ! -d ${LLVM_DIR} ] ;
   then
-    LLVM_VERSION="18.1.8"
-    LLVM_TAR_FILE="clang+llvm-18.1.8-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+    UBUNTU_MAJOR_VERSION=$(lsb_release -rs | cut -d. -f1)
+    if [ UBUNTU_MAJOR_VERSION == "24" ]
+    then
+      LLVM_VERSION="20.1.4"
+      LLVM_TAR_FILE="LLVM-${LLVM_VERSION}-Linux-X64.tar.xz"
+    else
+      LLVM_VERSION="18.1.8"
+      LLVM_TAR_FILE="clang+llvm-${LLVM_VERSION}-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+    fi
     wget "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/${LLVM_TAR_FILE}" -P ${HOME}/.local
     mkdir -p "${HOME}/.local/llvm" && tar -xvf "${HOME}/.local/${LLVM_TAR_FILE}" -C "${HOME}/.local/llvm" --strip-components=1
     rm -f "${HOME}/.local/${LLVM_TAR_FILE}"
