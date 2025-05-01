@@ -42,5 +42,17 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
   }
 }
