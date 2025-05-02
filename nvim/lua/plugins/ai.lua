@@ -13,7 +13,7 @@ return {
           endpoint = "https://api.friendli.ai/serverless/v1",
           api_key_name = "FRIENDLI_API_KEY",
           model = "deepseek-r1",
-          disable_tools = true,
+          disable_tools = false,
           max_tokens = 16384,
           temperature = 0
           -- model = "meta-llama-3.3-70b-instruct"

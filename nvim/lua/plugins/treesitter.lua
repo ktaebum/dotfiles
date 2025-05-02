@@ -45,6 +45,7 @@ return {
         "yaml",
         "regex",
         "json",
+        "proto"
       },
       incremental_selection = {
         enable = true,
