@@ -137,12 +137,11 @@ function install_ctags {
 
 function install_rust {
   echo "Install rust..."
-  if [ -x "$(command -v cargo)" ] ;
+  if [ ! -x "$(command -v cargo)" ] ;
   then
-    cargo install ripgrep fd-find
-  else
     curl https://sh.rustup.rs -sSf | sh -s -- -y
   fi
+  cargo install ripgrep fd-find
 }
 
 function install_llvm {
@@ -165,6 +164,18 @@ function install_llvm {
   fi
 }
 
+function install_fzf {
+  echo "Install fzf..."
+  if [ ! -f "${HOME}/.local/bin/fzf" ];
+  then
+    FZF_VERSION="0.62.0"
+    FZF_TAR_FILE="fzf-${FZF_VERSION}-linux_amd64.tar.gz"
+    wget "https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/${FZF_TAR_FILE}" -P ${HOME}/.local
+    mkdir -p "${HOME}/.local/bin" && tar -zxvf "${HOME}/.local/${FZF_TAR_FILE}" -C "${HOME}/.local/bin"
+    rm -f "${HOME}/.local/${FZF_TAR_FILE}"
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -177,6 +188,7 @@ then
   install_ctags
   install_rust
   install_llvm
+  install_fzf
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -201,6 +213,9 @@ then
 elif [ "${INSTALL_TARGET}" == "conda" ] ;
 then
   install_conda
+elif [ "${INSTALL_TARGET}" == "fzf" ] ;
+then
+  install_fzf
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
