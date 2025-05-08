@@ -102,6 +102,7 @@ return {
         colors = {}, -- Override default colors
         highlights = {
           ["@comment"] = { fg = "$grey" },
+          ["@lsp.type.comment"] = { link = "@comment" }
         }, -- Override highlight groups
 
         -- Plugins Config --
