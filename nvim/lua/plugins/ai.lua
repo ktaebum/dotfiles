@@ -61,5 +61,8 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+  },
+  {
+    "github/copilot.vim"
   }
 }
