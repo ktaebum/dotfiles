@@ -44,6 +44,23 @@ return {
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>fs', builtin.git_status, { desc = 'Telescope git status' })
       vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
+
+      local telescope = require('telescope')
+      telescope.setup({
+        defaults = {
+          layout_config = {
+            vertical = { width = 80 },
+          },
+        },
+        pickers = {
+          find_files = { theme = "dropdown" },
+          live_grep = { theme = "ivy" },
+          buffers = { theme = "ivy" },
+          git_status = { theme = "ivy" },
+          git_commits = { theme = "ivy" },
+          git_files = { theme = "ivy" },
+        },
+      })
     end
   },
   {
