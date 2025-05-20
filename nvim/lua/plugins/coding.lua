@@ -82,7 +82,7 @@ return {
     opts = {
       indent = {
         highlight = { "Whitespace" },
-        char="┊"
+        char = "┊"
       },
       whitespace = {
         highlight = { "Whitespace" },
@@ -129,5 +129,35 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
+  },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        "<leader>fo",
+        function()
+          require("conform").format({ async = true })
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        cpp = { "clang-format" },
+        c = { "clang-format" },
+        cuda = { "clang-format" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
+        ["_"] = { "trim_whitespace" },
+      },
+    },
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   }
 }
