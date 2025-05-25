@@ -55,9 +55,14 @@ return {
       local bufferline = require("bufferline")
       bufferline.setup({
         options = {
-          numbers = "ordinal",
+          numbers = "buffer_id",
           diagnostics = "nvim_lsp",
-          style_preset = bufferline.style_preset.minimal,
+          style_preset = bufferline.style_preset.default,
+          indicator = {
+            style = "underline",
+          },
+          separator_style = "thick",
+          sort_by = "relative_directory",
         }
       })
     end
