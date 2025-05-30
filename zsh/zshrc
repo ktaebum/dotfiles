@@ -126,6 +126,7 @@ export PATH=$HOME/.local/llvm/bin:$PATH
 export PATH=$HOME/.local/gh/bin:$PATH
 export PATH=$HOME/.local/protoc/bin:$PATH
 export PATH=$HOME/.local/valgrind/bin:$PATH
+export PATH=$HOME/.local/cmake/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.local/llvm/lib:$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=$HOME/.local/llvm/include:$C_INCLUDE_PATH

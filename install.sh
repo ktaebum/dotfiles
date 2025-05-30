@@ -176,6 +176,18 @@ function install_fzf {
   fi
 }
 
+function install_cmake {
+  echo "Install cmake..."
+  if [ ! -f "${HOME}/.local/cmake" ];
+  then
+    CMAKE_VERSION="4.0.2"
+    CMAKE_TAR_FILE="cmake-${CMAKE_VERSION}-linux-x86_64.tar.gz"
+    wget "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_TAR_FILE}" -P ${HOME}/.local
+    mkdir -p "${HOME}/.local/cmake" && tar -zxvf "${HOME}/.local/${CMAKE_TAR_FILE}" -C "${HOME}/.local/cmake" --strip-components=1
+    rm -f "${HOME}/.local/${CMAKE_TAR_FILE}"
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -189,6 +201,7 @@ then
   install_rust
   install_llvm
   install_fzf
+  install_cmake
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -216,6 +229,9 @@ then
 elif [ "${INSTALL_TARGET}" == "fzf" ] ;
 then
   install_fzf
+elif [ "${INSTALL_TARGET}" == "cmake" ] ;
+then
+  install_cmake
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
