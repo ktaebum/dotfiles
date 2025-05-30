@@ -180,7 +180,7 @@ function install_cmake {
   echo "Install cmake..."
   if [ ! -f "${HOME}/.local/cmake" ];
   then
-    CMAKE_VERSION="4.0.2"
+    CMAKE_VERSION="3.31.5"
     CMAKE_TAR_FILE="cmake-${CMAKE_VERSION}-linux-x86_64.tar.gz"
     wget "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_TAR_FILE}" -P ${HOME}/.local
     mkdir -p "${HOME}/.local/cmake" && tar -zxvf "${HOME}/.local/${CMAKE_TAR_FILE}" -C "${HOME}/.local/cmake" --strip-components=1
