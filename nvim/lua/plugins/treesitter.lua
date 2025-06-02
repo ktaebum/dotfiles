@@ -15,53 +15,50 @@ return {
       require("lazy.core.loader").add_to_rtp(plugin)
       require("nvim-treesitter.query_predicates")
       require("nvim-treesitter.configs").setup({
-        highlight = { enable = true }
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        opts_extend = { "ensure_installed" },
+        ensure_installed = {
+          "c",
+          "cmake",
+          "cpp",
+          "cuda",
+          "gitcommit",
+          "gitignore",
+          "git_config",
+          "git_rebase",
+          "lua",
+          "python",
+          "vim",
+          "lua",
+          "yaml",
+          "regex",
+          "json",
+          "proto"
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-space>",
+            node_incremental = "<C-space>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
+          },
+        },
+        auto_install = true,
+        sync_install = true,
+        indent = {
+          enable = true,
+          disable = {"python"},
+        }
       })
     end,
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     keys = {
       { "<c-space>", desc = "Increment Selection" },
       { "<bs>", desc = "Decrement Selection", mode = "x" },
-    },
-    opts_extend = { "ensure_installed" },
-    opts = {
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      ensure_installed = {
-        "c",
-        "cmake",
-        "cpp",
-        "cuda",
-        "gitcommit",
-        "gitignore",
-        "git_config",
-        "git_rebase",
-        "lua",
-        "python",
-        "vim",
-        "lua",
-        "yaml",
-        "regex",
-        "json",
-        "proto"
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-      auto_install = true,
-      sync_install = true,
-      indent = {
-        enable = true,
-        disable = {"python"},
-      }
     },
   }
 }
