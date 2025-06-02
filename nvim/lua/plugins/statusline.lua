@@ -55,14 +55,14 @@ return {
       local bufferline = require("bufferline")
       bufferline.setup({
         options = {
-          numbers = "buffer_id",
+          numbers = "both",
           diagnostics = "nvim_lsp",
           style_preset = bufferline.style_preset.default,
           indicator = {
             style = "underline",
           },
           separator_style = "thick",
-          sort_by = "relative_directory",
+          sort_by = "insert_after_current",
         }
       })
     end
