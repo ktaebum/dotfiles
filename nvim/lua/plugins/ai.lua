@@ -6,19 +6,19 @@ return {
     opts = {
       -- add any opts here
       provider = "friendli",
-      auto_suggestions_provider = "friendli",
-      vendors = {
+      providers = {
         friendli = {
           __inherited_from = "openai",
           endpoint = "https://api.friendli.ai/serverless/v1",
           api_key_name = "FRIENDLI_API_KEY",
           model = "deepseek-r1",
           disable_tools = false,
-          max_tokens = 16384,
-          temperature = 0
-          -- model = "meta-llama-3.3-70b-instruct"
+          extra_request_body = {
+            max_tokens = 16384,
+            temperature = 0
+          }
         }
-      }
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
