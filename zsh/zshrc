@@ -157,8 +157,9 @@ export ORCA_HOME=$HOME/workspace/orca
 export HF_HUB_CACHE="/data/huggingface/hub"
 export HF_DATASETS_CACHE="/data/huggingface/datasets"
 
-export OPENAI_API_KEY=$(echo -n $(cat $HOME/.local/openai))
-export FRIENDLI_API_KEY=$(echo -n $(cat $HOME/.local/fai))
+export OPENAI_API_KEY=$(echo -n $(cat $HOME/.local/openai 2>/dev/null))
+export FRIENDLI_API_KEY=$(echo -n $(cat $HOME/.local/fai 2>/dev/null))
+export ANTHROPIC_API_KEY=$(echo -n $(cat $HOME/.local/anthropic 2>/dev/null))
 
 # SPACESHIP PROMPT
 SPACESHIP_PROMPT_ADD_NEWLINE=false
