@@ -58,7 +58,7 @@ return {
           -- telescope = true,
         },
       })
-      vim.cmd([[colorscheme tokyonight]])
+      -- vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
@@ -214,13 +214,25 @@ return {
           -- StatusLine = { fg = "love", bg = "love", blend = 15 },
           -- VertSplit = { fg = "muted", bg = "muted" },
           -- Visual = { fg = "base", bg = "text", inherit = false },
+          -- TelescopeBorder = { fg = "overlay", bg = "overlay" },
+          -- TelescopeNormal = { fg = "subtle", bg = "overlay" },
+          -- TelescopeSelection = { fg = "text", bg = "highlight_med" },
+          -- TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+          -- TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+          --
+          -- TelescopeTitle = { fg = "base", bg = "love" },
+          -- TelescopePromptTitle = { fg = "base", bg = "pine" },
+          -- TelescopePreviewTitle = { fg = "base", bg = "iris" },
+          --
+          -- TelescopePromptNormal = { fg = "text", bg = "surface" },
+          -- TelescopePromptBorder = { fg = "surface", bg = "surface" },
         },
 
         before_highlight = function(group, highlight, palette)
           -- Disable all undercurls
-          -- if highlight.undercurl then
-          --     highlight.undercurl = false
-          -- end
+          if highlight.undercurl then
+              highlight.undercurl = false
+          end
           --
           -- Change palette colour
           -- if highlight.fg == palette.pine then
@@ -228,7 +240,7 @@ return {
           -- end
         end,
       })
-      -- vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme rose-pine")
     end
   },
   {
