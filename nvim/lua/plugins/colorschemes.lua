@@ -58,7 +58,7 @@ return {
           -- telescope = true,
         },
       })
-      -- vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
@@ -240,7 +240,7 @@ return {
           -- end
         end,
       })
-      vim.cmd("colorscheme rose-pine")
+      -- vim.cmd("colorscheme rose-pine")
     end
   },
   {
