@@ -101,6 +101,12 @@ function install_tmux {
     rm ${TMUX_CONF_PATH}
   fi
 
+  CATPPUCCIN_DIR="${HOME}/.config/tmux/plugins/catppuccin"
+  if [ ! -d "${CATPPUCCIN_DIR}/tmux" ] ;
+  then
+    mkdir -p ${CATPPUCCIN_DIR} && git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ${CATPPUCCIN_DIR}/tmux
+  fi
+
   ln -s ${DOTFILES}/tmux/tmux.conf ${TMUX_CONF_PATH}
 }
 
