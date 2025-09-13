@@ -10,7 +10,7 @@ return {
       tokyonight.setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
-        style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
         light_style = "day", -- The theme is used when the background is set to light
         transparent = false, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
@@ -58,6 +58,7 @@ return {
           -- telescope = true,
         },
       })
+      vim.api.nvim_set_option_value("background", "dark", {})
       vim.cmd([[colorscheme tokyonight]])
     end,
   },
@@ -114,15 +115,6 @@ return {
       }
       -- require('bamboo').load()
     end,
-  },
-  {
-    "vague2k/vague.nvim",
-    config = function()
-      -- NOTE: you do not need to call setup if you don't want to.
-      require("vague").setup({
-        -- optional configuration here
-      })
-    end
   },
   {
     'everviolet/nvim',
@@ -249,79 +241,6 @@ return {
       require("kanagawa").setup({
       })
     end
-  },
-  {
-    "thesimonho/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
-    init = function()
-      -- vim.cmd.colorscheme("kanagawa-paper-ink")
-    end,
-    opts = {
-      -- enable undercurls for underlined text
-      undercurl = false,
-      -- transparent background
-      transparent = false,
-      -- highlight background for the left gutter
-      gutter = false,
-      -- background for diagnostic virtual text
-      diag_background = true,
-      -- dim inactive windows. Disabled when transparent
-      dim_inactive = true,
-      -- set colors for terminal buffers
-      terminal_colors = true,
-      -- cache highlights and colors for faster startup.
-      -- see Cache section for more details.
-      cache = false,
-
-      styles = {
-        -- style for comments
-        comment = { italic = true },
-        -- style for functions
-        functions = { italic = false },
-        -- style for keywords
-        keyword = { italic = false, bold = true },
-        -- style for statements
-        statement = { italic = false, bold = false },
-        -- style for types
-        type = { italic = false },
-      },
-      -- override default palette and theme colors
-      colors = {
-        palette = {},
-        theme = {
-          ink = {},
-          canvas = {},
-        },
-      },
-      -- adjust overall color balance for each theme [-1, 1]
-      color_offset = {
-        ink = { brightness = 0, saturation = 0 },
-        canvas = { brightness = 0, saturation = 0 },
-      },
-      -- override highlight groups
-      overrides = function(colors)
-        return {}
-      end,
-
-      -- uses lazy.nvim, if installed, to automatically enable needed plugins
-      auto_plugins = true,
-      -- enable highlights for all plugins (disabled if using lazy.nvim)
-      all_plugins = package.loaded.lazy == nil,
-      -- manually enable/disable individual plugins.
-      -- check the `groups/plugins` directory for the exact names
-      plugins = {
-        -- examples:
-        -- rainbow_delimiters = true
-        -- which_key = false
-      },
-    }
-  },
-  {
-    "wtfox/jellybeans.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {}, -- Optional
   },
   {
     "catppuccin/nvim",
