@@ -9,16 +9,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require('lspconfig')
-
-      lspconfig.lua_ls.setup ({})
-      lspconfig.rust_analyzer.setup({})
-      lspconfig.clangd.setup ({})
-      lspconfig.pyright.setup ({})
-      lspconfig.cmake.setup ({})
-      lspconfig.docker_compose_language_service.setup ({})
-      lspconfig.dockerls.setup ({})
-      lspconfig.markdown_oxide.setup ({})
+      vim.lsp.config("lua_ls", {})
+      vim.lsp.config("rust_analyzer", {})
+      vim.lsp.config("clangd", {})
+      vim.lsp.config("pyright", {})
+      vim.lsp.config("cmake", {})
+      vim.lsp.config("docker_compose_language_service", {})
+      vim.lsp.config("dockerls", {})
+      vim.lsp.config("markdown_oxide", {})
     end
   }
 }
