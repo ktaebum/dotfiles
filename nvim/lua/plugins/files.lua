@@ -19,6 +19,9 @@ return {
         filters = {
           dotfiles = false,
         },
+        git = {
+          ignore = false,
+        },
       }
       vim.keymap.set("n", "<leader>t", "<CMD>NvimTreeToggle<CR>", { silent = true })
       vim.keymap.set("n", "<leader>r", "<CMD>NvimTreeFindFile<CR>", { silent = true })

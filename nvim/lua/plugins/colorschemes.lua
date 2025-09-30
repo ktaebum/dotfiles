@@ -347,5 +347,35 @@ return {
       })
       -- vim.cmd([[colorscheme carbonfox]])
     end,
-  } -- lazy
+  }, -- lazy
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000 ,
+    config = function()
+      require("gruvbox").setup({
+        terminal_colors = true, -- add neovim terminal colors
+        undercurl = false,
+        underline = false,
+        bold = true,
+        italic = {
+          strings = false,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = true,
+        transparent_mode = false,
+      })
+    end,
+  }
 }
