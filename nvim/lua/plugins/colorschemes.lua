@@ -58,7 +58,7 @@ return {
           -- telescope = true,
         },
       })
-      vim.cmd([[colorscheme tokyonight]])
+      -- vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
@@ -345,7 +345,7 @@ return {
         palettes = {},
         groups = {},
       })
-      -- vim.cmd([[colorscheme carbonfox]])
+      vim.cmd([[colorscheme nightfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
