@@ -400,5 +400,80 @@ return {
         transparent_mode = false,
       })
     end,
+  },
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('github-theme').setup({
+        options = {
+          dim_inactive = true,
+        },
+      })
+      -- vim.cmd('colorscheme github_dark')
+    end,
+  },
+  {
+    'marko-cerovac/material.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('material').setup({
+        contrast = {
+          terminal = false, -- Enable contrast for the built-in terminal
+          sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+          floating_windows = false, -- Enable contrast for floating windows
+          cursor_line = false, -- Enable darker background for the cursor line
+          lsp_virtual_text = true, -- Enable contrasted background for lsp virtual text
+          non_current_windows = true, -- Enable contrasted background for non-current windows
+          filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
+        },
+        styles = { -- Give comments style such as bold, italic, underline etc.
+          comments = { italic = true },
+          strings = { bold = true },
+          keywords = { --[[ underline = true ]] },
+          functions = { --[[ bold = true, undercurl = true ]] },
+          variables = {},
+          operators = {},
+          types = {},
+        },
+        plugins = { -- Uncomment the plugins that you use to highlight them
+            -- Available plugins:
+            -- "blink",
+            -- "coc",
+            -- "colorful-winsep",
+            -- "dap",
+            -- "dashboard",
+            -- "eyeliner",
+            -- "fidget",
+            -- "flash",
+            -- "gitsigns",
+            -- "harpoon",
+            -- "hop",
+            -- "illuminate",
+            "indent-blankline",
+            -- "lspsaga",
+            -- "mini",
+            -- "neo-tree",
+            "neogit",
+            -- "neorg",
+            -- "neotest",
+            "noice",
+            "nvim-cmp",
+            "nvim-navic",
+            "nvim-notify",
+            "nvim-tree",
+            "nvim-web-devicons",
+            -- "rainbow-delimiters",
+            -- "sneak",
+            "telescope",
+            "trouble",
+            "which-key",
+          },
+      })
+      -- vim.cmd('colorscheme material-darker')
+    end,
   }
 }
