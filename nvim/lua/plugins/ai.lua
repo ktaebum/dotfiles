@@ -30,9 +30,11 @@ return {
         strategies = {
           chat = {
             adapter = "anthropic",
+            model = "claude-opus-4-5-20251101",
           },
           inline = {
             adapter = "anthropic",
+            model = "claude-opus-4-5-20251101",
           },
         },
       })
