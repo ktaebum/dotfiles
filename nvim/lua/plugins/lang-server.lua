@@ -2,9 +2,9 @@ return {
   {
     "williamboman/mason.nvim",
     lazy = false,
-    config = function ()
-      require("mason").setup {}
-    end
+    config = function()
+      require("mason").setup({})
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -17,6 +17,6 @@ return {
       vim.lsp.enable("docker_compose_language_service", {})
       vim.lsp.enable("dockerls", {})
       vim.lsp.enable("markdown_oxide", {})
-    end
-  }
+    end,
+  },
 }

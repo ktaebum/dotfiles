@@ -45,13 +45,13 @@ return {
       winbar = {},
       inactive_winbar = {},
       extensions = {},
-    }
+    },
   },
   {
     "akinsho/bufferline.nvim",
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = function ()
+    config = function()
       local bufferline = require("bufferline")
       bufferline.setup({
         options = {
@@ -63,8 +63,8 @@ return {
           },
           separator_style = "thick",
           sort_by = "insert_after_current",
-        }
+        },
       })
-    end
-  }
+    end,
+  },
 }

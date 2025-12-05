@@ -3,8 +3,13 @@ return {
     "github/copilot.vim",
     config = function()
       vim.g.copilot_no_tab_map = true
-      vim.keymap.set("i", "<C-j>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
-    end
+      vim.keymap.set(
+        "i",
+        "<C-j>",
+        'copilot#Accept("<CR>")',
+        { expr = true, silent = true, replace_keycodes = false }
+      )
+    end,
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -38,6 +43,15 @@ return {
           },
         },
       })
+    end,
+  },
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup()
     end,
   },
 }

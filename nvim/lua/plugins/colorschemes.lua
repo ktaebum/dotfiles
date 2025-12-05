@@ -62,17 +62,17 @@ return {
     end,
   },
   {
-    'ribru17/bamboo.nvim',
+    "ribru17/bamboo.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require('bamboo').setup {
+      require("bamboo").setup({
         -- optional configuration here
         -- Main options --
         -- NOTE: to use the light theme, set `vim.o.background = 'light'`
-        style = 'vulgaris', -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+        style = "vulgaris", -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
         toggle_style_key = nil, -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
-        toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
+        toggle_style_list = { "vulgaris", "multiplex", "light" }, -- List of styles to toggle between
         transparent = false, -- Show/hide background
         dim_inactive = true, -- Dim inactive windows/buffers
         term_colors = true, -- Change terminal color as per the selected theme style
@@ -102,7 +102,7 @@ return {
         colors = {}, -- Override default colors
         highlights = {
           ["@comment"] = { fg = "$grey" },
-          ["@lsp.type.comment"] = { link = "@comment" }
+          ["@lsp.type.comment"] = { link = "@comment" },
         }, -- Override highlight groups
 
         -- Plugins Config --
@@ -111,31 +111,31 @@ return {
           undercurl = true, -- use undercurl instead of underline for diagnostics
           background = true, -- use background color for virtual text
         },
-      }
+      })
       -- require('bamboo').load()
     end,
   },
   {
-    'everviolet/nvim',
-    name = 'evergarden',
+    "everviolet/nvim",
+    name = "evergarden",
     priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
     opts = {
       theme = {
-        variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
-        accent = 'green',
+        variant = "fall", -- 'winter'|'fall'|'spring'|'summer'
+        accent = "green",
       },
       editor = {
         transparent_background = false,
-        sign = { color = 'none' },
+        sign = { color = "none" },
         float = {
-          color = 'mantle',
+          color = "mantle",
           invert_border = false,
         },
         completion = {
-          color = 'surface0',
+          color = "surface0",
         },
       },
-    }
+    },
   },
   {
     "rose-pine/neovim",
@@ -198,8 +198,8 @@ return {
           -- },
         },
 
-      -- NOTE: Highlight groups are extended (merged) by default. Disable this
-      -- per group via `inherit = false`
+        -- NOTE: Highlight groups are extended (merged) by default. Disable this
+        -- per group via `inherit = false`
         highlight_groups = {
           -- Comment = { fg = "foam" },
           -- StatusLine = { fg = "love", bg = "love", blend = 15 },
@@ -222,7 +222,7 @@ return {
         before_highlight = function(group, highlight, palette)
           -- Disable all undercurls
           if highlight.undercurl then
-              highlight.undercurl = false
+            highlight.undercurl = false
           end
           --
           -- Change palette colour
@@ -232,37 +232,37 @@ return {
         end,
       })
       -- vim.cmd("colorscheme rose-pine")
-    end
+    end,
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
       require("kanagawa").setup({
-        compile = false,             -- enable compiling the colorscheme
-        undercurl = false,            -- enable undercurls
+        compile = false, -- enable compiling the colorscheme
+        undercurl = false, -- enable undercurls
         commentStyle = { italic = true },
         functionStyle = {},
         keywordStyle = { bold = true },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = false,         -- do not set background color
-        dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
-        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-        colors = {                   -- add/modify theme and palette colors
+        transparent = false, -- do not set background color
+        dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        colors = { -- add/modify theme and palette colors
           palette = {},
           theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
         },
         overrides = function(colors) -- add/modify highlights
           return {}
         end,
-        theme = "wave",              -- Load "wave" theme
-        background = {               -- map the value of 'background' option to a theme
-          dark = "wave",           -- try "dragon" !
-          light = "lotus"
+        theme = "wave", -- Load "wave" theme
+        background = { -- map the value of 'background' option to a theme
+          dark = "wave", -- try "dragon" !
+          light = "lotus",
         },
       })
       -- vim.cmd([[colorscheme kanagawa]])
-    end
+    end,
   },
   {
     "catppuccin/nvim",
@@ -311,8 +311,8 @@ return {
           treesitter = true,
           notify = false,
           mini = {
-              enabled = true,
-              indentscope_color = "",
+            enabled = true,
+            indentscope_color = "",
           },
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
@@ -326,26 +326,26 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require('nightfox').setup({
+      require("nightfox").setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
           compile_file_suffix = "_compiled", -- Compiled file suffix
-          transparent = false,     -- Disable setting background
-          terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = true,    -- Non focused panes set to alternative background
-          module_default = true,   -- Default enable value for modules
+          transparent = false, -- Disable setting background
+          terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+          dim_inactive = true, -- Non focused panes set to alternative background
+          module_default = true, -- Default enable value for modules
           colorblind = {
-            enable = false,        -- Enable colorblind support
+            enable = false, -- Enable colorblind support
             simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
             severity = {
-              protan = 0,          -- Severity [0,1] for protan (red)
-              deutan = 0,          -- Severity [0,1] for deutan (green)
-              tritan = 0,          -- Severity [0,1] for tritan (blue)
+              protan = 0, -- Severity [0,1] for protan (red)
+              deutan = 0, -- Severity [0,1] for deutan (green)
+              tritan = 0, -- Severity [0,1] for tritan (blue)
             },
           },
-          styles = {               -- Style to be applied to different syntax groups
-            comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
+          styles = { -- Style to be applied to different syntax groups
+            comments = "italic", -- Value is any valid attr-list value `:help attr-list`
             conditionals = "bold",
             constants = "bold",
             functions = "NONE",
@@ -356,12 +356,12 @@ return {
             types = "NONE",
             variables = "NONE",
           },
-          inverse = {             -- Inverse highlight for different types
+          inverse = { -- Inverse highlight for different types
             match_paren = false,
             visual = false,
             search = false,
           },
-          modules = {             -- List of various plugins and additional options
+          modules = { -- List of various plugins and additional options
             -- ...
           },
         },
@@ -374,7 +374,7 @@ return {
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   {
     "ellisonleao/gruvbox.nvim",
-    priority = 1000 ,
+    priority = 1000,
     config = function()
       require("gruvbox").setup({
         terminal_colors = true, -- add neovim terminal colors
@@ -402,12 +402,12 @@ return {
     end,
   },
   {
-    'projekt0n/github-nvim-theme',
-    name = 'github-theme',
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('github-theme').setup({
+      require("github-theme").setup({
         options = {
           dim_inactive = true,
         },
@@ -416,11 +416,11 @@ return {
     end,
   },
   {
-    'marko-cerovac/material.nvim',
+    "marko-cerovac/material.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('material').setup({
+      require("material").setup({
         contrast = {
           terminal = false, -- Enable contrast for the built-in terminal
           sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
@@ -433,47 +433,49 @@ return {
         styles = { -- Give comments style such as bold, italic, underline etc.
           comments = { italic = true },
           strings = { bold = true },
-          keywords = { --[[ underline = true ]] },
-          functions = { --[[ bold = true, undercurl = true ]] },
+          keywords = { --[[ underline = true ]]
+          },
+          functions = { --[[ bold = true, undercurl = true ]]
+          },
           variables = {},
           operators = {},
           types = {},
         },
         plugins = { -- Uncomment the plugins that you use to highlight them
-            -- Available plugins:
-            -- "blink",
-            -- "coc",
-            -- "colorful-winsep",
-            -- "dap",
-            -- "dashboard",
-            -- "eyeliner",
-            -- "fidget",
-            -- "flash",
-            -- "gitsigns",
-            -- "harpoon",
-            -- "hop",
-            -- "illuminate",
-            "indent-blankline",
-            -- "lspsaga",
-            -- "mini",
-            -- "neo-tree",
-            "neogit",
-            -- "neorg",
-            -- "neotest",
-            "noice",
-            "nvim-cmp",
-            "nvim-navic",
-            "nvim-notify",
-            "nvim-tree",
-            "nvim-web-devicons",
-            -- "rainbow-delimiters",
-            -- "sneak",
-            "telescope",
-            "trouble",
-            "which-key",
-          },
+          -- Available plugins:
+          -- "blink",
+          -- "coc",
+          -- "colorful-winsep",
+          -- "dap",
+          -- "dashboard",
+          -- "eyeliner",
+          -- "fidget",
+          -- "flash",
+          -- "gitsigns",
+          -- "harpoon",
+          -- "hop",
+          -- "illuminate",
+          "indent-blankline",
+          -- "lspsaga",
+          -- "mini",
+          -- "neo-tree",
+          "neogit",
+          -- "neorg",
+          -- "neotest",
+          "noice",
+          "nvim-cmp",
+          "nvim-navic",
+          "nvim-notify",
+          "nvim-tree",
+          "nvim-web-devicons",
+          -- "rainbow-delimiters",
+          -- "sneak",
+          "telescope",
+          "trouble",
+          "which-key",
+        },
       })
       -- vim.cmd('colorscheme material-darker')
     end,
-  }
+  },
 }

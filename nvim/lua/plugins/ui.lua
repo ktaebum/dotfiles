@@ -4,12 +4,12 @@ return {
     event = "VeryLazy",
     config = function()
       local tmux_nav = require("nvim-tmux-navigation")
-      tmux_nav.setup{}
-      vim.keymap.set('n', "<C-h>", tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set('n', "<C-j>", tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set('n', "<C-k>", tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set('n', "<C-l>", tmux_nav.NvimTmuxNavigateRight)
-    end
+      tmux_nav.setup({})
+      vim.keymap.set("n", "<C-h>", tmux_nav.NvimTmuxNavigateLeft)
+      vim.keymap.set("n", "<C-j>", tmux_nav.NvimTmuxNavigateDown)
+      vim.keymap.set("n", "<C-k>", tmux_nav.NvimTmuxNavigateUp)
+      vim.keymap.set("n", "<C-l>", tmux_nav.NvimTmuxNavigateRight)
+    end,
   },
   {
     "akinsho/toggleterm.nvim",
@@ -26,7 +26,7 @@ return {
           background = "Normal",
         },
       },
-    }
+    },
   },
   {
     "folke/noice.nvim",
@@ -41,7 +41,7 @@ return {
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-    }
+    },
   },
   {
     "utilyre/barbecue.nvim",
@@ -54,5 +54,5 @@ return {
     opts = {
       -- configurations go here
     },
-  }
+  },
 }

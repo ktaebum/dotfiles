@@ -11,7 +11,7 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
+    },
   },
   {
     "numToStr/Comment.nvim",
@@ -26,25 +26,25 @@ return {
       ---LHS of toggle mappings in NORMAL mode
       toggler = {
         ---Line-comment toggle keymap
-        line = '<leader>cc',
+        line = "<leader>cc",
         ---Block-comment toggle keymap
-        block = '<leader>bc',
+        block = "<leader>bc",
       },
       ---LHS of operator-pending mappings in NORMAL and VISUAL mode
       opleader = {
         ---Line-comment keymap
-        line = '<leader>c',
+        line = "<leader>c",
         ---Block-comment keymap
-        block = '<leader>b',
+        block = "<leader>b",
       },
       ---LHS of extra mappings
       extra = {
         ---Add comment on the line above
-        above = '<leader>cO',
+        above = "<leader>cO",
         ---Add comment on the line below
-        below = '<leader>co',
+        below = "<leader>co",
         ---Add comment at the end of line
-        eol = '<leader>cA',
+        eol = "<leader>cA",
       },
       ---Enable keybindings
       ---NOTE: If given `false` then the plugin won't create any mappings
@@ -58,12 +58,12 @@ return {
       pre_hook = nil,
       ---Function to call after (un)comment
       post_hook = nil,
-    }
+    },
   },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = true
+    config = true,
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
   },
@@ -72,7 +72,7 @@ return {
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -82,7 +82,7 @@ return {
     opts = {
       indent = {
         highlight = { "Whitespace" },
-        char = "┊"
+        char = "┊",
       },
       whitespace = {
         highlight = { "Whitespace" },
@@ -151,7 +151,7 @@ return {
         c = { "clang-format" },
         cuda = { "clang-format" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        python = { "ruff" },
         ["_"] = { "trim_whitespace" },
       },
     },
@@ -159,5 +159,5 @@ return {
       -- If you want the formatexpr, here is the place to set it
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
-  }
+  },
 }
