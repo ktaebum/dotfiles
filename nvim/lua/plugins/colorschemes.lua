@@ -368,7 +368,8 @@ return {
         palettes = {
           carbonfox = {
             bg0 = "#161613",
-            bg1 = "#1d1e19",
+            bg1 = "#272822",
+            sel0 = "#1d1e19"
           },
         },
         groups = {},
