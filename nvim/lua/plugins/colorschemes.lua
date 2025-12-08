@@ -365,7 +365,12 @@ return {
             -- ...
           },
         },
-        palettes = {},
+        palettes = {
+          carbonfox = {
+            bg0 = "#161613",
+            bg1 = "#1d1e19",
+          },
+        },
         groups = {},
       })
       vim.cmd([[colorscheme carbonfox]])
