@@ -369,7 +369,8 @@ return {
           carbonfox = {
             bg0 = "#161613",
             bg1 = "#272822",
-            sel0 = "#1d1e19"
+            -- sel0 = "#1d1e19"
+            sel0 = "#808080"
           },
         },
         groups = {},
