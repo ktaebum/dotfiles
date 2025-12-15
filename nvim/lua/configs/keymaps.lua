@@ -5,8 +5,8 @@ local function map(mode, lhs, rhs)
 end
 
 map("n", "<TAB>", "<CMD>bn<CR>")
-map("n", "<leader>=", "<CMD>vertical resize +10<CR>")
-map("n", "<leader>9", "<CMD>vertical resize -10<CR>")
+map("n", "<leader>=", "<CMD>vertical resize -10<CR>")
+map("n", "<leader>9", "<CMD>vertical resize +10<CR>")
 map("n", "<leader>-", "<CMD>resize +10<CR>")
 map("n", "<leader>0", "<CMD>resize -10<CR>")
 map("n", "<leader>m", "<C-W><Bar><C-W>_")
