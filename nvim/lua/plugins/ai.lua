@@ -13,6 +13,9 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    -- Pin to v17.33.0 to avoid breaking changes
+    -- See: https://github.com/olimorris/codecompanion.nvim/pull/2439
+    tag = "v17.33.0",
     opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",

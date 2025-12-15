@@ -194,6 +194,18 @@ function install_cmake {
   fi
 }
 
+function install_gh {
+  echo "Install gh..."
+  if [ ! -f "${HOME}/.local/gh/bin/gh" ];
+  then
+    GH_VERSION="2.83.2"
+    GH_TAR_FILE="gh_${GH_VERSION}_linux_amd64.tar.gz"
+    wget "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_TAR_FILE}"
+    mkdir -p "${HOME}/.local/gh" && tar -zxvf "${GH_TAR_FILE}" -C "${HOME}/.local/gh" --strip-components=1
+    rm -f "${GH_TAR_FILE}"
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -238,6 +250,9 @@ then
 elif [ "${INSTALL_TARGET}" == "cmake" ] ;
 then
   install_cmake
+elif [ "${INSTALL_TARGET}" == "gh" ] ;
+then
+  install_gh
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1

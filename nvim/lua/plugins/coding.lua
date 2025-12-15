@@ -152,6 +152,7 @@ return {
         cuda = { "clang-format" },
         lua = { "stylua" },
         python = { "ruff" },
+        md = { "markdown-toc" },
         ["_"] = { "trim_whitespace" },
       },
     },
