@@ -112,7 +112,7 @@ return {
           background = true, -- use background color for virtual text
         },
       })
-      -- require('bamboo').load()
+      require('bamboo').load()
     end,
   },
   {
@@ -375,7 +375,7 @@ return {
         },
         groups = {},
       })
-      vim.cmd([[colorscheme carbonfox]])
+      -- vim.cmd([[colorscheme carbonfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
@@ -483,6 +483,38 @@ return {
         },
       })
       -- vim.cmd('colorscheme material-darker')
+    end,
+  },
+  {
+    "xeind/nightingale.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nightingale").setup({
+        compile = false, -- enable compiling the colorscheme
+        undercurl = false, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = { italic = false },
+        keywordStyle = { italic = false, bold = true },
+        statementStyle = { italic = false },
+        typeStyle = { bold = true},
+        numberStyle = {}, -- disabled by default
+        transparent = false, -- do not set background color
+        dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        theme = "nightingale", -- "nightingale" (dark) or "lightingale" (light)
+        colors = { -- add/modify theme and palette colors
+          palette = {},
+          theme = {
+            nightingale = {}, -- dark theme overrides
+            lightingale = {}, -- light theme overrides
+          },
+        },
+        overrides = function(colors) -- add/modify highlights
+          return {}
+        end,
+      })
+      -- vim.cmd("colorscheme nightingale")
     end,
   },
 }
