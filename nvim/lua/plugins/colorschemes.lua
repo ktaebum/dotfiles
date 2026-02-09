@@ -143,7 +143,7 @@ return {
     config = function()
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
-        dark_variant = "main", -- main, moon, or dawn
+        dark_variant = "moon", -- main, moon, or dawn
         dim_inactive_windows = true,
         extend_background_behind_borders = true,
 
@@ -231,7 +231,7 @@ return {
           -- end
         end,
       })
-      -- vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme rose-pine")
     end,
   },
   {
@@ -375,7 +375,7 @@ return {
         },
         groups = {},
       })
-      vim.cmd([[colorscheme carbonfox]])
+      -- vim.cmd([[colorscheme carbonfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
