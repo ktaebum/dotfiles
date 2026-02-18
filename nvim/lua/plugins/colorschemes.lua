@@ -197,13 +197,20 @@ return {
             surface = "#1e1f1c",
             overlay = "#333232",
             _nc = "#161616",
-          }
+          },
         },
 
         -- NOTE: Highlight groups are extended (merged) by default. Disable this
         -- per group via `inherit = false`
         highlight_groups = {
-          -- Comment = { fg = "foam" },
+          DiagnosticUnderlineError = { underline = true, undercurl = false },
+          DiagnosticUnderlineHint = { underline = true, undercurl = false },
+          DiagnosticUnderlineInfo = { underline = true, undercurl = false },
+          DiagnosticUnderlineWarn = { underline = true, undercurl = false },
+          Type = { fg = "#66a2b4" },
+          ["@type"] = { fg = "#66a2b4" },
+          ["@type.builtin"] = { fg = palette.pine, bold = true },
+          Comment = { italic = true },
           -- StatusLine = { fg = "love", bg = "love", blend = 15 },
           -- VertSplit = { fg = "muted", bg = "muted" },
           -- Visual = { fg = "base", bg = "text", inherit = false },
