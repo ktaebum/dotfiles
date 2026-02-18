@@ -143,7 +143,7 @@ return {
     config = function()
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
-        dark_variant = "main", -- main, moon, or dawn
+        dark_variant = "moon", -- main, moon, or dawn
         dim_inactive_windows = true,
         extend_background_behind_borders = true,
 
@@ -192,10 +192,12 @@ return {
 
         palette = {
           -- Override the builtin palette per variant
-          -- moon = {
-          --     base = '#18191a',
-          --     overlay = '#363738',
-          -- },
+          moon = {
+            base = "#272822",
+            surface = "#1e1f1c",
+            overlay = "#333232",
+            _nc = "#161616",
+          }
         },
 
         -- NOTE: Highlight groups are extended (merged) by default. Disable this
@@ -231,7 +233,7 @@ return {
           -- end
         end,
       })
-      -- vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme rose-pine")
     end,
   },
   {
@@ -375,7 +377,7 @@ return {
         },
         groups = {},
       })
-      vim.cmd([[colorscheme carbonfox]])
+      -- vim.cmd([[colorscheme carbonfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
@@ -497,7 +499,7 @@ return {
         functionStyle = { italic = false },
         keywordStyle = { italic = false, bold = true },
         statementStyle = { italic = false },
-        typeStyle = { bold = true},
+        typeStyle = { bold = true },
         numberStyle = {}, -- disabled by default
         transparent = false, -- do not set background color
         dimInactive = true, -- dim inactive window `:h hl-NormalNC`
