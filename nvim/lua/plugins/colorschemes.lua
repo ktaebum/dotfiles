@@ -141,6 +141,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
+      local palette = require("rose-pine.palette")
       require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
         dark_variant = "moon", -- main, moon, or dawn
