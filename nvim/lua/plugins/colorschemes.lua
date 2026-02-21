@@ -241,7 +241,7 @@ return {
           -- end
         end,
       })
-      vim.cmd("colorscheme rose-pine")
+      -- vim.cmd("colorscheme rose-pine")
     end,
   },
   {
@@ -385,7 +385,7 @@ return {
         },
         groups = {},
       })
-      -- vim.cmd([[colorscheme carbonfox]])
+      vim.cmd([[colorscheme carbonfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
