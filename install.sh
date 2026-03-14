@@ -206,6 +206,22 @@ function install_gh {
   fi
 }
 
+function install_claude {
+  echo "Install claude..."
+  if [ ! -f "${HOME}/.local/bin/claude" ];
+  then
+    curl -fsSL https://claude.ai/install.sh | bash
+  fi
+}
+
+function install_opencode {
+  echo "Install opencode..."
+  if [ ! -f "${HOME}/.opencode/bin/opencode" ];
+  then
+    curl -fsSL https://opencode.ai/install | bash
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -220,6 +236,9 @@ then
   install_llvm
   install_fzf
   install_cmake
+  install_gh
+  install_claude
+  install_opencode
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
