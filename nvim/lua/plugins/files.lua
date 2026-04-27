@@ -61,9 +61,9 @@ return {
           },
         },
         pickers = {
-          find_files = { theme = "dropdown" },
+          find_files = { theme = "ivy" },
           live_grep = { theme = "ivy" },
-          buffers = { theme = "ivy" },
+          buffers = { theme = "dropdown" },
           git_status = { theme = "ivy" },
           git_commits = { theme = "ivy" },
           git_files = { theme = "ivy" },
