@@ -337,8 +337,8 @@ return {
             surface2 = "#bfb695",
             surface1 = "#d1c7a3",
             surface0 = "#e3dec3",
-            base = "#f9f5d7",
-            mantle = "#f0ebce",
+            base = "#f8f4ed",  -- background
+            mantle = "#e6e1da",  -- dim background
             crust = "#e8e3c8",
           },
           macchiato = {
