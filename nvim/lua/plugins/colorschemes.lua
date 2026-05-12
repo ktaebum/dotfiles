@@ -337,7 +337,7 @@ return {
             surface2 = "#bfb695",
             surface1 = "#d1c7a3",
             surface0 = "#e3dec3",
-            base = "#f8f4ed",  -- background
+            base = "#ede9e2",  -- background
             mantle = "#e6e1da",  -- dim background
             crust = "#e8e3c8",
           },
