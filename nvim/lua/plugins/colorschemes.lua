@@ -336,9 +336,9 @@ return {
             overlay0 = "#a69d81",
             surface2 = "#bfb695",
             surface1 = "#d1c7a3",
-            surface0 = "#e3dec3",
-            base = "#ede9e2", -- background
-            mantle = "#e6e1da", -- dim background
+            surface0 = "#cfcac4",  -- vertical split background
+            base = "#e6e1da", -- dim background
+            mantle = "#dfdad4", -- dim background
             crust = "#e8e3c8",
           },
           macchiato = {
