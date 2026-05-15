@@ -336,8 +336,8 @@ return {
             overlay0 = "#a69d81",
             surface2 = "#bfb695",
             surface1 = "#d1c7a3",
-            surface0 = "#e3dec3",
-            base = "#ede9e2", -- background
+            surface0 = "#e0dbbf", -- line separator
+            base = "#e9e4dd", -- background
             mantle = "#e6e1da", -- dim background
             crust = "#e8e3c8",
           },
