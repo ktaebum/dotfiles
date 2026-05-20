@@ -284,7 +284,7 @@ return {
         flavour = "auto", -- latte, frappe, macchiato, mocha
         background = { -- :h background
           light = "latte",
-          dark = "macchiato",
+          dark = "frappe",
         },
         transparent_background = false, -- disables setting the background color.
         show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
@@ -396,6 +396,36 @@ return {
             base = "#1d2021",
             mantle = "#191b1c",
             crust = "#141617",
+          },
+          frappe = {
+            rosewater = "#F92672",
+            flamingo = "#F92672",
+            red = "#F92672",
+            maroon = "#F92672",
+            pink = "#AE81FF",
+            mauve = "#AE81FF",
+            peach = "#FD971F",
+            yellow = "#E6DB74",
+            green = "#A6E22E",
+            teal = "#E6DB74",
+            sky = "#66D9EF",
+            sapphire = "#66D9EF",
+            blue = "#66D9EF",
+            lavender = "#AE81FF",
+            text = "#F8F8F2",
+            subtext1 = "#BCBCBC",
+            subtext0 = "#A0A0A0",
+            overlay2 = "#8F8F8F",
+            overlay1 = "#465457",
+            overlay0 = "#75715E",
+            surface2 = "#49483E",
+            surface1 = "#3E3D32",
+            surface0 = "#3B3A32",
+            base = "#272822",
+            mantle = "#232420",
+            -- base = "#1B1D1E",
+            -- mantle = "#121212",
+            crust = "#1E1F1C",
           },
           integrations = {
             telescope = {
@@ -711,6 +741,31 @@ return {
               ["@lsp.type.variable"] = { link = "TSVariable" },
             }
           end,
+          frappe = function(colors)
+            return {
+              Type = { fg = colors.blue, style = { "bold" } },
+              TSType = { fg = colors.blue, style = { "bold" } },
+              TSTypeBuiltin = { fg = colors.blue, style = { "bold" } },
+              TSTypeDefinition = { fg = colors.blue, style = { "bold" } },
+              TSTypeQualifier = { fg = colors.peach, style = { "bold" } },
+              TSVariable = { fg = colors.text },
+              Typedef = { fg = colors.blue },
+              Structure = { fg = colors.blue },
+              Define = { fg = colors.blue },
+              SpecialChar = { fg = colors.red },
+              PreProc = { fg = colors.green },
+              PreCondit = { fg = colors.green, style = { "bold" } },
+              Macro = { fg = "#C4BE89" },
+              ["@type.builtin"] = { fg = colors.blue, style = { "bold" } },
+              ["@variable"] = { fg = colors.text },
+              ["@variable.declaration"] = { fg = colors.text },
+              ["@lsp.mod.defaultLibrary"] = { fg = colors.blue, style = { "bold" } },
+              ["@lsp.type.variable"] = { fg = colors.text },
+              ["@lsp.type.keyword"] = { fg = colors.red },
+              ["@lsp.type.namespace.cpp"] = { fg = colors.red },
+              ["@lsp.typemod.namespace.globalScope.cpp"] = { fg = colors.red },
+            }
+          end,
           latte = function(colors)
             return {
               IblIndent = { fg = colors.mantle },
@@ -722,7 +777,7 @@ return {
         },
       })
       -- setup must be called before loading
-      -- vim.cmd([[colorscheme catppuccin]])
+      vim.cmd([[colorscheme catppuccin]])
     end,
   },
   {
@@ -779,7 +834,7 @@ return {
         },
         groups = {},
       })
-      vim.cmd([[colorscheme carbonfox]])
+      -- vim.cmd([[colorscheme carbonfox]])
     end,
   }, -- lazy
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
