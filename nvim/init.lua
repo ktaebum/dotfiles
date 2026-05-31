@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "cpp",
     "c",
+    "cmake",
     "cuda",
     "lua",
     "python",
@@ -42,6 +43,9 @@ vim.api.nvim_create_autocmd("FileType", {
     "gitcommit",
     "vim",
     "zsh",
+    "yaml",
+    "json",
+    "markdown",
   },
   callback = function()
     vim.treesitter.start()
