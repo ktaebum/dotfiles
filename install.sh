@@ -147,7 +147,7 @@ function install_rust {
   then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
   fi
-  cargo install ripgrep fd-find
+  cargo install ripgrep fd-find tree-sitter-cli stylua
 }
 
 function install_llvm {

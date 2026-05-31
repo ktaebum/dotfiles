@@ -29,6 +29,27 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.lsp.log.set_level(vim.log.levels.ERROR)
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "cpp",
+    "c",
+    "cuda",
+    "lua",
+    "python",
+    "rust",
+    "go",
+    "gitignore",
+    "gitcommit",
+    "vim",
+    "zsh",
+  },
+  callback = function()
+    vim.treesitter.start()
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
+  end,
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
