@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "yaml",
     "json",
     "markdown",
+    "proto",
   },
   callback = function()
     vim.treesitter.start()
