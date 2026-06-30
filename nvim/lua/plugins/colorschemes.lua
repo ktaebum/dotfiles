@@ -363,7 +363,7 @@ return {
             -- base = "#e4e4e4",  -- background
             base = "#eeeeee", -- background
             -- mantle = "#dcdcdc",  -- dim background
-            mantle = "#e4e4e4", -- dim background
+            mantle = "#eaeaea", -- dim background
             crust = "#d0d0d0",
           },
           macchiato = {
