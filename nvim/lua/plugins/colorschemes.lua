@@ -44,7 +44,26 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         ---@param highlights Highlights
         ---@param colors ColorScheme
-        on_highlights = function(highlights, colors) end,
+        on_highlights = function(hl, c)
+          hl.NvimTreeNormal = { bg = c.bg_dark }
+          hl.NvimTreeNormalNC = { bg = c.bg_dark }
+          hl.NvimTreeEndOfBuffer = { fg = c.bg_dark, bg = c.bg_dark }
+          hl.TelescopeNormal = { bg = c.bg_dark }
+          hl.TelescopeBorder = { fg = c.bg_highlight, bg = c.bg_dark }
+          hl.TelescopePromptNormal = { bg = c.bg_dark }
+          hl.TelescopePromptBorder = { fg = c.bg_highlight, bg = c.bg_dark }
+          hl.TelescopeResultsNormal = { bg = c.bg_dark }
+          hl.TelescopeResultsBorder = { fg = c.bg_highlight, bg = c.bg_dark }
+          hl.TelescopePreviewNormal = { bg = c.bg_dark }
+          hl.TelescopePreviewBorder = { fg = c.bg_highlight, bg = c.bg_dark }
+          hl.TelescopeSelection = { bg = c.bg_highlight }
+          hl.TelescopeSelectionCaret = { fg = c.blue, bg = c.bg_highlight }
+          hl.TelescopeMatching = { fg = c.blue, bold = true }
+          hl.TelescopeTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
+          hl.TelescopePromptTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
+          hl.TelescopeResultsTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
+          hl.TelescopePreviewTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
+        end,
 
         cache = true, -- When set to true, the theme will be cached for better performance
 
@@ -340,11 +359,11 @@ return {
             overlay0 = "#a8a8a8",
             surface2 = "#b2b2b2",
             surface1 = "#bcbcbc",
-            surface0 = "#c6c6c6",  -- line separator
+            surface0 = "#c6c6c6", -- line separator
             -- base = "#e4e4e4",  -- background
-            base = "#eeeeee",  -- background
+            base = "#eeeeee", -- background
             -- mantle = "#dcdcdc",  -- dim background
-            mantle = "#e4e4e4",  -- dim background
+            mantle = "#e4e4e4", -- dim background
             crust = "#d0d0d0",
           },
           macchiato = {
