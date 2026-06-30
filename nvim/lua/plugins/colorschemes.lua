@@ -34,7 +34,11 @@ return {
         --- You can override specific color groups to use other groups or a hex color
         --- function will be called with a ColorScheme table
         ---@param colors ColorScheme
-        on_colors = function(colors) end,
+        on_colors = function(c)
+          local old_bg = c.bg
+          c.bg = "#e6e7ec"
+          c.bg_dark = old_bg
+        end,
 
         --- You can override specific highlights to use other groups or a hex color
         --- function will be called with a Highlights and ColorScheme table
@@ -58,7 +62,7 @@ return {
           -- telescope = true,
         },
       })
-      -- vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
@@ -781,7 +785,7 @@ return {
         },
       })
       -- setup must be called before loading
-      vim.cmd([[colorscheme catppuccin]])
+      -- vim.cmd([[colorscheme catppuccin]])
     end,
   },
   {
