@@ -361,9 +361,9 @@ return {
             surface1 = "#bcbcbc",
             surface0 = "#c6c6c6", -- line separator
             -- base = "#e4e4e4",  -- background
-            base = "#eeeeee", -- background
+            base = "#f1f1f3", -- background
             -- mantle = "#dcdcdc",  -- dim background
-            mantle = "#e8e8e8", -- dim background
+            mantle = "#e9e9eb", -- dim background
             crust = "#d0d0d0",
           },
           macchiato = {
