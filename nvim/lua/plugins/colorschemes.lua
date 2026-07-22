@@ -843,6 +843,8 @@ return {
               TelescopePromptTitle = { fg = colors.blue, bg = colors.base, bold = true },
               TelescopeResultsTitle = { fg = colors.blue, bg = colors.base, bold = true },
               TelescopePreviewTitle = { fg = colors.blue, bg = colors.base, bold = true },
+              TroubleNormal = { bg = colors.base },
+              TroubleNormalNC = { bg = colors.base },
             }
           end,
         },
