@@ -35,9 +35,9 @@ return {
         --- function will be called with a ColorScheme table
         ---@param colors ColorScheme
         on_colors = function(c)
-          local old_bg = c.bg
-          c.bg = "#e6e7ec"
-          c.bg_dark = old_bg
+          -- local old_bg = c.bg
+          -- c.bg = "#e6e7ec"
+          -- c.bg_dark = old_bg
         end,
 
         --- You can override specific highlights to use other groups or a hex color

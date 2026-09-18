@@ -3,10 +3,15 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
   },
+  -- {
+  --   "sindrets/diffview.nvim",
+  --   event = "VeryLazy",
+  -- },
   {
-    "sindrets/diffview.nvim",
-    event = "VeryLazy",
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
   },
+  { "gh-tui-tools/gh-review.nvim" },
   {
     "NeogitOrg/neogit",
     event = "VeryLazy",
