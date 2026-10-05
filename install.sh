@@ -225,8 +225,10 @@ function install_rust {
   echo "Install rust..."
   if [ ! -x "$(command -v cargo)" ] ;
   then
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   fi
+
+  export PATH="${HOME}/.cargo/bin:${PATH}"
   cargo install ripgrep fd-find tree-sitter-cli stylua
 }
 
