@@ -3,7 +3,7 @@
 
 # Use custom format
 format = '''
-$hostname$localip$conda$directory$git_branch$git_commit$git_state$git_metrics$git_status
+$hostname$directory$time$git_branch$git_commit$git_state$git_metrics$git_status$conda$character
 '''
 
 # Inserts a blank line between shell prompts
@@ -14,21 +14,35 @@ ssh_only = true
 format = '[$hostname]($style)'
 style = 'bold green'
 
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+[character]
+format = ' $symbol '
 
 [directory]
 style = "bold cyan"
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[git_branch]
+format = '[\[$symbol$branch\]]($style)'
+
+[git_commit]
+format = '[\[\($hash$tag\)\]]($style)'
+
+[git_metrics]
+format = '[\[+$added\]]($added_style)[\[-$deleted\]]($deleted_style)'
+
+[git_state]
+format = '[\[$state ($progress_current/$progress_total)\]]($style)'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [conda]
-format = '[:$environment]($style) '
+format = '[\[ $environment\]]($style)'
 style = 'bold blue'
 ignore_base = false
+
+[time]
+format = '[\[$time\]]($style)'
+disabled = false
 
 [localip]
 ssh_only = true
