@@ -337,6 +337,29 @@ function install_codex {
   fi
 }
 
+function install_herdr {
+  echo "Install herdr..."
+  if [ ! -x "$(command -v herdr)" ] ;
+  then
+    curl -fsSL https://herdr.dev/install.sh | sh
+  fi
+
+  HERDR_CONFIG_PATH="${HOME}/.config/herdr"
+  mkdir -p "${HOME}/.config"
+
+  if [ -L "${HERDR_CONFIG_PATH}" ] ;
+  then
+    unlink "${HERDR_CONFIG_PATH}"
+  fi
+
+  if [ -e "${HERDR_CONFIG_PATH}" ] ;
+  then
+    rm -r "${HERDR_CONFIG_PATH}"
+  fi
+
+  ln -s "${DOTFILES}/herdr" "${HERDR_CONFIG_PATH}"
+}
+
 function install_uv {
   echo "Install uv..."
   if [ ! -x "$(command -v uv)" ] ;
@@ -363,6 +386,7 @@ then
   install_gh
   install_claude
   install_codex
+  install_herdr
   install_uv
   install_starship
   install_ghostty
@@ -405,6 +429,9 @@ then
 elif [ "${INSTALL_TARGET}" == "codex" ] ;
 then
   install_codex
+elif [ "${INSTALL_TARGET}" == "herdr" ] ;
+then
+  install_herdr
 elif [ "${INSTALL_TARGET}" == "uv" ] ;
 then
   install_uv
