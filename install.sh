@@ -235,7 +235,7 @@ function install_llvm {
   LLVM_DIR="${HOME}/.local/llvm"
   if [ ! -d ${LLVM_DIR} ] ;
   then
-    LLVM_VERSION="22.1.1"
+    LLVM_VERSION="23.1.2"
     case "${PLATFORM_OS}:${PLATFORM_ARCH}" in
       Linux:x86_64) LLVM_PLATFORM="Linux-X64" ;;
       Linux:aarch64|Linux:arm64) LLVM_PLATFORM="Linux-ARM64" ;;
