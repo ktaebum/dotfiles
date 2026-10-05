@@ -1,0 +1,37 @@
+# ─────────────────────────────
+# Font
+# ─────────────────────────────
+font-family = GoogleSansCode Nerd Font Mono
+font-family = D2KodingLigature Nerd Font Mono
+font-size = 16
+
+# ─────────────────────────────
+# Theme
+# ─────────────────────────────
+theme = papercolor-light
+
+# ─────────────────────────────
+# Window
+# ─────────────────────────────
+window-padding-x = 10
+window-padding-y = 10
+
+window-width = 120
+window-height = 35
+
+window-decoration = true
+
+background-opacity = 1.0
+background-blur-radius = 0
+
+unfocused-split-opacity = 0.85
+
+macos-titlebar-style = transparent
+
+maximize = true
+
+# ─────────────────────────────
+# Cursor
+# ─────────────────────────────
+cursor-style = block
+cursor-style-blink = false

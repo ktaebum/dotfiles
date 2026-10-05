@@ -1,0 +1,33 @@
+# ~/.config/ghostty/themes/taebum-light
+
+# ANSI colors
+palette = 0=#444444
+palette = 1=#d70000
+palette = 2=#5f8700
+palette = 3=#af5f00
+palette = 4=#005faf
+palette = 5=#8700af
+palette = 6=#0087af
+palette = 7=#c6c6c6
+
+# Bright ANSI colors
+palette = 8=#6c6c6c
+palette = 9=#af0000
+palette = 10=#00af5f
+palette = 11=#d75f00
+palette = 12=#005f87
+palette = 13=#d70087
+palette = 14=#00af5f
+palette = 15=#eeeeee
+
+# Main colors
+background = #eeeeee
+foreground = #444444
+
+# Cursor
+cursor-color = #005faf
+cursor-text = #eeeeee
+
+# Selection
+selection-background = #bcbcbc
+selection-foreground = #444444

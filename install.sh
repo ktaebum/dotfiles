@@ -72,6 +72,30 @@ function install_starship {
   ln -s "${DOTFILES}/starship/starship.toml" "${STARSHIP_CONFIG_PATH}"
 }
 
+function install_ghostty {
+  if [ "$(uname -s)" != "Darwin" ] ;
+  then
+    echo "Skip ghostty config: macOS only"
+    return
+  fi
+
+  echo "Install ghostty config..."
+  GHOSTTY_CONFIG_PATH="${HOME}/.config/ghostty"
+  mkdir -p "${HOME}/.config"
+
+  if [ -L "${GHOSTTY_CONFIG_PATH}" ] ;
+  then
+    unlink "${GHOSTTY_CONFIG_PATH}"
+  fi
+
+  if [ -e "${GHOSTTY_CONFIG_PATH}" ] ;
+  then
+    rm -r "${GHOSTTY_CONFIG_PATH}"
+  fi
+
+  ln -s "${DOTFILES}/ghostty" "${GHOSTTY_CONFIG_PATH}"
+}
+
 function install_nvim {
   echo "Install nvim..."
 
@@ -264,6 +288,7 @@ then
   install_claude
   install_opencode
   install_starship
+  install_ghostty
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -300,6 +325,9 @@ then
 elif [ "${INSTALL_TARGET}" == "starship" ] ;
 then
   install_starship
+elif [ "${INSTALL_TARGET}" == "ghostty" ] ;
+then
+  install_ghostty
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
