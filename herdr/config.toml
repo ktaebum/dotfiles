@@ -1,0 +1,37 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+auto_switch = true
+light_name = "catppuccin-latte"
+dark_name = "catppuccin"
+
+[theme.custom]
+sidebar_bg = "#e8e8e8"
+active_row_bg = "#d0d0d0"
+accent = "#d70087"
+surface0 = "#c6c6c6"
+surface1 = "#bcbcbc"
+overlay0 = "#a8a8a8"
+overlay1 = "#949494"
+text = "#444444"
+
+[ui]
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+pane_borders = "auto"
+show_agent_labels_on_pane_borders = false
+mouse_capture = true
+prompt_new_tab_name = false
+confirm_close = false
+agent_panel_scope = "current"
+
+[keys]
+prefix = "ctrl+b"
+split_vertical = "prefix+%"
+split_horizontal = "prefix+\""
+detach = "prefix+d"
+navigate_pane_left  = "ctrl+h"
+navigate_pane_down  = "ctrl+j"
+navigate_pane_up    = "ctrl+k"
+navigate_pane_right = "ctrl+l"
