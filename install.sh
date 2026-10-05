@@ -335,6 +335,15 @@ function install_opencode {
   fi
 }
 
+function install_uv {
+  echo "Install uv..."
+  if [ ! -x "$(command -v uv)" ] ;
+  then
+    mkdir -p "${HOME}/.local/bin"
+    curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="${HOME}/.local/bin" UV_NO_MODIFY_PATH=1 sh
+  fi
+}
+
 INSTALL_TARGET=$1
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
@@ -352,6 +361,7 @@ then
   install_gh
   install_claude
   install_opencode
+  install_uv
   install_starship
   install_ghostty
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
@@ -387,6 +397,9 @@ then
 elif [ "${INSTALL_TARGET}" == "gh" ] ;
 then
   install_gh
+elif [ "${INSTALL_TARGET}" == "uv" ] ;
+then
+  install_uv
 elif [ "${INSTALL_TARGET}" == "starship" ] ;
 then
   install_starship
