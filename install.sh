@@ -329,11 +329,11 @@ function install_claude {
   fi
 }
 
-function install_opencode {
-  echo "Install opencode..."
-  if [ ! -f "${HOME}/.opencode/bin/opencode" ];
+function install_codex {
+  echo "Install codex..."
+  if [ ! -x "$(command -v codex)" ] ;
   then
-    curl -fsSL https://opencode.ai/install | bash
+    curl -fsSL https://chatgpt.com/codex/install.sh | sh
   fi
 }
 
@@ -362,7 +362,7 @@ then
   install_cmake
   install_gh
   install_claude
-  install_opencode
+  install_codex
   install_uv
   install_starship
   install_ghostty
@@ -399,6 +399,12 @@ then
 elif [ "${INSTALL_TARGET}" == "gh" ] ;
 then
   install_gh
+elif [ "${INSTALL_TARGET}" == "claude" ] ;
+then
+  install_claude
+elif [ "${INSTALL_TARGET}" == "codex" ] ;
+then
+  install_codex
 elif [ "${INSTALL_TARGET}" == "uv" ] ;
 then
   install_uv
