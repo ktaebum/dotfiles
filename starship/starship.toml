@@ -1,0 +1,31 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Use custom format
+format = '''
+$hostname$localip$directory$conda$git_branch$git_commit$git_state$git_metrics$git_status
+'''
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[directory]
+style = "bold cyan"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[conda]
+format = '[\($environment\)]($style) '
+style = 'bold blue'
+ignore_base = false
+
+[localip]
+ssh_only = true
+disabled = false
+format = '@[$localipv4](bold red) '

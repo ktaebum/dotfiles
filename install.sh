@@ -48,6 +48,30 @@ function install_zsh {
   ln -s ${DOTFILES}/zsh/zshrc ${ZSHRC_PATH}
 }
 
+function install_starship {
+  echo "Install starship..."
+  if [ ! -x "$(command -v starship)" ] ;
+  then
+    mkdir -p "${HOME}/.local/bin"
+    curl -sS https://starship.rs/install.sh | sh -s -- -y -b "${HOME}/.local/bin"
+  fi
+
+  STARSHIP_CONFIG_PATH="${HOME}/.config/starship.toml"
+  mkdir -p "${HOME}/.config"
+
+  if [ -L "${STARSHIP_CONFIG_PATH}" ] ;
+  then
+    unlink "${STARSHIP_CONFIG_PATH}"
+  fi
+
+  if [ -f "${STARSHIP_CONFIG_PATH}" ] ;
+  then
+    rm "${STARSHIP_CONFIG_PATH}"
+  fi
+
+  ln -s "${DOTFILES}/starship/starship.toml" "${STARSHIP_CONFIG_PATH}"
+}
+
 function install_nvim {
   echo "Install nvim..."
 
@@ -239,6 +263,7 @@ then
   install_gh
   install_claude
   install_opencode
+  install_starship
 elif [ "${INSTALL_TARGET}" == "nvim" ] ;
 then
   install_nvim
@@ -272,6 +297,9 @@ then
 elif [ "${INSTALL_TARGET}" == "gh" ] ;
 then
   install_gh
+elif [ "${INSTALL_TARGET}" == "starship" ] ;
+then
+  install_starship
 else
   echo "Not support: ${INSTALL_TARGET}"
   exit 1
