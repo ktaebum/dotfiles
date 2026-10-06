@@ -229,7 +229,7 @@ function install_rust {
   fi
 
   export PATH="${HOME}/.cargo/bin:${PATH}"
-  cargo install ripgrep fd-find tree-sitter-cli stylua
+  cargo install tree-sitter-cli stylua
 }
 
 function install_llvm {

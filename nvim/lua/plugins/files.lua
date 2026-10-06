@@ -35,41 +35,53 @@ return {
     -- dependencies = { "echasnovski/mini.icons" },
     opts = {},
   },
+  -- Package name changed from `fff.nvim` to `fff`. If you installed fff.nvim before, clean with `:Lazy clean`
   {
-    "nvim-telescope/telescope.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    event = "VeryLazy",
-    config = function()
-      local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-      -- vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-      vim.keymap.set("n", "<leader>fs", builtin.git_status, { desc = "Telescope git status" })
-      vim.keymap.set("n", "<leader>fc", builtin.git_commits, { desc = "Telescope git commits" })
-      vim.keymap.set("n", "<leader>ft", builtin.tags, { desc = "Telescope tags" })
-
-      local telescope = require("telescope")
-      telescope.setup({
-        defaults = {
-          layout_config = {
-            vertical = { width = 80 },
-          },
-        },
-        pickers = {
-          find_files = { theme = "ivy" },
-          live_grep = { theme = "ivy" },
-          buffers = { theme = "dropdown" },
-          git_status = { theme = "ivy" },
-          git_commits = { theme = "ivy" },
-          git_files = { theme = "ivy" },
-        },
-      })
+    "dmtrKovalenko/fff",
+    build = function()
+      -- downloads a prebuilt binary or falls back to cargo build
+      require("fff.download").download_or_build_binary()
     end,
+    -- for nixos:
+    -- build = "nix run .#release",
+    opts = {
+      debug = {
+        enabled = true,
+        show_scores = true,
+      },
+    },
+    lazy = false, -- the plugin lazy-initialises itself
+    keys = {
+      {
+        "ff",
+        function()
+          require("fff").find_files()
+        end,
+        desc = "FFFind files",
+      },
+      {
+        "fg",
+        function()
+          require("fff").live_grep()
+        end,
+        desc = "LiFFFe grep",
+      },
+      {
+        "fz",
+        function()
+          require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+        end,
+        desc = "Live fffuzy grep",
+      },
+      {
+        "fw",
+        function()
+          require("fff").live_grep_under_cursor()
+        end,
+        mode = { "n", "x" },
+        desc = "Search current word / selection",
+      },
+    },
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
