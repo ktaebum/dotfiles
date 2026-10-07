@@ -36,6 +36,10 @@ macos-titlebar-style = transparent
 
 maximize = true
 
+working-directory = home
+window-inherit-working-directory = false
+tab-inherit-working-directory = true
+
 # ─────────────────────────────
 # Cursor
 # ─────────────────────────────
