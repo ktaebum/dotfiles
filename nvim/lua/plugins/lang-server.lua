@@ -19,4 +19,19 @@ return {
       vim.lsp.enable("markdown_oxide", {})
     end,
   },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "rust_analyzer",
+        "clangd",
+        "pyright",
+      }
+    },
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
 }
