@@ -1,30 +1,68 @@
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons", -- optional, but recommended
+    },
+    lazy = false, -- neo-tree will lazily load itself
+    keys = {
+      {
+        "<leader>t",
+        "<cmd>Neotree toggle<CR>",
+        desc = "Toggle Neo-tree",
+      },
+      {
+        "<leader>r",
+        "<cmd>Neotree reveal<CR>",
+        desc = "Reveal current file in Neo-tree",
+      },
+    },
+    opts = {
+      window = {
+        mappings = {
+          ["<CR>"] = "open_with_window_picker",
+        },
+      },
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function()
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
+    },
+  },
+  {
+    "Crysthamus/nvim-file-operations",
+    -- branch = "compat" -- if you are on Neovim <= 0.10
+    dependencies = {
+      "nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
     },
     config = function()
-      local nvim_tree = require("nvim-tree")
-      nvim_tree.setup({
-        sort_by = "case_sensitive",
-        view = {
-          width = 50,
-        },
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = false,
-        },
-        git = {
-          ignore = false,
+      require("nvim-file-operations").setup()
+    end,
+  },
+  {
+    "s1n7ax/nvim-window-picker",
+    version = "2.*",
+    config = function()
+      require("window-picker").setup({
+        filter_rules = {
+          include_current_win = false,
+          autoselect_one = true,
+          -- filter using buffer options
+          bo = {
+            -- if the file type is one of following, the window will be ignored
+            filetype = { "neo-tree", "neo-tree-popup", "notify" },
+            -- if the buffer type is one of following, the window will be ignored
+            buftype = { "terminal", "quickfix" },
+          },
         },
       })
-      vim.keymap.set("n", "<leader>t", "<CMD>NvimTreeToggle<CR>", { silent = true })
-      vim.keymap.set("n", "<leader>r", "<CMD>NvimTreeFindFile<CR>", { silent = true })
     end,
   },
   {
