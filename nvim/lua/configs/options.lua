@@ -50,7 +50,9 @@ vim.g.deprecation_warnings = false
 vim.g.trouble_lualine = true
 
 -- clipboard
-vim.g.clipboard = "osc52"
+if vim.env.SSH_TTY then
+  vim.g.clipboard = "osc52"
+end
 vim.opt.clipboard = "unnamedplus"
 
 local opt = vim.opt
