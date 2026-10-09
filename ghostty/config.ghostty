@@ -1,11 +1,11 @@
 # ─────────────────────────────
 # Font
 # ─────────────────────────────
+font-family = GoogleSansCode Nerd Font Mono
 font-family = CodeNewRoman Nerd Font Mono
 font-family = RobotoMono Nerd Font Mono
 font-family = 0xProto Nerd Font Mono
 font-family = Maple Mono NF
-font-family = GoogleSansCode Nerd Font Mono
 font-family = D2KodingLigature Nerd Font Mono
 font-size = 16
 font-thicken = true
