@@ -117,7 +117,7 @@ return {
           -- telescope = true,
         },
       })
-      vim.cmd([[colorscheme tokyonight]])
+      -- vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
@@ -886,7 +886,7 @@ return {
         },
       })
       -- setup must be called before loading
-      -- vim.cmd([[colorscheme catppuccin]])
+      vim.cmd([[colorscheme catppuccin]])
     end,
   },
   {
