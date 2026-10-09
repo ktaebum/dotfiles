@@ -22,13 +22,13 @@ return {
           functions = { bold = true },
           variables = {},
           -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "dark", -- style for sidebars, see below
-          floats = "dark", -- style for floating windows
+          sidebars = "normal", -- style for sidebars, see below
+          floats = "normal", -- style for floating windows
         },
         sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-        day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+        day_brightness = 0.2, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
         hide_inactive_statusline = true, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-        dim_inactive = true, -- dims inactive windows
+        dim_inactive = false, -- dims inactive windows
         lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
 
         --- You can override specific color groups to use other groups or a hex color
@@ -45,24 +45,60 @@ return {
         ---@param highlights Highlights
         ---@param colors ColorScheme
         on_highlights = function(hl, c)
-          hl.NvimTreeNormal = { bg = c.bg_dark }
-          hl.NvimTreeNormalNC = { bg = c.bg_dark }
-          hl.NvimTreeEndOfBuffer = { fg = c.bg_dark, bg = c.bg_dark }
-          hl.TelescopeNormal = { bg = c.bg_dark }
-          hl.TelescopeBorder = { fg = c.bg_highlight, bg = c.bg_dark }
-          hl.TelescopePromptNormal = { bg = c.bg_dark }
-          hl.TelescopePromptBorder = { fg = c.bg_highlight, bg = c.bg_dark }
-          hl.TelescopeResultsNormal = { bg = c.bg_dark }
-          hl.TelescopeResultsBorder = { fg = c.bg_highlight, bg = c.bg_dark }
-          hl.TelescopePreviewNormal = { bg = c.bg_dark }
-          hl.TelescopePreviewBorder = { fg = c.bg_highlight, bg = c.bg_dark }
-          hl.TelescopeSelection = { bg = c.bg_highlight }
-          hl.TelescopeSelectionCaret = { fg = c.blue, bg = c.bg_highlight }
-          hl.TelescopeMatching = { fg = c.blue, bold = true }
-          hl.TelescopeTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
-          hl.TelescopePromptTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
-          hl.TelescopeResultsTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
-          hl.TelescopePreviewTitle = { fg = c.blue, bg = c.bg_dark, bold = true }
+          -- Neo-tree
+          hl.NeoTreeNormal = { bg = c.bg }
+          hl.NeoTreeNormalNC = { bg = c.bg }
+          hl.NeoTreeWinSeparator = {
+            fg = c.border,
+            bg = c.bg,
+          }
+
+          -- Trouble
+          hl.TroubleNormal = { bg = c.bg }
+
+          -- popup menus
+          hl.Pmenu = {
+            bg = c.bg_float,
+          }
+
+          hl.PmenuSel = {
+            bg = c.bg_highlight,
+            bold = true,
+          }
+
+          -- search
+          hl.Search = {
+            bg = c.yellow,
+            fg = c.bg,
+          }
+
+          hl.IncSearch = {
+            bg = c.orange,
+            fg = c.bg,
+          }
+
+          -- diagnostics는 underline 위주로
+          hl.DiagnosticUnderlineError = {
+            undercurl = true,
+            sp = c.error,
+          }
+          hl.DiagnosticUnderlineWarn = {
+            undercurl = true,
+            sp = c.warning,
+          }
+          hl.WinSeparator = {
+            fg = c.blue7,
+          }
+
+          hl.StatusLine = {
+            bg = c.bg_highlight,
+            fg = c.fg,
+          }
+
+          hl.StatusLineNC = {
+            bg = c.bg_dark,
+            fg = c.dark5,
+          }
         end,
 
         cache = true, -- When set to true, the theme will be cached for better performance
