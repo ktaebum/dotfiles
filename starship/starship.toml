@@ -33,6 +33,7 @@ format = '[\[+$added\]]($added_style)[\[-$deleted\]]($deleted_style)'
 format = '[\[$state ($progress_current/$progress_total)\]]($style)'
 
 [git_status]
+use_git_executable = true
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [conda]
