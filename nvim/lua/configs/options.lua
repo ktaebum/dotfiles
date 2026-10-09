@@ -49,6 +49,10 @@ vim.g.deprecation_warnings = false
 -- You can disable this for a buffer by setting `vim.b.trouble_lualine = false`
 vim.g.trouble_lualine = true
 
+-- clipboard
+vim.g.clipboard = "osc52"
+vim.opt.clipboard = "unnamedplus"
+
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
