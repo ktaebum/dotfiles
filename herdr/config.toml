@@ -1,20 +1,20 @@
 onboarding = false
 
 [theme]
-name = "catppuccin"
+name = "tokyo-night"
 auto_switch = true
-light_name = "catppuccin-latte"
-dark_name = "catppuccin"
+# light_name = "catppuccin-latte"
+# dark_name = "catppuccin"
 
-[theme.custom]
-sidebar_bg = "#e8e8e8"
-active_row_bg = "#d0d0d0"
-accent = "#d70087"
-surface0 = "#c6c6c6"
-surface1 = "#bcbcbc"
-overlay0 = "#a8a8a8"
-overlay1 = "#949494"
-text = "#444444"
+# [theme.custom]
+# sidebar_bg = "#e8e8e8"
+# active_row_bg = "#d0d0d0"
+# accent = "#d70087"
+# surface0 = "#c6c6c6"
+# surface1 = "#bcbcbc"
+# overlay0 = "#a8a8a8"
+# overlay1 = "#949494"
+# text = "#444444"
 
 [ui]
 sidebar_start_collapsed = true
