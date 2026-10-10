@@ -50,7 +50,7 @@ vim.g.deprecation_warnings = false
 vim.g.trouble_lualine = true
 
 -- clipboard
-if vim.env.SSH_TTY then
+if vim.uv.os_uname().sysname == "Linux" then
   vim.g.clipboard = "osc52"
 end
 vim.opt.clipboard = "unnamedplus"
