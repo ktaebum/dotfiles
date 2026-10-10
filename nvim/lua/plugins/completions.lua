@@ -112,6 +112,9 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = { preset = "default" },
 
+      -- Keep native command-line completion, including :tjump tag patterns.
+      cmdline = { enabled = false },
+
       -- (Default) Only show the documentation popup when manually triggered
       completion = { documentation = { auto_show = false } },
 
