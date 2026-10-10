@@ -2,13 +2,31 @@ return {
   {
     "alexghergh/nvim-tmux-navigation",
     event = "VeryLazy",
+    cond = function()
+      return vim.env.HERDR_PANE_ID == nil
+    end,
+  },
+  {
+    "bojackduy/nvim-herdr-navigation",
+    submodules = false,
+    cond = function()
+      return vim.env.HERDR_PANE_ID ~= nil
+    end,
+    event = "VeryLazy",
+    init = function(plugin)
+      vim.opt.rtp:prepend(plugin.dir .. "/nvim-herdr-navigation")
+    end,
     config = function()
-      local tmux_nav = require("nvim-tmux-navigation")
-      tmux_nav.setup({})
-      vim.keymap.set("n", "<C-h>", tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set("n", "<C-j>", tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set("n", "<C-k>", tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set("n", "<C-l>", tmux_nav.NvimTmuxNavigateRight)
+      vim.schedule(function()
+        require("herdr-navigation").setup({
+          keybindings = {
+            left = "<C-h>",
+            down = "<C-j>",
+            up = "<C-k>",
+            right = "<C-l>",
+          },
+        })
+      end)
     end,
   },
   {

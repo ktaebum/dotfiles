@@ -358,6 +358,8 @@ function install_herdr {
   fi
 
   ln -s "${DOTFILES}/herdr" "${HERDR_CONFIG_PATH}"
+
+  herdr plugin install bojackduy/nvim-herdr-navigation/herdr-vim-navigator
 }
 
 function install_uv {
