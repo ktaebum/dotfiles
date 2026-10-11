@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
+      "s1n7ax/nvim-window-picker",
     },
     lazy = false, -- neo-tree will lazily load itself
     keys = {
@@ -85,7 +86,6 @@ return {
   -- Package name changed from `fff.nvim` to `fff`. If you installed fff.nvim before, clean with `:Lazy clean`
   {
     "dmtrKovalenko/fff",
-    dependencies = { "s1n7ax/nvim-window-picker" },
     build = function()
       -- downloads a prebuilt binary or falls back to cargo build
       require("fff.download").download_or_build_binary()
@@ -93,11 +93,6 @@ return {
     -- for nixos:
     -- build = "nix run .#release",
     opts = {
-      select = {
-        select_window = function(current_buf, action)
-          return require("configs.fff_picker").select_window(current_buf, action)
-        end,
-      },
       debug = {
         enabled = true,
         show_scores = true,

@@ -1,26 +1,5 @@
 local M = {}
 
-function M.select_window(_, action)
-  if action ~= "edit" then
-    return nil
-  end
-  local windows = vim.tbl_filter(function(win)
-    local buf = vim.api.nvim_win_get_buf(win)
-    return vim.api.nvim_win_get_config(win).relative == ""
-      and vim.bo[buf].buftype == ""
-      and vim.bo[buf].modifiable
-      and not vim.wo[win].winfixbuf
-  end, vim.api.nvim_tabpage_list_wins(0))
-  if #windows <= 1 then
-    return windows[1]
-  end
-  return require("window-picker").pick_window({
-    filter_func = function()
-      return windows
-    end,
-  })
-end
-
 local function is_empty_buffer(buf)
   if not vim.api.nvim_buf_is_valid(buf) or not vim.api.nvim_buf_is_loaded(buf) then
     return false
