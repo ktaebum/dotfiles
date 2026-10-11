@@ -23,7 +23,7 @@ return {
     opts = {
       window = {
         mappings = {
-          ["<CR>"] = "open_with_window_picker",
+          ["<cr>"] = "open_with_window_picker",
         },
       },
       event_handlers = {
@@ -58,9 +58,11 @@ return {
     version = "2.*",
     config = function()
       require("window-picker").setup({
+        -- Floating hints stay visible while lualine refreshes the statusline.
+        hint = "floating-big-letter",
         filter_rules = {
           include_current_win = false,
-          autoselect_one = true,
+          autoselect_one = false,
           -- filter using buffer options
           bo = {
             -- if the file type is one of following, the window will be ignored
