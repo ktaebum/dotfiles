@@ -14,6 +14,7 @@ surface0 = "#c6c6c6"
 surface1 = "#bcbcbc"
 overlay0 = "#a8a8a8"
 overlay1 = "#949494"
+panel_bg = "#e8e8e8"
 text = "#444444"
 
 [ui]
