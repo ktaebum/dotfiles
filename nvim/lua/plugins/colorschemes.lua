@@ -343,7 +343,7 @@ return {
         flavour = "auto", -- latte, frappe, macchiato, mocha
         background = { -- :h background
           light = "latte",
-          dark = "mocha",
+          dark = "frappe",
         },
         transparent_background = false, -- disables setting the background color.
         show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
@@ -828,6 +828,14 @@ return {
               PreProc = { fg = colors.green },
               PreCondit = { fg = colors.green, style = { "bold" } },
               Macro = { fg = "#C4BE89" },
+              NeoTreeNormal = { fg = colors.text, bg = colors.base },
+              NeoTreeNormalNC = { link = "NormalNC" },
+              NeoTreeCursorLine = { bg = colors.surface0 },
+              IblIndent = { fg = colors.mantle },
+              IblScope = { fg = colors.surface1 },
+              LineNr = { fg = colors.surface1 },
+              TroubleNormal = { bg = colors.base },
+              TroubleNormalNC = { bg = colors.base },
               ["@type.builtin"] = { fg = colors.blue, style = { "bold" } },
               ["@variable"] = { fg = colors.text },
               ["@variable.declaration"] = { fg = colors.text },
