@@ -14,7 +14,9 @@ font-thicken-strength = 0
 # ─────────────────────────────
 # Theme
 # ─────────────────────────────
-theme = papercolor-light
+# theme = papercolor-light
+# theme = Monokai Classic
+theme = seoul-dark
 
 # ─────────────────────────────
 # Window

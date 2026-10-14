@@ -1,0 +1,30 @@
+# ~/.config/ghostty/themes/seoul-dark
+
+background = #2E3330
+foreground = #DFE0E0
+
+cursor-color = #A88A8B
+cursor-text = #2E3330
+
+selection-background = #545454
+selection-foreground = #DFE0E0
+
+# Normal ANSI colors
+palette = 0=#272C29
+palette = 1=#A84F4C
+palette = 2=#9BB8B8
+palette = 3=#E5B561
+palette = 4=#688ACB
+palette = 5=#C66D86
+palette = 6=#588383
+palette = 7=#D4D4D4
+
+# Bright ANSI colors
+palette = 8=#545454
+palette = 9=#A07474
+palette = 10=#A8A9A6
+palette = 11=#CE8F6B
+palette = 12=#719DBC
+palette = 13=#A88A8B
+palette = 14=#93B2B2
+palette = 15=#DFE0E0

@@ -6,16 +6,81 @@ auto_switch = true
 light_name = "catppuccin-latte"
 dark_name = "catppuccin"
 
+# monokai
+# [theme.custom]
+# # Backgrounds
+# panel_bg = "#272822"
+# sidebar_bg = "#272822"
+# surface0 = "#272822"
+# surface1 = "#3E3D32"
+# surface_dim = "#1E1F1C"
+# overlay0 = "#49483E"
+# overlay1 = "#75715E"
+#
+# # Sidebar selection
+# active_row_bg = "#3E3D32"
+# selection_bg = "#49483E"
+#
+# # Foreground
+# text = "#F8F8F2"
+# subtext0 = "#A59F85"
+#
+# # Accent
+# accent = "#A6E22E"
+#
+# # Monokai colors
+# red = "#F92672"
+# green = "#A6E22E"
+# yellow = "#E6DB74"
+# blue = "#66D9EF"
+# teal = "#66D9EF"
+# mauve = "#AE81FF"
+# peach = "#FD971F"
+
+# papercolor
+# [theme.custom]
+# sidebar_bg = "#e8e8e8"
+# active_row_bg = "#d0d0d0"
+# accent = "#d70087"
+# surface0 = "#c6c6c6"
+# surface1 = "#bcbcbc"
+# overlay0 = "#a8a8a8"
+# overlay1 = "#949494"
+# panel_bg = "#e8e8e8"
+# text = "#444444"
+
+# seoul dark
 [theme.custom]
-sidebar_bg = "#e8e8e8"
-active_row_bg = "#d0d0d0"
-accent = "#d70087"
-surface0 = "#c6c6c6"
-surface1 = "#bcbcbc"
-overlay0 = "#a8a8a8"
-overlay1 = "#949494"
-panel_bg = "#e8e8e8"
-text = "#444444"
+# Main accent
+accent = "#C66D86"
+
+# Background surfaces
+panel_bg = "#2E3330"
+sidebar_bg = "#272C29"
+
+surface0 = "#4C4C4C"
+surface1 = "#545250"
+surface_dim = "#212522"
+
+overlay0 = "#545250"
+overlay1 = "#555555"
+
+# Focus / selection
+active_row_bg = "#545454"
+selection_bg = "#545250"
+
+# Text
+text = "#DFE0E0"
+subtext0 = "#A8A9A6"
+
+# Semantic colors
+mauve = "#C66D86"
+green = "#9BB8B8"
+yellow = "#E5B561"
+red = "#A84F4C"
+blue = "#688ACB"
+teal = "#588383"
+peach = "#CE8F6B"
 
 [ui]
 sidebar_start_collapsed = true
