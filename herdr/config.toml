@@ -7,47 +7,47 @@ light_name = "catppuccin-latte"
 dark_name = "catppuccin"
 
 # monokai
-[theme.custom]
-# Backgrounds
-panel_bg = "#272822"
-sidebar_bg = "#272822"
-surface0 = "#272822"
-surface1 = "#3E3D32"
-surface_dim = "#1E1F1C"
-overlay0 = "#49483E"
-overlay1 = "#75715E"
-
-# Sidebar selection
-active_row_bg = "#3E3D32"
-selection_bg = "#49483E"
-
-# Foreground
-text = "#F8F8F2"
-subtext0 = "#A59F85"
-
-# Accent
-accent = "#A6E22E"
-
-# Monokai colors
-red = "#F92672"
-green = "#A6E22E"
-yellow = "#E6DB74"
-blue = "#66D9EF"
-teal = "#66D9EF"
-mauve = "#AE81FF"
-peach = "#FD971F"
+# [theme.custom]
+# # Backgrounds
+# panel_bg = "#272822"
+# sidebar_bg = "#272822"
+# surface0 = "#272822"
+# surface1 = "#3E3D32"
+# surface_dim = "#1E1F1C"
+# overlay0 = "#49483E"
+# overlay1 = "#75715E"
+#
+# # Sidebar selection
+# active_row_bg = "#3E3D32"
+# selection_bg = "#49483E"
+#
+# # Foreground
+# text = "#F8F8F2"
+# subtext0 = "#A59F85"
+#
+# # Accent
+# accent = "#A6E22E"
+#
+# # Monokai colors
+# red = "#F92672"
+# green = "#A6E22E"
+# yellow = "#E6DB74"
+# blue = "#66D9EF"
+# teal = "#66D9EF"
+# mauve = "#AE81FF"
+# peach = "#FD971F"
 
 # papercolor
-# [theme.custom]
-# sidebar_bg = "#e8e8e8"
-# active_row_bg = "#d0d0d0"
-# accent = "#d70087"
-# surface0 = "#c6c6c6"
-# surface1 = "#bcbcbc"
-# overlay0 = "#a8a8a8"
-# overlay1 = "#949494"
-# panel_bg = "#e8e8e8"
-# text = "#444444"
+[theme.custom]
+sidebar_bg = "#e8e8e8"
+active_row_bg = "#d0d0d0"
+accent = "#d70087"
+surface0 = "#c6c6c6"
+surface1 = "#bcbcbc"
+overlay0 = "#a8a8a8"
+overlay1 = "#949494"
+panel_bg = "#e8e8e8"
+text = "#444444"
 
 [ui]
 sidebar_start_collapsed = true
