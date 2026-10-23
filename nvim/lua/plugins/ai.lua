@@ -1,7 +1,7 @@
 return {
   {
     "github/copilot.vim",
-    tag = "v1.58.0",
+    tag = "v1.59.0",
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.keymap.set(
