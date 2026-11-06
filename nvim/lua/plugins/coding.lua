@@ -147,6 +147,7 @@ return {
         lua = { "stylua" },
         python = { "ruff" },
         md = { "markdown-toc" },
+        rust = { "rustfmt" },
         ["_"] = { "trim_whitespace" },
       },
     },
