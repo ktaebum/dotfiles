@@ -2,9 +2,52 @@
 
 # Assumption: zsh & oh-my-zsh is installed
 
-DOTFILES="$(pwd)"
+set -eo pipefail
+
+DOTFILES="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 PLATFORM_OS="$(uname -s)"
 PLATFORM_ARCH="$(uname -m)"
+
+# Make newly installed tools available to later installation steps in this shell.
+export PATH="${HOME}/.local/bin:${HOME}/.local/node/bin:${HOME}/.local/cmake/bin:${HOME}/.cargo/bin:${PATH}"
+
+function install_linux_packages {
+  [ "${PLATFORM_OS}" = "Linux" ] || return 0
+  if ! command -v apt-get >/dev/null 2>&1; then
+    echo "Install these build dependencies with your package manager: $*" >&2
+    return 1
+  fi
+
+  local privilege=()
+  if [ "${EUID}" -ne 0 ]; then
+    if ! command -v sudo >/dev/null 2>&1; then
+      echo "Installing Linux dependencies requires root or sudo: $*" >&2
+      return 1
+    fi
+    privilege=(sudo)
+  fi
+  if [ "${APT_UPDATED:-0}" -ne 1 ]; then
+    "${privilege[@]}" apt-get update
+    APT_UPDATED=1
+  fi
+  "${privilege[@]}" apt-get install -y "$@"
+}
+
+# Extract into a temporary directory so failed downloads do not look installed.
+function install_archive {
+  local url="$1" destination="$2" staging
+  mkdir -p "${HOME}/.local"
+  staging="$(mktemp -d "${HOME}/.local/dotfiles-install.XXXXXX")"
+  if ! curl -fL "$url" -o "${staging}/archive" ||
+     ! mkdir "${staging}/unpacked" ||
+     ! tar -xf "${staging}/archive" -C "${staging}/unpacked" --strip-components=1; then
+    rm -r -- "${staging}"
+    return 1
+  fi
+  mkdir -p "$destination"
+  cp -R "${staging}/unpacked/." "$destination/"
+  rm -r -- "${staging}"
+}
 
 function unsupported_platform {
   echo "Unsupported platform: ${PLATFORM_OS} ${PLATFORM_ARCH}"
@@ -13,7 +56,7 @@ function unsupported_platform {
 
 function install_conda {
   echo "Install conda..."
-  if [ ! -x "$(command -v conda)" ] ;
+  if ! command -v conda >/dev/null 2>&1 && [ ! -x "${HOME}/program/miniconda3/bin/conda" ];
   then
     case "${PLATFORM_OS}:${PLATFORM_ARCH}" in
       Linux:x86_64) CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh" ;;
@@ -26,7 +69,7 @@ function install_conda {
     CONDA_INSTALLER_PATH="${HOME}/.local/${CONDA_INSTALLER}"
     mkdir -p "${HOME}/.local" "${HOME}/program"
     curl -fL "https://repo.anaconda.com/miniconda/${CONDA_INSTALLER}" -o "${CONDA_INSTALLER_PATH}"
-    sh "${CONDA_INSTALLER_PATH}" -b -p "${HOME}/program/miniconda3"
+    bash "${CONDA_INSTALLER_PATH}" -b -p "${HOME}/program/miniconda3"
     rm "${CONDA_INSTALLER_PATH}"
   fi
 }
@@ -122,17 +165,20 @@ function install_nvim {
 
   echo "Install nvim..."
 
-  if [ ! -d "${HOME}/.local/nvim" ] ;
+  if [ ! -x "${HOME}/.local/nvim/bin/nvim" ] ;
   then
     # install neovim
-    git clone https://github.com/neovim/neovim.git ${HOME}/program/neovim
-    sudo apt-get update && sudo apt-get install -y ninja-build gettext cmake unzip curl
-    cd ${HOME}/program/neovim
+    install_linux_packages build-essential ninja-build gettext cmake unzip curl ca-certificates git
+    mkdir -p "${HOME}/program"
+    if [ ! -d "${HOME}/program/neovim/.git" ]; then
+      git clone https://github.com/neovim/neovim.git "${HOME}/program/neovim"
+    fi
+    cd "${HOME}/program/neovim"
     git fetch --tags
-    LATEST_TAG=$(git tag --sort=-v:refname | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/ { print; exit }')
+    LATEST_TAG=$(git tag --sort=-v:refname | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/ && !found { print; found=1 }')
     git checkout "${LATEST_TAG}"
-    make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=${HOME}/.local/nvim install
-    cd ${DOTFILES}
+    make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX="${HOME}/.local/nvim" install
+    cd "${DOTFILES}"
   fi
 
   NVIM_CONFIG_PATH="${HOME}/.config/nvim"
@@ -151,40 +197,10 @@ function install_nvim {
   ln -s ${DOTFILES}/nvim ${NVIM_CONFIG_PATH}
 }
 
-function install_tmux {
-  echo "Install tmux..."
-  TPM_DIR="${HOME}/.tmux/plugins/tpm"
-
-  if [ ! -d ${TPM_DIR} ] ;
-  then
-    git clone https://github.com/tmux-plugins/tpm ${TPM_DIR}
-  fi
-
-  TMUX_CONF_PATH="${HOME}/.tmux.conf"
-
-  if [ -L ${TMUX_CONF_PATH} ] ;
-  then
-    unlink ${TMUX_CONF_PATH}
-  fi
-
-  if [ -f ${TMUX_CONF_PATH} ] ;
-  then
-    rm ${TMUX_CONF_PATH}
-  fi
-
-  CATPPUCCIN_DIR="${HOME}/.config/tmux/plugins/catppuccin"
-  if [ ! -d "${CATPPUCCIN_DIR}/tmux" ] ;
-  then
-    mkdir -p ${CATPPUCCIN_DIR} && git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ${CATPPUCCIN_DIR}/tmux
-  fi
-
-  ln -s ${DOTFILES}/tmux/tmux.conf ${TMUX_CONF_PATH}
-}
-
 function install_node {
   echo "Install node..."
   NODE_DIR="${HOME}/.local/node"
-  if [ ! -d ${NODE_DIR} ] ;
+  if [ ! -x "${NODE_DIR}/bin/node" ] ;
   then
     NODE_VERSION="v24.14.0"
     case "${PLATFORM_OS}:${PLATFORM_ARCH}" in
@@ -196,33 +212,36 @@ function install_node {
     esac
 
     NODE_TAR_FILE="node-${NODE_VERSION}-${NODE_PLATFORM}.${NODE_EXTENSION}"
-    mkdir -p "${HOME}/.local/node"
-    curl -fL "https://nodejs.org/dist/${NODE_VERSION}/${NODE_TAR_FILE}" -o "${HOME}/.local/${NODE_TAR_FILE}"
-    tar -xf "${HOME}/.local/${NODE_TAR_FILE}" -C "${HOME}/.local/node" --strip-components=1
-    rm -f "${HOME}/.local/${NODE_TAR_FILE}"
+    install_archive "https://nodejs.org/dist/${NODE_VERSION}/${NODE_TAR_FILE}" "${NODE_DIR}"
   fi
 }
 
 function install_ctags {
   echo "Install ctags..."
 
-  if [ ! -d "${HOME}/.local/ctags" ] ;
+  if [ ! -x "${HOME}/.local/ctags/bin/ctags" ] ;
   then
     # install ctags
-    git clone https://github.com/universal-ctags/ctags.git ${HOME}/program/ctags
-    cd ${HOME}/program/ctags
+    install_linux_packages build-essential autoconf automake pkg-config libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
+    mkdir -p "${HOME}/program"
+    if [ ! -d "${HOME}/program/ctags/.git" ]; then
+      git clone https://github.com/universal-ctags/ctags.git "${HOME}/program/ctags"
+    fi
+    cd "${HOME}/program/ctags"
     git fetch --tags
-    LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-    git checkout ${LATEST_TAG}
+    LATEST_TAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
+    git checkout "${LATEST_TAG}"
     ./autogen.sh
-    ./configure --prefix=${HOME}/.local/ctags
-    make && make install
-    cd ${DOTFILES}
+    ./configure --prefix="${HOME}/.local/ctags"
+    make
+    make install
+    cd "${DOTFILES}"
   fi
 }
 
 function install_rust {
   echo "Install rust..."
+  install_linux_packages build-essential pkg-config
   if [ ! -x "$(command -v cargo)" ] ;
   then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -235,7 +254,7 @@ function install_rust {
 function install_llvm {
   echo "Install llvm..."
   LLVM_DIR="${HOME}/.local/llvm"
-  if [ ! -d ${LLVM_DIR} ] ;
+  if [ ! -x "${LLVM_DIR}/bin/clang" ] ;
   then
     LLVM_VERSION="23.1.2"
     case "${PLATFORM_OS}:${PLATFORM_ARCH}" in
@@ -246,10 +265,7 @@ function install_llvm {
     esac
 
     LLVM_TAR_FILE="LLVM-${LLVM_VERSION}-${LLVM_PLATFORM}.tar.xz"
-    mkdir -p "${HOME}/.local/llvm"
-    curl -fL "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/${LLVM_TAR_FILE}" -o "${HOME}/.local/${LLVM_TAR_FILE}"
-    tar -xf "${HOME}/.local/${LLVM_TAR_FILE}" -C "${HOME}/.local/llvm" --strip-components=1
-    rm -f "${HOME}/.local/${LLVM_TAR_FILE}"
+    install_archive "https://github.com/llvm/llvm-project/releases/download/llvmorg-${LLVM_VERSION}/${LLVM_TAR_FILE}" "${LLVM_DIR}"
   fi
 }
 
@@ -277,7 +293,7 @@ function install_fzf {
 function install_cmake {
   echo "Install cmake..."
   CMAKE_DIR="${HOME}/.local/cmake"
-  if [ ! -d "${CMAKE_DIR}" ];
+  if [ ! -x "${CMAKE_DIR}/bin/cmake" ];
   then
     CMAKE_VERSION="3.31.11"
     case "${PLATFORM_OS}:${PLATFORM_ARCH}" in
@@ -288,10 +304,7 @@ function install_cmake {
     esac
 
     CMAKE_TAR_FILE="cmake-${CMAKE_VERSION}-${CMAKE_PLATFORM}.tar.gz"
-    mkdir -p "${CMAKE_DIR}"
-    curl -fL "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_TAR_FILE}" -o "${HOME}/.local/${CMAKE_TAR_FILE}"
-    tar -xf "${HOME}/.local/${CMAKE_TAR_FILE}" -C "${CMAKE_DIR}" --strip-components=1
-    rm -f "${HOME}/.local/${CMAKE_TAR_FILE}"
+    install_archive "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_TAR_FILE}" "${CMAKE_DIR}"
 
     if [ "${PLATFORM_OS}" = "Darwin" ] ;
     then
@@ -314,10 +327,7 @@ function install_gh {
     esac
 
     GH_ARCHIVE="gh_${GH_VERSION}_${GH_PLATFORM}.${GH_EXTENSION}"
-    mkdir -p "${HOME}/.local/gh"
-    curl -fL "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_ARCHIVE}" -o "${HOME}/.local/${GH_ARCHIVE}"
-    tar -xf "${HOME}/.local/${GH_ARCHIVE}" -C "${HOME}/.local/gh" --strip-components=1
-    rm -f "${HOME}/.local/${GH_ARCHIVE}"
+    install_archive "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_ARCHIVE}" "${HOME}/.local/gh"
   fi
 }
 
@@ -371,14 +381,14 @@ function install_uv {
   fi
 }
 
-INSTALL_TARGET=$1
+INSTALL_TARGET=${1:-}
 
 if [ "${INSTALL_TARGET}" == "all" ] ;
 then
+  install_linux_packages ca-certificates curl git tar xz-utils unzip zsh ripgrep
   install_conda
   install_zsh
   install_nvim
-  install_tmux
   install_node
   install_ctags
   install_rust
@@ -398,9 +408,6 @@ then
 elif [ "${INSTALL_TARGET}" == "zsh" ] ;
 then
   install_zsh
-elif [ "${INSTALL_TARGET}" == "tmux" ] ;
-then
-  install_tmux
 elif [ "${INSTALL_TARGET}" == "node" ] ;
 then
   install_node
